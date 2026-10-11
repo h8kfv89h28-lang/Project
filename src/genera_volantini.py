@@ -1,16 +1,16 @@
 """Generatore volantini Horeca METRO Mercato Online.
 
 Da data/prodotti.json + config.json produce, per ogni categoria (max 6 referenze):
-  - output/pdf/Volantino_METRO_<Categoria>.pdf          A4, link cliccabili e QR code
-  - output/whatsapp/<Categoria>/00_copertina.jpg        1080x1920 (9:16, anche per lo Stato)
-  - output/whatsapp/<Categoria>/01..06_<prodotto>.jpg   1080x1350 (4:5), una scheda per prodotto
-  - output/whatsapp/<Categoria>/messaggio.txt           testo da incollare, con i link
-  - output/whatsapp/WhatsApp_<Categoria>.zip            tutto il kit WhatsApp della categoria
+  - output/PDF_A4/Volantino_METRO_<Categoria>_A4.pdf              A4, pulsanti cliccabili e QR code
+  - output/PDF_WhatsApp/Volantino_METRO_<Categoria>_WhatsApp.pdf  smartphone 9:16: indice + 1 pagina per
+                                                                   prodotto con pulsante "Acquista online"
+  - output/Testi_WhatsApp/Messaggio_<Categoria>.txt               testo facoltativo con i link
+e il pacchetto unico output/Volantini_METRO_Horeca.zip.
 
 Grafica in HTML/CSS (font Lato e colori del sito metro.it) convertita con Chromium (Playwright).
 
 Uso:
-    python src/genera_volantini.py [--prodotti data/prodotti.json] [--out output] [--solo-pdf]
+    python src/genera_volantini.py [--prodotti data/prodotti.json] [--out output]
 """
 
 import argparse
@@ -283,108 +283,133 @@ h1 {{ font-size: 34px; font-weight: 900; line-height: 1.1; margin-top: 2px; }}
 </body></html>"""
 
 
-# ---------------------------------------------------------------- WhatsApp
-def html_wa_scheda(cat, cfg, p, n, tot):
-    """Scheda prodotto 1080 x 1350 (4:5)."""
-    url = con_utm(p["url"], cfg, cat["titolo"], "whatsapp-immagine")
-    return f"""<!doctype html><html><head><meta charset="utf-8"><style>{css_base()}
-body {{ width: 1080px; height: 1350px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }}
-.top {{ background: {NAVY}; height: 108px; padding: 0 50px; display: flex; align-items: center; justify-content: space-between; flex: none; }}
-.top .mo {{ color: #fff; font-weight: 700; font-size: 30px; border-left: 2px solid rgba(255,255,255,.35); padding-left: 22px; margin-left: 22px; }}
-.top .cat {{ color: {NAVY}; background: #fff; border-radius: 40px; padding: 10px 26px; font-size: 26px; font-weight: 700; }}
-.foto {{ position: relative; height: 470px; margin: 26px 50px 0; flex: none; display: flex; align-items: center; justify-content: center; }}
-.foto img {{ max-height: 460px; max-width: 100%; object-fit: contain; }}
-.corpo {{ flex: 1; padding: 16px 60px 0; display: flex; flex-direction: column; min-height: 0; }}
-.brand {{ font-size: 24px; letter-spacing: 1px; color: {GREY}; text-transform: uppercase; }}
-.nome {{ font-size: 44px; font-weight: 900; line-height: 1.15; margin-top: 4px; display: -webkit-box; -webkit-line-clamp: 2;
-         -webkit-box-orient: vertical; overflow: hidden; }}
-.info {{ background: {BG}; border-radius: 14px; padding: 14px 22px; margin: 16px 0 24px; }}
-.bar {{ background: {BLUE}; color: #fff; height: 128px; padding: 0 50px; display: flex; align-items: center; justify-content: space-between; flex: none; }}
-.bar .t1 {{ font-size: 40px; font-weight: 900; }} .bar .t2 {{ font-size: 25px; opacity: .95; margin-top: 2px; }}
-.bar img {{ width: 104px; height: 104px; background: #fff; padding: 6px; border-radius: 10px; }}
-</style></head><body>
-<div class="top"><div style="display:flex;align-items:center">{logo_svg(42)}<span class="mo">Mercato Online</span></div>
-  <span class="cat">{esc(cat["titolo"])} · {n}/{tot}</span></div>
-<div class="foto"><img src="{foto(p)}">{badge_foto(p, 34)}</div>
+# ---------------------------------------------------------------- WhatsApp (PDF verticale 9:16, 1080 x 1920 px per pagina)
+def html_wa_pdf(cat, cfg, data):
+    """PDF da smartphone: pagina 1 = indice dei 6 prodotti, pagine 2-7 = una scheda per prodotto.
+    Ogni scheda ha il pulsante "Acquista online" verso il sito; l'indice rimanda alle schede (link interni)."""
+    prodotti = cat["prodotti"][:MAX_REFERENZE]
+    tot = len(prodotti)
+    url_cat = con_utm(cat.get("url_categoria", "https://www.metro.it/marketplace"), cfg, cat["titolo"], "whatsapp-pdf")
+    nota = esc(cfg["note_legali"].format(data=data))
+
+    tiles = ""
+    for i, p in enumerate(prodotti, 1):
+        url = con_utm(p["url"], cfg, cat["titolo"], "whatsapp-pdf")
+        promo = p.get("prezzo_rif") is not None
+        disc = (f'<div class="disc" style="position:absolute;top:0;left:0;font-size:28px;padding:3px 12px">'
+                f'{esc(p["sconto_sito"])}</div>') if promo else ""
+        tiles += f"""<div class="t"><a href="#p{i}" class="f"><img src="{foto(p)}">{disc}</a>
+  <a href="#p{i}" class="n">{esc(p["nome"])}</a>
+  <div class="pr {'promo' if promo else 'pieno'}">{euro(p["prezzo"])}<span class="grey"> + IVA</span></div>
+  <div class="tb"><a href="#p{i}" class="sec">Dettagli</a><a href="{esc(url)}" class="btn">Acquista ›</a></div></div>"""
+
+    indice = f"""<section class="pag" id="indice">
+<div class="head"><div class="riga">{logo_svg(50)}<span class="mo">Mercato Online</span></div>
+  <h1>{esc(cat["titolo"])}</h1><div class="chip">★ I preferiti dai nostri clienti</div>
+  <div class="sub">{esc(cat.get("sottotitolo", ""))}</div></div>
+<div class="grid">{tiles}</div>
+<div class="foot"><div class="t1">Tocca un prodotto per i dettagli, oppure "Acquista" per andare al sito.</div>
+  <div class="t2">Prezzi IVA esclusa verificati su metro.it il {esc(data)}.</div>
+  <a class="out" href="{esc(url_cat)}">Vedi tutta la categoria su metro.it ›</a></div>
+</section>"""
+
+    schede = ""
+    for i, p in enumerate(prodotti, 1):
+        url = con_utm(p["url"], cfg, cat["titolo"], "whatsapp-pdf")
+        schede += f"""<section class="pag" id="p{i}">
+<div class="top"><div class="riga">{logo_svg(42)}<span class="mo">Mercato Online</span></div>
+  <a class="cat" href="#indice">‹ {esc(cat["titolo"])} · {i}/{tot}</a></div>
+<a href="{esc(url)}" class="foto"><img src="{foto(p)}">{badge_foto(p, 36)}</a>
 <div class="corpo">
   <div class="brand">{esc(p.get("marca", ""))}</div>
-  <div class="nome">{esc(p["nome"])}</div>
-  {blocco_valutazione(p, 28)}
-  <div style="margin-top:16px">{lista_punti(p, 31)}</div>
+  <a href="{esc(url)}" class="nome">{esc(p["nome"])}</a>
+  {blocco_valutazione(p, 32)}
+  <div style="margin-top:22px">{lista_punti(p, 36)}</div>
   <div style="flex:1"></div>
-  <div>{blocco_prezzo(p, 84)}</div>
-  <div class="info">{righe_info(p, 27)}</div>
+  <div>{blocco_prezzo(p, 104)}</div>
+  <div class="info">{righe_info(p, 31)}</div>
+  <a class="btn big" href="{esc(url)}">Acquista online su metro.it ›</a>
+  <div class="nav"><a href="#indice">‹ Tutti i prodotti</a>{f'<a href="#p{i+1}">Prodotto successivo ›</a>' if i < tot else '<a href="#indice">Torna all’indice ›</a>'}</div>
 </div>
-<div class="bar"><div><div class="t1">Acquista online su metro.it</div>
-  <div class="t2">Il link diretto è nel messaggio · oppure inquadra il QR</div></div>
-  <img src="{qr_uri(url)}"></div>
-</body></html>"""
+<div class="fondo"><div class="t1">{esc(cfg["footer_titolo"])}</div><div class="t2">{esc(cfg["footer_testo"])}</div>
+  <div class="legal">{nota}</div></div>
+</section>"""
 
-
-def html_wa_copertina(cat, cfg, data):
-    """Copertina 1080 x 1920 (9:16): panoramica dei 6 prodotti, adatta anche allo Stato WhatsApp."""
-    tiles = ""
-    for p in cat["prodotti"][:MAX_REFERENZE]:
-        promo = p.get("prezzo_rif") is not None
-        disc = (f'<div class="disc" style="position:absolute;top:0;left:0;font-size:30px;padding:4px 14px">'
-                f'{esc(p["sconto_sito"])}</div>') if promo else ""
-        tiles += f"""<div class="t"><div class="f"><img src="{foto(p)}">{disc}</div>
-  <div class="n">{esc(p["nome"])}</div>
-  <div class="p {'promo' if promo else 'pieno'}">{euro(p["prezzo"])}<span class="grey"> + IVA</span></div></div>"""
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>{css_base()}
-body {{ width: 1080px; height: 1920px; overflow: hidden; background: {BG}; display: flex; flex-direction: column; }}
-.head {{ background: {NAVY}; color: #fff; padding: 120px 60px 40px; flex: none; }}
-.head .mo {{ font-weight: 700; font-size: 34px; border-left: 2px solid rgba(255,255,255,.35); padding-left: 24px; margin-left: 24px; }}
-h1 {{ font-size: 108px; font-weight: 900; line-height: 1; margin-top: 36px; }}
-.chip {{ display: inline-block; margin-top: 24px; background: {YELLOW}; color: {NAVY}; border-radius: 50px; padding: 12px 30px;
-         font-size: 32px; font-weight: 900; }}
-.grid {{ flex: 1; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 1fr); gap: 24px; padding: 30px 40px; min-height: 0; }}
-.t {{ background: #fff; border-radius: 24px; padding: 18px 22px 20px; display: flex; flex-direction: column; min-height: 0; border: 2px solid #DCE3EC; }}
+@page {{ size: 1080px 1920px; margin: 0; }}
+body {{ width: 1080px; }}
+.pag {{ width: 1080px; height: 1920px; overflow: hidden; display: flex; flex-direction: column; break-after: page; background: {BG}; }}
+.pag:last-child {{ break-after: auto; }}
+.riga {{ display: flex; align-items: center; }}
+.mo {{ color: #fff; font-weight: 700; font-size: 32px; border-left: 2px solid rgba(255,255,255,.35); padding-left: 22px; margin-left: 22px; }}
+/* indice */
+.head {{ background: {NAVY}; color: #fff; padding: 60px 56px 36px; flex: none; }}
+h1 {{ font-size: 100px; font-weight: 900; line-height: 1; margin-top: 34px; }}
+.chip {{ display: inline-block; margin-top: 22px; background: {YELLOW}; color: {NAVY}; border-radius: 50px; padding: 10px 28px; font-size: 30px; font-weight: 900; }}
+.sub {{ font-size: 28px; margin-top: 18px; opacity: .92; line-height: 1.3; }}
+.grid {{ flex: 1; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 1fr); gap: 22px; padding: 26px 36px; min-height: 0; }}
+.t {{ background: #fff; border-radius: 22px; padding: 16px 20px 18px; display: flex; flex-direction: column; min-height: 0; border: 2px solid #DCE3EC; }}
 .f {{ position: relative; flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; }}
 .f img {{ max-height: 100%; max-width: 100%; object-fit: contain; }}
-.n {{ font-size: 28px; font-weight: 700; line-height: 1.2; margin-top: 10px; display: -webkit-box; -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical; overflow: hidden; min-height: 67px; }}
-.p {{ font-size: 50px; font-weight: 900; margin-top: 6px; }} .p span {{ font-size: 24px; font-weight: 400; }}
-.foot {{ background: {NAVY}; color: #fff; padding: 32px 60px 140px; flex: none; }}
-.foot .t1 {{ font-size: 36px; font-weight: 900; color: {YELLOW}; }}
-.foot .t2 {{ font-size: 27px; margin-top: 10px; line-height: 1.35; }}
-</style></head><body>
-<div class="head"><div style="display:flex;align-items:center">{logo_svg(56)}<span class="mo">Mercato Online</span></div>
-  <h1>{esc(cat["titolo"])}</h1><div class="chip">★ I preferiti dai nostri clienti</div></div>
-<div class="grid">{tiles}</div>
-<div class="foot"><div class="t1">Dettagli e link per acquistare nei messaggi seguenti</div>
-  <div class="t2">Prezzi IVA esclusa verificati su metro.it il {esc(data)}.<br>{esc(cfg["footer_testo"])}</div></div>
-</body></html>"""
+.n {{ font-size: 26px; font-weight: 700; line-height: 1.2; margin-top: 8px; display: -webkit-box; -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical; overflow: hidden; min-height: 62px; }}
+.pr {{ font-size: 46px; font-weight: 900; margin-top: 4px; }} .pr span {{ font-size: 22px; font-weight: 400; }}
+.tb {{ display: flex; gap: 12px; margin-top: 10px; }}
+.tb a {{ flex: 1; font-size: 26px; padding: 12px 0; border-radius: 10px; text-align: center; font-weight: 700; }}
+.sec {{ border: 2px solid {BLUE}; color: {BLUE}; }}
+.foot {{ background: {NAVY}; color: #fff; padding: 30px 56px 40px; flex: none; }}
+.foot .t1 {{ font-size: 30px; font-weight: 900; color: {YELLOW}; }}
+.foot .t2 {{ font-size: 24px; margin-top: 8px; opacity: .9; }}
+.out {{ display: block; margin-top: 22px; border: 2px solid #fff; border-radius: 12px; padding: 18px; text-align: center; font-size: 30px; font-weight: 700; }}
+/* scheda prodotto */
+.top {{ background: {NAVY}; height: 120px; padding: 0 50px; display: flex; align-items: center; justify-content: space-between; flex: none; }}
+.top .cat {{ color: {NAVY}; background: #fff; border-radius: 40px; padding: 10px 26px; font-size: 27px; font-weight: 700; }}
+.foto {{ position: relative; height: 580px; margin: 28px 50px 0; flex: none; display: flex; align-items: center; justify-content: center;
+         background: #fff; border-radius: 22px; padding: 24px; }}
+.foto img {{ max-height: 530px; max-width: 100%; object-fit: contain; }}
+.corpo {{ flex: 1; padding: 24px 56px 0; display: flex; flex-direction: column; min-height: 0; }}
+.brand {{ font-size: 26px; letter-spacing: 1px; color: {GREY}; text-transform: uppercase; }}
+.nome {{ font-size: 50px; font-weight: 900; line-height: 1.15; margin-top: 4px; display: -webkit-box; -webkit-line-clamp: 2;
+         -webkit-box-orient: vertical; overflow: hidden; }}
+.info {{ background: #fff; border-radius: 16px; padding: 16px 24px; margin: 18px 0 22px; border: 2px solid #DCE3EC; }}
+.big {{ display: block; font-size: 46px; padding: 30px 0; border-radius: 16px; }}
+.nav {{ display: flex; justify-content: space-between; font-size: 28px; color: {BLUE}; font-weight: 700; padding: 22px 6px 22px; }}
+.fondo {{ background: {NAVY}; color: #fff; padding: 24px 56px 26px; flex: none; }}
+.fondo .t1 {{ font-size: 24px; font-weight: 700; color: {YELLOW}; }}
+.fondo .t2 {{ font-size: 30px; font-weight: 700; margin-top: 4px; }}
+.fondo .legal {{ font-size: 17px; opacity: .75; margin-top: 12px; line-height: 1.35; }}
+</style></head><body>{indice}{schede}</body></html>"""
 
 
 def messaggio(cat, cfg, data):
-    """Testo WhatsApp (formattazione *grassetto* e ~barrato~) con i link cliccabili."""
+    """Testo d'accompagnamento facoltativo (formattazione WhatsApp), con i link cliccabili."""
     num = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣"]
     righe = [f"*METRO Mercato Online · {cat['titolo']}*",
-             f"I preferiti dai nostri clienti, prezzi IVA esclusa verificati su metro.it il {data}.", ""]
+             f"Ti invio la selezione dei prodotti più scelti dai clienti (prezzi IVA esclusa verificati su metro.it il {data}).",
+             "Nel PDF tocca *Acquista online* per andare direttamente al prodotto.", ""]
     for i, p in enumerate(cat["prodotti"][:MAX_REFERENZE]):
         prezzo = f"*{euro(p['prezzo'])}* + IVA"
         if p.get("prezzo_rif") is not None:
-            rif = euro(p["prezzo_rif"])
-            if p["etichetta_rif"].startswith("Prezzo più basso"):
-                rif = f"~{rif}~"
-            prezzo += f" ({p['etichetta_rif'].lower()}: {rif} {p['sconto_sito']})"
-        righe += [f"{num[i]} *{p['nome']}*", f"{prezzo} · venduto da {p.get('venditore') or '—'}",
+            prezzo += f" ({p['sconto_sito']})"
+        righe += [f"{num[i]} {p['nome']} · {prezzo}",
                   f"👉 {con_utm(p['url'], cfg, cat['titolo'], 'whatsapp-messaggio')}", ""]
     righe.append(f"Per informazioni o un preventivo {cfg['footer_testo'][0].lower() + cfg['footer_testo'][1:]}")
     return "\n".join(righe) + "\n"
 
 
-ISTRUZIONI = """COME INVIARE IL VOLANTINO SU WHATSAPP
+LEGGIMI = """VOLANTINI METRO MERCATO ONLINE - HORECA (prezzi verificati il {data})
 
-1. Apri la chat del cliente, tocca + (o la graffetta) > Foto e video.
-2. Seleziona nell'ordine 00_copertina e le 6 schede prodotto: WhatsApp le invia come un unico album.
-3. Prima di inviare tocca "HD" in alto: WhatsApp comprime meno le immagini e i prezzi restano nitidi.
-4. Subito dopo incolla il testo di messaggio.txt: contiene i link diretti a ogni prodotto
-   (nelle immagini i link non sono cliccabili, nel testo sì).
-5. Facoltativo: pubblica 00_copertina come Stato (formato 9:16).
-6. Il PDF A4 resta disponibile per chi preferisce stamparlo o riceverlo via e-mail
-   (su WhatsApp il PDF va aperto e scaricato prima di essere visto).
+PDF_A4/        5 volantini A4 (uno per categoria): pulsanti cliccabili e QR code.
+               Per e-mail, stampa o per chi legge da computer.
+PDF_WhatsApp/  5 volantini in formato smartphone (verticale 9:16), uno per categoria:
+               - pagina 1: i 6 prodotti (tocca "Dettagli" o "Acquista")
+               - pagine 2-7: una scheda per prodotto con il pulsante "Acquista online su metro.it"
+Testi_WhatsApp/ testo facoltativo da incollare insieme al PDF (con i link diretti ai prodotti).
+
+COME INVIARE SU WHATSAPP
+1. Apri la chat del cliente, tocca + (o la graffetta) > Documento e scegli il PDF della categoria.
+2. Aggiungi una riga di presentazione (o incolla il testo della cartella Testi_WhatsApp).
+3. Il cliente apre il PDF sul telefono e tocca i pulsanti per acquistare online.
 """
 
 
@@ -394,24 +419,23 @@ def main():
     ap.add_argument("--config", default=os.path.join(ROOT, "config.json"))
     ap.add_argument("--prodotti", default=os.path.join(ROOT, "data", "prodotti.json"))
     ap.add_argument("--out", default=os.path.join(ROOT, "output"))
-    ap.add_argument("--solo-pdf", action="store_true")
     args = ap.parse_args()
 
     cfg = json.load(open(args.config, encoding="utf-8"))
     dati = json.load(open(args.prodotti, encoding="utf-8"))
     data = dati.get("data_verifica", "")
-    out_pdf = os.path.join(args.out, "pdf")
-    out_wa = os.path.join(args.out, "whatsapp")
-    tmp = os.path.join(args.out, ".html")
-    for d in (out_pdf, out_wa, tmp):
-        os.makedirs(d, exist_ok=True)
+    cartelle = {k: os.path.join(args.out, v) for k, v in
+                (("a4", "PDF_A4"), ("wa", "PDF_WhatsApp"), ("txt", "Testi_WhatsApp"), ("tmp", ".html"))}
+    for d in cartelle.values():
+        shutil.rmtree(d, ignore_errors=True)
+        os.makedirs(d)
 
     with sync_playwright() as pw:
         browser = pw.chromium.launch(executable_path=CHROMIUM)
         page = browser.new_page()
 
         def carica(nome, contenuto, w, h):
-            f = os.path.join(tmp, nome)
+            f = os.path.join(cartelle["tmp"], nome)
             with open(f, "w", encoding="utf-8") as fh:
                 fh.write(contenuto)
             page.set_viewport_size({"width": w, "height": h})
@@ -421,33 +445,28 @@ def main():
         for cat in dati["categorie"]:
             nome = slug(cat["titolo"])
             carica(f"{nome}_a4.html", html_a4(cat, cfg, data), 794, 1123)
-            pdf = os.path.join(out_pdf, f"Volantino_METRO_{nome}.pdf")
+            pdf = os.path.join(cartelle["a4"], f"Volantino_METRO_{nome}_A4.pdf")
             page.pdf(path=pdf, width="210mm", height="297mm", print_background=True, page_ranges="1")
             print("Creato", os.path.relpath(pdf, ROOT))
-            if args.solo_pdf:
-                continue
 
-            cartella = os.path.join(out_wa, nome)
-            shutil.rmtree(cartella, ignore_errors=True)
-            os.makedirs(cartella)
-            carica(f"{nome}_cop.html", html_wa_copertina(cat, cfg, data), 1080, 1920)
-            page.screenshot(path=os.path.join(cartella, "00_copertina.jpg"), type="jpeg", quality=90)
-            prodotti = cat["prodotti"][:MAX_REFERENZE]
-            for i, p in enumerate(prodotti, 1):
-                carica(f"{nome}_{i}.html", html_wa_scheda(cat, cfg, p, i, len(prodotti)), 1080, 1350)
-                page.screenshot(path=os.path.join(cartella, f"{i:02d}_{slug(p['nome'])[:40].rstrip('_')}.jpg"),
-                                type="jpeg", quality=90)
-            with open(os.path.join(cartella, "messaggio.txt"), "w", encoding="utf-8") as fh:
+            carica(f"{nome}_wa.html", html_wa_pdf(cat, cfg, data), 1080, 1920)
+            pdf = os.path.join(cartelle["wa"], f"Volantino_METRO_{nome}_WhatsApp.pdf")
+            page.pdf(path=pdf, width="1080px", height="1920px", print_background=True)
+            print("Creato", os.path.relpath(pdf, ROOT))
+
+            with open(os.path.join(cartelle["txt"], f"Messaggio_{nome}.txt"), "w", encoding="utf-8") as fh:
                 fh.write(messaggio(cat, cfg, data))
-            with open(os.path.join(cartella, "COME_INVIARE.txt"), "w", encoding="utf-8") as fh:
-                fh.write(ISTRUZIONI)
-            z = os.path.join(out_wa, f"WhatsApp_{nome}.zip")
-            with zipfile.ZipFile(z, "w", zipfile.ZIP_DEFLATED) as zf:
-                for f in sorted(os.listdir(cartella)):
-                    zf.write(os.path.join(cartella, f), os.path.join(nome, f))
-            print("Creato", os.path.relpath(z, ROOT))
         browser.close()
-    shutil.rmtree(tmp, ignore_errors=True)
+    shutil.rmtree(cartelle["tmp"], ignore_errors=True)
+
+    # pacchetto unico da scaricare
+    z = os.path.join(args.out, "Volantini_METRO_Horeca.zip")
+    with zipfile.ZipFile(z, "w", zipfile.ZIP_DEFLATED) as zf:
+        zf.writestr("LEGGIMI.txt", LEGGIMI.format(data=data))
+        for k in ("a4", "wa", "txt"):
+            for f in sorted(os.listdir(cartelle[k])):
+                zf.write(os.path.join(cartelle[k], f), os.path.join(os.path.basename(cartelle[k]), f))
+    print("Creato", os.path.relpath(z, ROOT))
 
 
 if __name__ == "__main__":

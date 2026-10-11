@@ -40,6 +40,6 @@ Controllare visivamente che la foto corrisponda al prodotto.
 ```bash
 python src/genera_volantini.py
 ```
-Aggiornare `data_verifica` alla data odierna, controllare l'anteprima di PDF e immagini, fare commit e push
-sul branch, inviare i 5 PDF e i 5 zip WhatsApp con un riepilogo delle modifiche (prezzi cambiati,
+Aggiornare `data_verifica` alla data odierna, controllare l'anteprima dei PDF, fare commit e push
+sul branch, inviare il pacchetto `output/Volantini_METRO_Horeca.zip` (5 PDF A4 + 5 PDF WhatsApp + testi) con un riepilogo delle modifiche (prezzi cambiati,
 promo nuove/terminate, venditori cambiati, referenze sostituite e motivo).

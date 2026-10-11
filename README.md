@@ -4,13 +4,13 @@ Volantini delle attrezzature professionali più scelte sul Mercato Online METRO,
 da inviare ai clienti dal team commerciale.
 
 ## Cosa viene generato (`output/`)
-- `pdf/Volantino_METRO_<Categoria>.pdf` – A4 in stile metro.it (logo ufficiale, font Lato, colori del sito),
-  pulsante "Acquista online" cliccabile e QR code per ogni prodotto. Per e-mail, stampa o invio come documento.
-- `whatsapp/WhatsApp_<Categoria>.zip` – kit per WhatsApp:
-  - `00_copertina.jpg` 1080×1920 (9:16): panoramica dei 6 prodotti, usabile anche come Stato;
-  - `01…06_<prodotto>.jpg` 1080×1350 (4:5): una scheda per prodotto, da inviare come album in HD;
-  - `messaggio.txt`: testo da incollare con i link diretti (nelle immagini i link non sono cliccabili);
-  - `COME_INVIARE.txt`: istruzioni per il team.
+- `PDF_A4/Volantino_METRO_<Categoria>_A4.pdf` – A4 in stile metro.it (logo ufficiale, font Lato, colori del sito),
+  pulsante "Acquista online" cliccabile e QR code per ogni prodotto. Per e-mail, stampa o computer.
+- `PDF_WhatsApp/Volantino_METRO_<Categoria>_WhatsApp.pdf` – formato smartphone verticale (9:16), da inviare come
+  documento su WhatsApp: pagina 1 con i 6 prodotti (pulsanti "Dettagli" e "Acquista"), poi una pagina per prodotto
+  con il pulsante "Acquista online su metro.it" e la navigazione tra le pagine.
+- `Testi_WhatsApp/Messaggio_<Categoria>.txt` – testo facoltativo da incollare insieme al PDF, con i link.
+- `Volantini_METRO_Horeca.zip` – pacchetto unico con tutto quanto sopra e il file LEGGIMI.
 
 ## Contenuto delle schede prodotto
 Foto ufficiale, marca, nome, valutazione (solo se ≥ 4 su almeno 3 recensioni), 3 punti chiave,
@@ -22,8 +22,7 @@ al proprio referente commerciale METRO.
 ## Uso
 ```bash
 pip install -r requirements.txt
-python src/genera_volantini.py            # PDF + kit WhatsApp
-python src/genera_volantini.py --solo-pdf # solo PDF
+python src/genera_volantini.py            # PDF A4 + PDF WhatsApp + testi + zip
 python src/estrai_pagina.py pagina.html   # dati di una pagina prodotto (vedi PROCEDURA_SETTIMANALE.md)
 ```
 Chromium: `/opt/pw-browsers/chromium-1194/chrome-linux/chrome` (modificabile con `CHROMIUM_PATH`).
