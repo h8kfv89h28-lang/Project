@@ -16,7 +16,9 @@ python src/genera_volantini.py --prodotti data/prodotti.esempio.json --out outpu
 ```
 
 - `config.json`: referente, testi stagionali, note legali, parametri UTM.
-- `data/prodotti.json`: categorie e referenze (`marca`, `nome`, `punti`, `prezzo`, `prezzo_promo` opzionale,
-  `badge` opzionale, `url`, `immagine` URL o percorso locale) + `data_verifica`.
+- `data/prodotti.json`: categorie e referenze (`marca`, `nome`, `punti`, `prezzo` attuale, `prezzo_rif` +
+  `etichetta_rif` se il sito mostra un prezzo barrato, `badge` opzionale, `url`, `immagine`) + `data_verifica`.
+  Le referenze provengono dalle sezioni "I preferiti dai nostri clienti" delle categorie del Mercato Online.
+- `PROCEDURA_SETTIMANALE.md`: aggiornamento automatico del lunedì (prezzi, disponibilità, sostituzioni).
 
 `data/prodotti.esempio.json` contiene **solo dati fittizi** per validare il layout.

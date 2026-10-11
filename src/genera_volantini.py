@@ -113,9 +113,18 @@ def carica_immagine(src):
         return None
     try:
         if re.match(r"https?://", src):
-            req = urllib.request.Request(src, headers={"User-Agent": "Mozilla/5.0"})
-            dati = urllib.request.urlopen(req, timeout=20).read()
-            img = Image.open(io.BytesIO(dati))
+            m = re.search(r"item_image/([0-9a-f-]{36})", src)
+            cache = os.path.join(ROOT, "assets", "img", f"{m.group(1)}.jpg") if m else None
+            if cache and os.path.exists(cache):
+                img = Image.open(cache)
+            else:
+                req = urllib.request.Request(src, headers={"User-Agent": "Mozilla/5.0"})
+                dati = urllib.request.urlopen(req, timeout=20).read()
+                if cache:
+                    os.makedirs(os.path.dirname(cache), exist_ok=True)
+                    with open(cache, "wb") as f:
+                        f.write(dati)
+                img = Image.open(io.BytesIO(dati))
         else:
             img = Image.open(os.path.join(ROOT, src))
         img = ImageOps.exif_transpose(img)
@@ -194,7 +203,8 @@ def disegna_header(c, cat, cfg):
 
 def disegna_card(c, x, y, w, h, prod, cfg, cat_titolo):
     url = con_utm(prod["url"], cfg, cat_titolo)
-    promo = prod.get("prezzo_promo") is not None and prod["prezzo_promo"] < prod["prezzo"]
+    rif = prod.get("prezzo_rif")
+    promo = rif is not None and rif > prod["prezzo"]
 
     c.setFillColor(white)
     c.setStrokeColor(BORDO)
@@ -224,17 +234,19 @@ def disegna_card(c, x, y, w, h, prod, cfg, cat_titolo):
     c.linkURL(url, (ix, iy, ix + img_s, iy + img_s), relative=0)
 
     # badge
-    badge = prod.get("badge")
+    badges = []
     if promo:
-        sconto = round((1 - prod["prezzo_promo"] / prod["prezzo"]) * 100)
-        badge = f"-{sconto}%"
-    if badge:
+        badges.append((f"-{int((1 - prod['prezzo'] / rif) * 100)}%", ROSSO, white))
+    if prod.get("badge"):
+        badges.append((prod["badge"], GIALLO, BLU))
+    for k, (testo, fondo, colore) in enumerate(badges):
         c.setFont(FONT_B, 8.5)
-        bw = pdfmetrics.stringWidth(badge, FONT_B, 8.5) + 12
-        c.setFillColor(ROSSO if promo else GIALLO)
-        c.roundRect(ix - 3, iy + img_s - 15, bw, 17, 4, stroke=0, fill=1)
-        c.setFillColor(white if promo else BLU)
-        c.drawString(ix + 3, iy + img_s - 10, badge)
+        bw = pdfmetrics.stringWidth(testo, FONT_B, 8.5) + 12
+        by_ = iy + img_s - 15 if k == 0 else iy + 2
+        c.setFillColor(fondo)
+        c.roundRect(ix - 3, by_, bw, 17, 4, stroke=0, fill=1)
+        c.setFillColor(colore)
+        c.drawString(ix + 3, by_ + 5, testo)
 
     # testo a destra della foto
     tx = ix + img_s + 10
@@ -274,26 +286,35 @@ def disegna_card(c, x, y, w, h, prod, cfg, cat_titolo):
 
     px = x + pad + 2
     prezzo_y = y + pad + 40
-    prezzo = prod["prezzo_promo"] if promo else prod["prezzo"]
-    extra = pdfmetrics.stringWidth(euro(prod["prezzo"]) if promo else "+ IVA", FONT, 8.5) + 5
+    prezzo = prod["prezzo"]
+    nota_iva = cfg.get("nota_iva", "IVA escl.")
+    if promo:
+        vecchio = euro(rif)
+        etichetta = prod.get("etichetta_rif", "")
+        extra = max(pdfmetrics.stringWidth(vecchio, FONT, 8.5), pdfmetrics.stringWidth(etichetta, FONT, 5.8)) + 5
+    else:
+        extra = pdfmetrics.stringWidth(nota_iva, FONT, 7) + 5
     size = 21
-    while size > 14 and px + pdfmetrics.stringWidth(euro(prezzo), FONT_B, size) + extra > qx - 4:
+    while size > 13 and px + pdfmetrics.stringWidth(euro(prezzo), FONT_B, size) + extra > qx - 4:
         size -= 1
     c.setFillColor(ROSSO if promo else BLU_PREZZO)
     c.setFont(FONT_B, size)
     c.drawString(px, prezzo_y, euro(prezzo))
     nx = px + pdfmetrics.stringWidth(euro(prezzo), FONT_B, size) + 5
+    c.setFillColor(GRIGIO)
     if promo:
-        vecchio = euro(prod["prezzo"])
         c.setFont(FONT, 8.5)
-        c.setFillColor(GRIGIO)
-        c.drawString(nx, prezzo_y + 8, vecchio)
+        c.drawString(nx, prezzo_y + 11, vecchio)
         c.setStrokeColor(ROSSO)
         c.setLineWidth(0.9)
-        c.line(nx - 1, prezzo_y + 11, nx + pdfmetrics.stringWidth(vecchio, FONT, 8.5) + 1, prezzo_y + 11)
-    c.setFont(FONT, 7)
-    c.setFillColor(GRIGIO)
-    c.drawString(nx, prezzo_y - 1, cfg.get("nota_iva", "IVA escl."))
+        c.line(nx - 1, prezzo_y + 14, nx + pdfmetrics.stringWidth(vecchio, FONT, 8.5) + 1, prezzo_y + 14)
+        c.setFont(FONT, 5.8)
+        c.drawString(nx, prezzo_y + 3.5, etichetta)
+        c.setFont(FONT, 6.5)
+        c.drawString(nx, prezzo_y - 4, nota_iva)
+    else:
+        c.setFont(FONT, 7)
+        c.drawString(nx, prezzo_y - 1, nota_iva)
 
     bx, by, bw, bh = px, y + pad + 6, qx - px - 10, 24
     c.setFillColor(GIALLO)
