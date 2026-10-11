@@ -1,0 +1,16 @@
+{
+  "referente": {
+    "nome": "Nome Cognome",
+    "ruolo": "Territory Manager · METRO Trento",
+    "telefono": "+39 000 000 0000",
+    "whatsapp": "+39 000 000 0000"
+  },
+  "stagione": {
+    "etichetta": "Speciale Autunno-Inverno 2026/27",
+    "bollino": ["PRONTI PER", "L'INVERNO", "stagione 26/27"]
+  },
+  "messaggio_whatsapp": "Buongiorno, ho visto il volantino METRO Mercato Online e vorrei un preventivo.",
+  "nota_iva": "+ IVA",
+  "note_legali": "Prezzi IVA esclusa verificati su metro.it/marketplace il {data}, soggetti a variazione e disponibilità del venditore. Spedizione e condizioni come indicato nella pagina prodotto. Immagini a scopo illustrativo.",
+  "utm": {"source": "whatsapp", "medium": "volantino", "campaign": "trento-inverno-2026"}
+}

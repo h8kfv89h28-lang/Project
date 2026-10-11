@@ -1,0 +1,426 @@
+{
+  "esempio": true,
+  "data_verifica": "XX/XX/2026",
+  "categorie": [
+    {
+      "titolo": "Cottura",
+      "sottotitolo": "Forni, friggitrici e piastre per affrontare l'alta stagione invernale e le feste.",
+      "prodotti": [
+        {
+          "marca": "Marca esempio",
+          "nome": "Forno combinato elettrico 6 teglie GN 1/1 (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 1290.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "prezzo_promo": 1057.8
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Friggitrice doppia 2 x 8 L (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 2890.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "badge": "Più visto"
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Fry-top elettrico piastra liscia 60 cm (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 890.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "prezzo_promo": 729.8
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Forno pizza elettrico 2 camere (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 1590.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "badge": null
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Cuocipasta elettrico 1 vasca 28 L (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 890.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "prezzo_promo": 729.8
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Piano a induzione professionale 4 zone (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 2190.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "badge": null
+        }
+      ]
+    },
+    {
+      "titolo": "Refrigerazione",
+      "sottotitolo": "Abbattitori e armadi per conservare in sicurezza e ridurre gli sprechi.",
+      "prodotti": [
+        {
+          "marca": "Marca esempio",
+          "nome": "Abbattitore di temperatura 5 teglie GN 1/1 (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 2190.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "prezzo_promo": 1795.8
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Armadio refrigerato inox 700 L (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 2190.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "badge": "Più visto"
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Tavolo refrigerato 3 porte (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 3490.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "prezzo_promo": 2861.8
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Saladette refrigerata 2 porte (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 2190.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "badge": null
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Congelatore a pozzetto 400 L (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 1290.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "prezzo_promo": 1057.8
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Fabbricatore di ghiaccio 40 kg/24h (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 890.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "badge": null
+        }
+      ]
+    },
+    {
+      "titolo": "Preparazione",
+      "sottotitolo": "Affettatrici, impastatrici e sottovuoto per velocizzare la linea.",
+      "prodotti": [
+        {
+          "marca": "Marca esempio",
+          "nome": "Affettatrice a gravità lama 300 mm (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 2190.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "prezzo_promo": 1795.8
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Impastatrice a spirale 20 kg (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 890.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "badge": "Più visto"
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Planetaria professionale 10 L (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 2190.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "prezzo_promo": 1795.8
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Macchina sottovuoto a campana (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 2190.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "badge": null
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Cutter mixer 5 L (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 2890.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "prezzo_promo": 2369.8
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Tritacarne inox n. 22 (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 890.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "badge": null
+        }
+      ]
+    },
+    {
+      "titolo": "Bar e Caffetteria",
+      "sottotitolo": "Caffè, cioccolata calda e bevande: tutto per l'inverno al banco.",
+      "prodotti": [
+        {
+          "marca": "Marca esempio",
+          "nome": "Macchina caffè espresso 2 gruppi (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 3490.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "prezzo_promo": 2861.8
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Macinadosatore on-demand (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 2190.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "badge": "Più visto"
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Cioccolatiera 5 L (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 1590.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "prezzo_promo": 1303.8
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Lavabicchieri professionale (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 3490.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "badge": null
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Frullatore ad alte prestazioni 2 L (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 1290.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "prezzo_promo": 1057.8
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Vetrina refrigerata da banco (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 2890.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "badge": null
+        }
+      ]
+    },
+    {
+      "titolo": "Lavaggio e Igiene",
+      "sottotitolo": "Lavaggio rapido e igiene certificata per le giornate di pienone.",
+      "prodotti": [
+        {
+          "marca": "Marca esempio",
+          "nome": "Lavastoviglie a capote (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 890.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "prezzo_promo": 729.8
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Lavastoviglie frontale 50x50 (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 1590.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "badge": "Più visto"
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Lavapentole professionale (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 890.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "prezzo_promo": 729.8
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Addolcitore automatico (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 890.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "badge": null
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Lavamani inox a pedale (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 890.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "prezzo_promo": 729.8
+        },
+        {
+          "marca": "Marca esempio",
+          "nome": "Carrello portapiatti inox (esempio)",
+          "punti": [
+            "Caratteristica tecnica principale",
+            "Vantaggio per il locale",
+            "Dimensioni / potenza"
+          ],
+          "prezzo": 3490.0,
+          "url": "https://www.metro.it/marketplace",
+          "immagine": null,
+          "badge": null
+        }
+      ]
+    }
+  ]
+}
