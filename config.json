@@ -1,17 +1,9 @@
 {
-  "nota_iva": "+ IVA",
   "note_legali": "Prezzi IVA esclusa verificati su metro.it/marketplace il {data}; possono variare e dipendono dalla disponibilità del venditore. Lo sconto è calcolato sul prezzo di riferimento indicato sul sito (prezzo più basso degli ultimi 30 giorni, consigliato o abituale). Spese e tempi di consegna come da pagina prodotto.",
   "utm": {
-    "source": "whatsapp",
-    "medium": "volantino",
+    "source": "metro-trento",
     "campaign": "volantini-horeca-trento"
   },
-  "etichetta": "Selezione Mercato Online · I preferiti dai clienti",
-  "bollino": [
-    "ORDINA",
-    "ONLINE",
-    "anche senza tessera"
-  ],
   "footer_titolo": "HAI BISOGNO DI INFORMAZIONI O DI UN PREVENTIVO?",
   "footer_testo": "Fai riferimento al tuo referente commerciale METRO."
 }

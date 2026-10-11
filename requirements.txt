@@ -1,0 +1,6 @@
+playwright
+qrcode
+pillow
+fonttools
+brotli
+cairosvg

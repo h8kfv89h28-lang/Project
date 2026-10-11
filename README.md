@@ -1,26 +1,34 @@
 # Volantini Horeca – METRO Mercato Online (Trento)
 
-Generatore di volantini PDF (1 per categoria, max 6 referenze) da inviare ai clienti via WhatsApp.
+Volantini delle attrezzature professionali più scelte sul Mercato Online METRO, 5 categorie × 6 prodotti,
+da inviare ai clienti dal team commerciale.
 
-- Foto prodotto incorporate come JPEG statici (nessun contenuto dinamico).
-- Prezzo promozionale in **rosso** (con prezzo pieno barrato e % sconto), prezzo pieno in **blu**.
-- Pulsante "ACQUISTA ONLINE" cliccabile e QR code verso la pagina prodotto (con UTM per misurare i clic per campagna).
-- Footer generico: invito a fare riferimento al proprio referente commerciale METRO (nessun contatto specifico)
-  e pulsante "Vedi tutta la categoria".
-- Promo = prezzo rosso sul sito (classe `text-metro-red`), verificato pagina per pagina.
+## Cosa viene generato (`output/`)
+- `pdf/Volantino_METRO_<Categoria>.pdf` – A4 in stile metro.it (logo ufficiale, font Lato, colori del sito),
+  pulsante "Acquista online" cliccabile e QR code per ogni prodotto. Per e-mail, stampa o invio come documento.
+- `whatsapp/WhatsApp_<Categoria>.zip` – kit per WhatsApp:
+  - `00_copertina.jpg` 1080×1920 (9:16): panoramica dei 6 prodotti, usabile anche come Stato;
+  - `01…06_<prodotto>.jpg` 1080×1350 (4:5): una scheda per prodotto, da inviare come album in HD;
+  - `messaggio.txt`: testo da incollare con i link diretti (nelle immagini i link non sono cliccabili);
+  - `COME_INVIARE.txt`: istruzioni per il team.
+
+## Contenuto delle schede prodotto
+Foto ufficiale, marca, nome, valutazione (solo se ≥ 4 su almeno 3 recensioni), 3 punti chiave,
+prezzo IVA esclusa **rosso se in promozione sul sito / blu se prezzo pieno** (classe CSS del sito),
+prezzo di riferimento con l'etichetta del sito, sconto quantità, **venditore**, tempi e costi di consegna,
+classe energetica, "Disponibilità limitata". Nessun contatto personale: il footer invita a fare riferimento
+al proprio referente commerciale METRO.
 
 ## Uso
-
 ```bash
-pip install reportlab qrcode pillow
-python src/genera_volantini.py --prodotti data/prodotti.json          # volantini definitivi in output/
-python src/genera_volantini.py --prodotti data/prodotti.esempio.json --out output/bozza   # bozza layout
+pip install -r requirements.txt
+python src/genera_volantini.py            # PDF + kit WhatsApp
+python src/genera_volantini.py --solo-pdf # solo PDF
+python src/estrai_pagina.py pagina.html   # dati di una pagina prodotto (vedi PROCEDURA_SETTIMANALE.md)
 ```
+Chromium: `/opt/pw-browsers/chromium-1194/chrome-linux/chrome` (modificabile con `CHROMIUM_PATH`).
 
-- `config.json`: etichetta e bollino dell'header, testi del footer, note legali, parametri UTM.
-- `data/prodotti.json`: categorie e referenze (`marca`, `nome`, `punti`, `prezzo` attuale, `prezzo_rif` +
-  `etichetta_rif` se il sito mostra un prezzo barrato, `badge` opzionale, `url`, `immagine`) + `data_verifica`.
-  Le referenze provengono dalle sezioni "I preferiti dai nostri clienti" delle categorie del Mercato Online.
-- `PROCEDURA_SETTIMANALE.md`: aggiornamento automatico del lunedì (prezzi, disponibilità, sostituzioni).
-
-`data/prodotti.esempio.json` contiene **solo dati fittizi** per validare il layout.
+- `data/prodotti.json`: categorie e prodotti verificati sul sito.
+- `config.json`: testi del footer, note legali, parametri UTM per misurare i clic per canale.
+- `assets/`: logo ufficiale METRO (SVG dal sito), font Lato del sito, cache foto prodotti.
+- `PROCEDURA_SETTIMANALE.md`: aggiornamento automatico del lunedì (prezzi, promo, venditori, sostituzioni).

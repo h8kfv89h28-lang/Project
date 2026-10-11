@@ -1,0 +1,10 @@
+COME INVIARE IL VOLANTINO SU WHATSAPP
+
+1. Apri la chat del cliente, tocca + (o la graffetta) > Foto e video.
+2. Seleziona nell'ordine 00_copertina e le 6 schede prodotto: WhatsApp le invia come un unico album.
+3. Prima di inviare tocca "HD" in alto: WhatsApp comprime meno le immagini e i prezzi restano nitidi.
+4. Subito dopo incolla il testo di messaggio.txt: contiene i link diretti a ogni prodotto
+   (nelle immagini i link non sono cliccabili, nel testo sì).
+5. Facoltativo: pubblica 00_copertina come Stato (formato 9:16).
+6. Il PDF A4 resta disponibile per chi preferisce stamparlo o riceverlo via e-mail
+   (su WhatsApp il PDF va aperto e scaricato prima di essere visto).
