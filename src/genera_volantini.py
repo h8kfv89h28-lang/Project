@@ -220,9 +220,9 @@ def html_a4(cat, cfg, data):
         url = con_utm(p["url"], cfg, cat["titolo"], "volantino-pdf")
         cards += f"""
 <div class="card">
-  <a href="{esc(url)}" class="foto"><img src="{foto(p)}">{badge_foto(p, 12)}</a>
+  <div class="foto"><img src="{foto(p)}">{badge_foto(p, 12)}</div>
   <div class="brand">{esc(p.get("marca", ""))}</div>
-  <a href="{esc(url)}" class="nome">{esc(p["nome"])}</a>
+  <div class="nome">{esc(p["nome"])}</div>
   {blocco_valutazione(p, 10.5)}
   <div style="margin-top:7px">{lista_punti(p, 10.8)}</div>
   <div style="flex:1"></div>
@@ -234,7 +234,6 @@ def html_a4(cat, cfg, data):
     <a href="{esc(url)}" class="qr"><img src="{qr_uri(url)}"><span>Inquadra</span></a>
   </div>
 </div>"""
-    url_cat = con_utm(cat.get("url_categoria", "https://www.metro.it/marketplace"), cfg, cat["titolo"], "volantino-pdf")
     nota = esc(cfg["note_legali"].format(data=data))
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>{css_base()}
 @page {{ size: A4; margin: 0; }}
@@ -267,7 +266,7 @@ h1 {{ font-size: 34px; font-weight: 900; line-height: 1.1; margin-top: 2px; }}
 .bottom {{ background: {NAVY}; color: #fff; padding: 12px 26px; display: flex; align-items: center; justify-content: space-between; flex: none; }}
 .bottom .t1 {{ font-size: 12px; font-weight: 700; color: {YELLOW}; }}
 .bottom .t2 {{ font-size: 14px; font-weight: 700; margin-top: 1px; }}
-.bottom .out {{ border: 1.5px solid #fff; border-radius: 6px; padding: 8px 14px; font-size: 12.5px; font-weight: 700; }}
+.bottom .out {{ font-size: 12.5px; font-weight: 700; }}
 </style></head><body>
 <div class="top"><div style="display:flex;align-items:center">{logo_svg(22)}<span class="mo">Mercato Online</span></div>
   <span class="url">metro.it/marketplace</span></div>
@@ -279,17 +278,16 @@ h1 {{ font-size: 34px; font-weight: 900; line-height: 1.1; margin-top: 2px; }}
 <div class="grid">{cards}</div>
 <div class="legal">{nota}</div>
 <div class="bottom"><div><div class="t1">{esc(cfg["footer_titolo"])}</div><div class="t2">{esc(cfg["footer_testo"])}</div></div>
-  <a class="out" href="{esc(url_cat)}">Vedi tutta la categoria ›</a></div>
+  <div class="out">Vedi tutta la categoria su metro.it</div></div>
 </body></html>"""
 
 
 # ---------------------------------------------------------------- WhatsApp (PDF verticale 9:16, 1080 x 1920 px per pagina)
 def html_wa_pdf(cat, cfg, data):
-    """PDF da smartphone: una pagina per prodotto con il pulsante "Acquista online" verso il sito
-    e la navigazione precedente/successivo tra le pagine."""
+    """PDF da smartphone: una pagina per prodotto; gli unici link sono il pulsante "Acquista online"
+    e il QR code."""
     prodotti = cat["prodotti"][:MAX_REFERENZE]
     tot = len(prodotti)
-    url_cat = con_utm(cat.get("url_categoria", "https://www.metro.it/marketplace"), cfg, cat["titolo"], "whatsapp-pdf")
     nota = esc(cfg["note_legali"].format(data=data))
 
     schede = ""
@@ -298,10 +296,10 @@ def html_wa_pdf(cat, cfg, data):
         schede += f"""<section class="pag" id="p{i}">
 <div class="top"><div class="riga">{logo_svg(42)}<span class="mo">Mercato Online</span></div>
   <span class="cat">{esc(cat["titolo"])} · {i}/{tot}</span></div>
-<a href="{esc(url)}" class="foto"><img src="{foto(p)}">{badge_foto(p, 36)}</a>
+<div class="foto"><img src="{foto(p)}">{badge_foto(p, 36)}</div>
 <div class="corpo">
   <div class="brand">{esc(p.get("marca", ""))}</div>
-  <a href="{esc(url)}" class="nome">{esc(p["nome"])}</a>
+  <div class="nome">{esc(p["nome"])}</div>
   {blocco_valutazione(p, 32)}
   <div style="margin-top:22px">{lista_punti(p, 36)}</div>
   <div style="flex:1"></div>
