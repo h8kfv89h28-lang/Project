@@ -307,8 +307,8 @@ def html_wa_pdf(cat, cfg, data):
   <div style="flex:1"></div>
   <div>{blocco_prezzo(p, 104)}</div>
   <div class="info">{righe_info(p, 31)}</div>
-  <a class="btn big" href="{esc(url)}">Acquista online su metro.it ›</a>
-  <div class="nav">{f'<a href="#p{i-1}">‹ Prodotto precedente</a>' if i > 1 else '<span></span>'}{f'<a href="#p{i+1}">Prodotto successivo ›</a>' if i < tot else f'<a href="{esc(url_cat)}">Vedi tutta la categoria ›</a>'}</div>
+  <div class="cta"><a class="btn big" href="{esc(url)}">Acquista online<br><span>su metro.it ›</span></a>
+    <a class="qrw" href="{esc(url)}"><img src="{qr_uri(url)}"><span>Inquadra il QR</span></a></div>
 </div>
 <div class="fondo"><div class="t1">{esc(cfg["footer_titolo"])}</div><div class="t2">{esc(cfg["footer_testo"])}</div>
   <div class="legal">{nota}</div></div>
@@ -350,8 +350,12 @@ h1 {{ font-size: 100px; font-weight: 900; line-height: 1; margin-top: 34px; }}
 .nome {{ font-size: 50px; font-weight: 900; line-height: 1.15; margin-top: 4px; display: -webkit-box; -webkit-line-clamp: 2;
          -webkit-box-orient: vertical; overflow: hidden; }}
 .info {{ background: #fff; border-radius: 16px; padding: 16px 24px; margin: 18px 0 22px; border: 2px solid #DCE3EC; }}
-.big {{ display: block; font-size: 46px; padding: 30px 0; border-radius: 16px; }}
-.nav {{ display: flex; justify-content: space-between; font-size: 28px; color: {BLUE}; font-weight: 700; padding: 22px 6px 22px; }}
+.cta {{ display: flex; align-items: stretch; gap: 26px; margin-bottom: 30px; }}
+.big {{ flex: 1; display: flex; flex-direction: column; justify-content: center; font-size: 50px; line-height: 1.1; border-radius: 16px; }}
+.big span {{ font-size: 32px; font-weight: 400; }}
+.qrw {{ display: flex; flex-direction: column; align-items: center; background: #fff; border: 2px solid #DCE3EC; border-radius: 16px; padding: 12px 14px 8px; }}
+.qrw img {{ width: 170px; height: 170px; }}
+.qrw span {{ font-size: 20px; color: {GREY}; margin-top: 4px; }}
 .fondo {{ background: {NAVY}; color: #fff; padding: 24px 56px 26px; flex: none; }}
 .fondo .t1 {{ font-size: 24px; font-weight: 700; color: {YELLOW}; }}
 .fondo .t2 {{ font-size: 30px; font-weight: 700; margin-top: 4px; }}
@@ -380,7 +384,7 @@ LEGGIMI = """VOLANTINI METRO MERCATO ONLINE - HORECA (prezzi verificati il {data
 PDF_A4/        5 volantini A4 (uno per categoria): pulsanti cliccabili e QR code.
                Per e-mail, stampa o per chi legge da computer.
 PDF_WhatsApp/  5 volantini in formato smartphone (verticale 9:16), uno per categoria:
-               una pagina per prodotto con il pulsante "Acquista online su metro.it"
+               una pagina per prodotto con il pulsante "Acquista online su metro.it" e il QR code
 Testi_WhatsApp/ testo facoltativo da incollare insieme al PDF (con i link diretti ai prodotti).
 
 COME INVIARE SU WHATSAPP

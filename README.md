@@ -7,8 +7,8 @@ da inviare ai clienti dal team commerciale.
 - `PDF_A4/Volantino_METRO_<Categoria>_A4.pdf` – A4 in stile metro.it (logo ufficiale, font Lato, colori del sito),
   pulsante "Acquista online" cliccabile e QR code per ogni prodotto. Per e-mail, stampa o computer.
 - `PDF_WhatsApp/Volantino_METRO_<Categoria>_WhatsApp.pdf` – formato smartphone verticale (9:16), da inviare come
-  documento su WhatsApp: una pagina per prodotto con il pulsante "Acquista online su metro.it" e la
-  navigazione prodotto precedente/successivo.
+  documento su WhatsApp: una pagina per prodotto con il pulsante "Acquista online su metro.it" e il QR code
+  che porta allo stesso link.
 - `Testi_WhatsApp/Messaggio_<Categoria>.txt` – testo facoltativo da incollare insieme al PDF, con i link.
 - `Volantini_METRO_Horeca.zip` – pacchetto unico con tutto quanto sopra e il file LEGGIMI.
 
