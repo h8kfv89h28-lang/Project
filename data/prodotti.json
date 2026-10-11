@@ -1,29 +1,29 @@
 {
   "data_verifica": "11/10/2026",
-  "fonte": "Sezioni 'I preferiti dai nostri clienti' delle categorie metro.it/marketplace, prezzi verificati sulle pagine prodotto",
+  "fonte": "Attrezzature vendute da METRO (Venduto da: METRO) tra le più scelte nelle categorie di metro.it/marketplace, prezzi verificati sulle pagine prodotto",
   "categorie": [
     {
       "titolo": "Cottura",
       "url_categoria": "https://www.metro.it/marketplace/c/griglie-affumicatori-e-pirofile-con-coperchio",
-      "sottotitolo": "Forni, friggitrici e cuocipasta professionali: i più scelti dai clienti del Mercato Online METRO.",
+      "sottotitolo": "Forni, friggitrici e cuocipasta professionali per una cucina sempre al massimo.",
       "prodotti": [
         {
-          "marca": "",
-          "nome": "Forno a convezione digitale 7 teglie con iniezione d'acqua",
-          "url": "https://www.metro.it/marketplace/product/935de8f0-8132-4163-917d-f5cce10ebd3e",
-          "immagine": "https://images.metro-marketplace.eu/item_image/1af400ea-9a2a-4963-882b-5ddc5d4ac375?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 2241.8,
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Forno combinato a vapore GCS1007M, manuale",
+          "url": "https://www.metro.it/marketplace/product/b6cfdbc2-03c6-45b4-a0f7-e0914103bd98",
+          "immagine": "https://images.metro-marketplace.eu/item_image/e4ad8b60-8bf2-4edd-8c5d-49edb2d12eae?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 1890.0,
           "punti": [
-            "Convezione con e senza iniezione d'acqua",
-            "7 teglie, camera in acciaio inox",
-            "Motori con inversione di marcia"
+            "Vapore e aria calda combinati",
+            "Temperatura da 100 a 270 °C, 400 V",
+            "Prodotto in Italia, uso professionale"
           ],
-          "venditore": "Fla srl",
+          "venditore": "METRO",
           "consegna": {
-            "costo": "gratuita",
-            "giorni": "10-15"
+            "costo": "29,00 €",
+            "giorni": "3-7"
           },
-          "disponibilita_limitata": false
+          "disponibilita_limitata": true
         },
         {
           "marca": "METRO PROFESSIONAL",
@@ -48,23 +48,28 @@
           "disponibilita_limitata": false
         },
         {
-          "marca": "GASFRIT",
-          "nome": "Friggitrice a gas 17 + 17 L con termostato E.G.O",
-          "url": "https://www.metro.it/marketplace/product/954eec92-c6e8-4522-b4d9-475e5a2b9687",
-          "immagine": "https://images.metro-marketplace.eu/item_image/0c4d03df-ce36-4df6-87fa-13c236af5c59?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 880.0,
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Forno per pizza GPO1434-1C, 1 camera",
+          "url": "https://www.metro.it/marketplace/product/9251b4dc-c8d1-40ea-9a6c-36637607619f",
+          "immagine": "https://images.metro-marketplace.eu/item_image/15e85baa-86d2-43c4-9d52-b159df6a9ad7?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 724.35,
           "punti": [
-            "Doppia vasca a gas 17 + 17 L, 2 x 12 kW",
-            "Termostato E.G.O e valvola di sicurezza",
-            "Rubinetto di scarico, piedini regolabili"
+            "Spazio per 4 pizze da 34 cm",
+            "Temperatura da 85 a 455 °C, 400 V",
+            "Porta con vetro di sicurezza da 10 mm"
           ],
-          "prezzo_rif": 900.0,
-          "etichetta_rif": "Prezzo abituale",
-          "sconto_sito": "-2%",
-          "venditore": "Climahostel",
+          "prezzo_rif": 753.35,
+          "etichetta_rif": "Prezzo più basso 30 gg",
+          "sconto_sito": "-3%",
+          "venditore": "METRO",
           "consegna": {
-            "costo": "150,00 €",
-            "giorni": "3-10"
+            "costo": "29,00 €",
+            "giorni": "3-7"
+          },
+          "sconto_quantita": {
+            "da": 6,
+            "prezzo": 688.22,
+            "risparmio": "-4%"
           },
           "disponibilita_limitata": false
         },
@@ -326,49 +331,50 @@
     {
       "titolo": "Preparazione",
       "url_categoria": "https://www.metro.it/marketplace/c/attrezzature-per-la-preparazione",
-      "sottotitolo": "Affettatrici, sottovuoto, spremiagrumi e robot: più velocità e precisione in cucina.",
+      "sottotitolo": "Affettatrici, sottovuoto, tritatutto e planetarie: più velocità e precisione in cucina.",
       "prodotti": [
         {
-          "marca": "MAXIMA",
-          "nome": "Spremiagrumi automatico con rubinetto, 25 arance/min",
-          "url": "https://www.metro.it/marketplace/product/a2408d9c-c024-44dd-a9bd-45b7d752f08a",
-          "immagine": "https://images.metro-marketplace.eu/item_image/85d6fcd7-de1e-4c1a-ae9a-719da86027fe?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 796.35,
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Tritatutto per verdure GFC1008, 8 L, 800 W",
+          "url": "https://www.metro.it/marketplace/product/bec3e8ff-6aa8-4b41-bb8b-09c240c7d666",
+          "immagine": "https://images.metro-marketplace.eu/item_image/6c52190e-f253-4157-b5d5-4137a37e9afe?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 349.3,
           "punti": [
-            "Fino a 25 arance al minuto",
-            "Caricatore da 8 kg, in acciaio inox",
-            "Rubinetto per l'uso self-service"
+            "Struttura robusta in acciaio inox",
+            "Motore raffreddato ad aria, 1500 giri/min",
+            "Coperchio con apertura di riempimento"
           ],
-          "prezzo_rif": 816.75,
+          "prezzo_rif": 499.0,
           "etichetta_rif": "Prezzo più basso 30 gg",
-          "sconto_sito": "-2%",
-          "venditore": "Alpaka",
+          "sconto_sito": "-30%",
+          "venditore": "METRO",
           "consegna": {
-            "costo": "gratuita",
-            "giorni": "5-20"
+            "costo": "7,00 €",
+            "giorni": "2-4"
           },
           "disponibilita_limitata": false
         },
         {
-          "marca": "HENDI",
-          "nome": "Processore per alimenti multiuso HENDICHEF Black Edition",
-          "url": "https://www.metro.it/marketplace/product/2d048d3e-9cff-4e32-b1a5-b9b71b79abfc",
-          "immagine": "https://images.metro-marketplace.eu/item_image/92681424-2339-4deb-bbd2-29d83f1b40c8?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 470.0,
+          "marca": "KENWOOD",
+          "nome": "Robot Titanium Chef Patissier XL, 1400 W",
+          "url": "https://www.metro.it/marketplace/product/0baf0c1a-a7cf-4d4e-945a-bc1756c268a1",
+          "immagine": "https://images.metro-marketplace.eu/item_image/67017354-13e5-4bb4-8f6d-8b92e4564a7b?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 568.51,
           "punti": [
-            "Robot da cucina 1400 W, 20 funzioni",
-            "Vasca inox da 4,5 L, cottura 37-130 °C",
-            "Bilancia integrata e ricette precaricate"
+            "Pesa e riscalda direttamente in ciotola",
+            "Ciotola in acciaio inox illuminata",
+            "Ampia gamma di accessori inclusi"
           ],
-          "prezzo_rif": 490.0,
-          "etichetta_rif": "Prezzo abituale",
-          "sconto_sito": "-4%",
-          "venditore": "Fla srl",
+          "venditore": "METRO",
           "consegna": {
-            "costo": "gratuita",
-            "giorni": "5-7"
+            "costo": "7,00 €",
+            "giorni": "2-4"
           },
-          "disponibilita_limitata": false
+          "valutazione": {
+            "media": 4.8,
+            "recensioni": 5
+          },
+          "disponibilita_limitata": true
         },
         {
           "marca": "H.KOENIG",
@@ -389,49 +395,46 @@
           "disponibilita_limitata": false
         },
         {
-          "marca": "ROYAL CATERING",
-          "nome": "Tritatutto professionale 12 litri RCKC-12000",
-          "url": "https://www.metro.it/marketplace/product/fe35b196-8453-476b-adf1-4a8d84809e3f",
-          "immagine": "https://images.metro-marketplace.eu/item_image/016b66c4-2b7a-4c04-94dc-dacf958ef8d2?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 335.25,
+          "marca": "KITCHENAID",
+          "nome": "Planetaria ARTISAN con affettaverdure",
+          "url": "https://www.metro.it/marketplace/product/3aba947b-f546-498b-a69e-929407eea337",
+          "immagine": "https://images.metro-marketplace.eu/item_image/26168ee3-6af2-4501-ac8c-12f674590e05?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 378.88,
           "punti": [
-            "Capacità 12 L, volume di lavoro 6 L",
-            "Ciotola Ø 30 cm e 4 lame in inox",
-            "Velocità 1100-2800 giri/min"
+            "Ciotola inox 4,8 L: fino a 1 kg di farina",
+            "300 W ad azionamento diretto",
+            "Affettaverdure 3 tamburi incluso"
           ],
-          "prezzo_rif": 368.03,
-          "etichetta_rif": "Prezzo abituale",
-          "sconto_sito": "-8%",
-          "venditore": "expondo",
+          "venditore": "METRO",
           "consegna": {
-            "costo": "gratuita",
-            "giorni": "6-10"
+            "costo": "7,00 €",
+            "giorni": "2-4"
           },
-          "sconto_quantita": {
-            "da": 5,
-            "prezzo": 315.14,
-            "risparmio": "-5%"
+          "valutazione": {
+            "media": 4.0,
+            "recensioni": 4
           },
           "disponibilita_limitata": false
         },
         {
-          "marca": "MAXIMA",
-          "nome": "Affettatrice per carne, lama Ø 25 cm",
-          "url": "https://www.metro.it/marketplace/product/5a07cdaf-8a3c-4788-bb6b-ecf8969e4ca5",
-          "immagine": "https://images.metro-marketplace.eu/item_image/06cba79c-af4a-43d6-a0ec-c98c439fa9e7?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 318.99,
+          "marca": "H.KOENIG",
+          "nome": "Affettatrice professionale MSX250, lama 25 cm",
+          "url": "https://www.metro.it/marketplace/product/d7d273a7-3f6d-4d5e-abf4-d55f6dbdca9d",
+          "immagine": "https://images.metro-marketplace.eu/item_image/8322f272-7c2a-4949-9d81-201283f15cbf?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 303.66,
           "punti": [
-            "Lama in inox temprato Ø 25 cm",
-            "Spessore di taglio da 1 a 12 mm",
-            "Affilatoio integrato, motore 150 W"
+            "Lama made in Italy da 25 cm",
+            "Spessore di taglio regolabile 0-12 mm",
+            "Affilatoio integrato, motore 240 W"
           ],
-          "prezzo_rif": 343.97,
-          "etichetta_rif": "Prezzo più basso 30 gg",
-          "sconto_sito": "-7%",
-          "venditore": "Alpaka",
+          "venditore": "METRO",
           "consegna": {
-            "costo": "gratuita",
-            "giorni": "5-20"
+            "costo": "7,00 €",
+            "giorni": "2-6"
+          },
+          "valutazione": {
+            "media": 4.0,
+            "recensioni": 1
           },
           "disponibilita_limitata": false
         },
@@ -468,22 +471,25 @@
       "sottotitolo": "Caffè, ghiaccio, bicchieri e bevande sempre pronti per il servizio al banco.",
       "prodotti": [
         {
-          "marca": "JURA",
-          "nome": "Macchina caffè automatica professionale W8 Dark Inox",
-          "url": "https://www.metro.it/marketplace/product/5c12bbe8-fb4c-471d-ad05-a43a84f43bda",
-          "immagine": "https://images.metro-marketplace.eu/item_image/e98ff929-4c99-4fe9-8068-ac9853a56671?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 1884.43,
+          "marca": "DE'LONGHI",
+          "nome": "Macchina da caffè automatica ECAM 356.57B",
+          "url": "https://www.metro.it/marketplace/product/765252c9-28e9-41ac-849f-1cd8203f486a",
+          "immagine": "https://images.metro-marketplace.eu/item_image/a98ff7d8-110a-4bc8-a7ed-419572105e8f?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 523.15,
           "punti": [
-            "Fino a 50 preparazioni al giorno",
-            "17 specialità, sistema latte HP3",
-            "Macinacaffè Aroma Grinder 2, Coffee Eye"
+            "Caffè in chicchi o macinato",
+            "Sistema LatteCrema per cappuccini",
+            "5 intensità e tasti a selezione diretta"
           ],
-          "venditore": "YesEatIs",
+          "prezzo_rif": 649.0,
+          "etichetta_rif": "Prezzo consigliato",
+          "sconto_sito": "-19%",
+          "venditore": "METRO",
           "consegna": {
-            "costo": "gratuita",
-            "giorni": "4-7"
+            "costo": "7,00 €",
+            "giorni": "2-4"
           },
-          "disponibilita_limitata": false
+          "disponibilita_limitata": true
         },
         {
           "marca": "H.KOENIG",
@@ -585,23 +591,25 @@
           "disponibilita_limitata": false
         },
         {
-          "marca": "HENDI",
-          "nome": "Addolcitore d'acqua automatico",
-          "url": "https://www.metro.it/marketplace/product/a5d6edea-2b9a-4f6c-903e-bbfd4ef09a9d",
-          "immagine": "https://images.metro-marketplace.eu/item_image/3734cda2-1fff-4ed8-872c-9ebe62a8210f?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 310.01,
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Tritaghiaccio elettrico GEIC1000, 3 L",
+          "url": "https://www.metro.it/marketplace/product/45ab5478-94f4-4884-9f10-8ead267d912d",
+          "immagine": "https://images.metro-marketplace.eu/item_image/1cfe6991-a1a3-47f2-bbae-c2f54c45f014?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 299.0,
           "punti": [
-            "Rigenerazione automatica delle resine",
-            "Pannello programmabile con blocco tasti",
-            "Ingombro 206 x 380 x 480 mm"
+            "Fino a 160 kg di ghiaccio all'ora",
+            "Corpo motore in alluminio fuso",
+            "Microinterruttore di sicurezza integrato"
           ],
-          "prezzo_rif": 329.13,
-          "etichetta_rif": "Prezzo abituale",
-          "sconto_sito": "-5%",
-          "venditore": "MDC-Nolimit",
+          "venditore": "METRO",
           "consegna": {
-            "costo": "gratuita",
-            "giorni": "7-14"
+            "costo": "7,00 €",
+            "giorni": "2-4"
+          },
+          "sconto_quantita": {
+            "da": 6,
+            "prezzo": 288.49,
+            "risparmio": "-3%"
           },
           "disponibilita_limitata": false
         }
@@ -610,7 +618,7 @@
     {
       "titolo": "Lavaggio",
       "url_categoria": "https://www.metro.it/marketplace/c/lavaggio",
-      "sottotitolo": "Lavastoviglie e lavabicchieri professionali per turni di servizio senza intoppi.",
+      "sottotitolo": "Lavastoviglie, lavabicchieri e lavapentole professionali per turni di servizio senza intoppi.",
       "prodotti": [
         {
           "marca": "METRO PROFESSIONAL",
@@ -686,23 +694,27 @@
           "disponibilita_limitata": false
         },
         {
-          "marca": "SERIE SILVER",
-          "nome": "Lavabicchieri Silver40-DET-PS, cesto 40 x 40 cm",
-          "url": "https://www.metro.it/marketplace/product/03eb1e8a-7ec8-4c42-bee5-de34bd2081b3",
-          "immagine": "https://images.metro-marketplace.eu/item_image/09096419-4a25-42af-ad91-af109322e0f1?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 949.0,
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Lavabicchieri GGW1040SW, cesto 40 x 40 cm",
+          "url": "https://www.metro.it/marketplace/product/75fdf37a-4be0-4822-b95e-b7ebbbd78f8b",
+          "immagine": "https://images.metro-marketplace.eu/item_image/bef623fb-6cd6-4b18-a584-6fbea79763bc?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 990.0,
           "punti": [
-            "Cesto 40 x 40 cm, altezza utile 28 cm",
-            "Dosatori detergente e brillantante",
-            "Pompa di scarico, 1500 bicchieri/ora"
+            "30 lavaggi/ora, ciclo da 120 secondi",
+            "Bicchieri alti fino a 30 cm",
+            "Dosatore brillantante peristaltico"
           ],
-          "prezzo_rif": 970.0,
+          "prezzo_rif": 1031.71,
           "etichetta_rif": "Prezzo abituale",
-          "sconto_sito": "-2%",
-          "venditore": "RISTORED SRL",
+          "sconto_sito": "-4%",
+          "venditore": "METRO",
           "consegna": {
-            "costo": "25,00 €",
-            "giorni": "4-9"
+            "costo": "29,00 €",
+            "giorni": "3-7"
+          },
+          "valutazione": {
+            "media": 5.0,
+            "recensioni": 1
           },
           "disponibilita_limitata": false
         },
@@ -729,25 +741,25 @@
           "disponibilita_limitata": false
         },
         {
-          "marca": "LAVASYSTEM",
-          "nome": "Lavabicchieri elettronica cesto 35 x 35 cm",
-          "url": "https://www.metro.it/marketplace/product/1957b65c-c012-43e4-9b82-8c4ad726f7f4",
-          "immagine": "https://images.metro-marketplace.eu/item_image/6d735ad6-192f-4b32-ab79-a4274637cd06?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 605.0,
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Lavapentole professionale GHP1300SW, 400 V",
+          "url": "https://www.metro.it/marketplace/product/905f240a-3b81-4dc7-9bf5-fe1085573c96",
+          "immagine": "https://images.metro-marketplace.eu/item_image/6db6b4e6-a94b-48c0-a6b6-d8d18696133d?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 3419.94,
           "punti": [
-            "Cesto 35 x 35 cm, 30 cicli/ora",
-            "Corpo in acciaio inox AISI 304",
-            "Dosatore brillantante incluso"
+            "Fino a 48 cestelli/ora (ciclo 75 s)",
+            "Dosatori brillantante e detergente",
+            "Vasca e capotta in inox AISI 304"
           ],
-          "prezzo_rif": 850.0,
-          "etichetta_rif": "Prezzo abituale",
-          "sconto_sito": "-28%",
-          "venditore": "LAVASYSTEM GROUP",
+          "prezzo_rif": 3563.99,
+          "etichetta_rif": "Prezzo consigliato",
+          "sconto_sito": "-4%",
+          "venditore": "METRO",
           "consegna": {
-            "costo": "60,00 €",
-            "giorni": null
+            "costo": "29,00 €",
+            "giorni": "3-7"
           },
-          "disponibilita_limitata": false
+          "disponibilita_limitata": true
         }
       ]
     }

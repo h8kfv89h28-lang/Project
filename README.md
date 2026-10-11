@@ -1,6 +1,6 @@
 # Volantini Horeca – METRO Mercato Online (Trento)
 
-Volantini delle attrezzature professionali più scelte sul Mercato Online METRO, 5 categorie × 6 prodotti,
+Volantini di attrezzature professionali **vendute direttamente da METRO** sul Mercato Online METRO, 5 categorie × 6 prodotti,
 da inviare ai clienti dal team commerciale.
 
 ## Cosa viene generato (`output/`)

@@ -25,10 +25,17 @@ Non dedurre mai la promo dal testo: le promo cambiano spesso e vanno rilette ogn
 
 ## 2. Sostituzione referenze non più valide
 Un prodotto va sostituito se: pagina non trovata o non acquistabile, consegna oltre 4 settimane,
-prezzo sceso sotto 290 € IVA esclusa.
-Sostituto: dalla sezione **"I preferiti dai nostri clienti"** dell'`url_categoria`
-(Firecrawl `formats: ["json"]`), scegliendo attrezzature professionali ≥ 290 € non già presenti,
-privilegiando promo e prodotti adatti al periodo stagionale. La stagionalità serve **solo per scegliere**
+prezzo sceso sotto 290 € IVA esclusa, **venditore diverso da METRO** ("Venduto da" ≠ METRO).
+
+**Regola: nei volantini vanno solo prodotti venduti da METRO** (`venditore` = "METRO").
+Sostituto: attrezzature professionali ≥ 290 € non già presenti e **vendute da METRO**, privilegiando promo
+e prodotti adatti al periodo stagionale. Dove cercarle (Firecrawl `formats: ["rawHtml"]`, poi
+`python src/griglia_categoria.py <file>` per elenco id/prezzo/promo):
+- griglia e carosello "I preferiti dai nostri clienti" dell'`url_categoria` e delle sue sottocategorie;
+- ricerca `https://www.metro.it/marketplace/search?q=metro%20professional%20<tipo>` (es. forno, lavastoviglie):
+  i prodotti METRO PROFESSIONAL sono in genere venduti da METRO.
+Il filtro "Venditore" del sito non è utilizzabile via link: il venditore va **sempre verificato sulla pagina
+prodotto** (`venditore` di `estrai_pagina.py`), anche per i prodotti a marchio METRO PROFESSIONAL. La stagionalità serve **solo per scegliere**
 i prodotti: nei volantini non vanno inseriti riferimenti stagionali né contatti di referenti specifici.
 Verificare il sostituto come al punto 1. Max 6 referenze per categoria.
 

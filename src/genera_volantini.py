@@ -274,7 +274,7 @@ h1 {{ font-size: 34px; font-weight: 900; line-height: 1.1; margin-top: 2px; }}
 <div class="hero">
   <div><div class="bc">Mercato Online › {esc(cat["titolo"])}</div><h1>{esc(cat["titolo"])}</h1>
        <div class="sub">{esc(cat.get("sottotitolo", ""))}</div></div>
-  <div><div class="chip">★ I preferiti dai nostri clienti</div><div class="agg">Prezzi IVA esclusa · verificati il {esc(data)}</div></div>
+  <div><div class="chip">★ Venduti direttamente da METRO</div><div class="agg">Prezzi IVA esclusa · verificati il {esc(data)}</div></div>
 </div>
 <div class="grid">{cards}</div>
 <div class="legal">{nota}</div>
@@ -367,7 +367,7 @@ def messaggio(cat, cfg, data):
     """Testo d'accompagnamento facoltativo (formattazione WhatsApp), con i link cliccabili."""
     num = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣"]
     righe = [f"*METRO Mercato Online · {cat['titolo']}*",
-             f"Ti invio la selezione dei prodotti più scelti dai clienti (prezzi IVA esclusa verificati su metro.it il {data}).",
+             f"Ti invio una selezione di attrezzature professionali vendute direttamente da METRO (prezzi IVA esclusa verificati su metro.it il {data}).",
              "Nel PDF tocca *Acquista online* per andare direttamente al prodotto.", ""]
     for i, p in enumerate(cat["prodotti"][:MAX_REFERENZE]):
         prezzo = f"*{euro(p['prezzo'])}* + IVA"
