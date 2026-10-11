@@ -21,6 +21,7 @@ import json
 import os
 import re
 import shutil
+import unicodedata
 import urllib.parse
 import urllib.request
 import zipfile
@@ -55,6 +56,7 @@ def esc(t):
 
 
 def slug(t):
+    t = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode()  # caffè -> caffe
     return re.sub(r"[^A-Za-z0-9]+", "_", t).strip("_")
 
 
