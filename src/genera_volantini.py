@@ -2,7 +2,7 @@
 
 Da data/prodotti.json + config.json produce, per ogni categoria (max 6 referenze):
   - output/PDF_A4/Volantino_METRO_<Categoria>_A4.pdf              A4, pulsanti cliccabili e QR code
-  - output/PDF_WhatsApp/Volantino_METRO_<Categoria>_WhatsApp.pdf  smartphone 9:16: indice + 1 pagina per
+  - output/PDF_WhatsApp/Volantino_METRO_<Categoria>_WhatsApp.pdf  smartphone 9:16: 1 pagina per
                                                                    prodotto con pulsante "Acquista online"
   - output/Testi_WhatsApp/Messaggio_<Categoria>.txt               testo facoltativo con i link
 e il pacchetto unico output/Volantini_METRO_Horeca.zip.
@@ -285,40 +285,19 @@ h1 {{ font-size: 34px; font-weight: 900; line-height: 1.1; margin-top: 2px; }}
 
 # ---------------------------------------------------------------- WhatsApp (PDF verticale 9:16, 1080 x 1920 px per pagina)
 def html_wa_pdf(cat, cfg, data):
-    """PDF da smartphone: pagina 1 = indice dei 6 prodotti, pagine 2-7 = una scheda per prodotto.
-    Ogni scheda ha il pulsante "Acquista online" verso il sito; l'indice rimanda alle schede (link interni)."""
+    """PDF da smartphone: una pagina per prodotto con il pulsante "Acquista online" verso il sito
+    e la navigazione precedente/successivo tra le pagine."""
     prodotti = cat["prodotti"][:MAX_REFERENZE]
     tot = len(prodotti)
     url_cat = con_utm(cat.get("url_categoria", "https://www.metro.it/marketplace"), cfg, cat["titolo"], "whatsapp-pdf")
     nota = esc(cfg["note_legali"].format(data=data))
-
-    tiles = ""
-    for i, p in enumerate(prodotti, 1):
-        url = con_utm(p["url"], cfg, cat["titolo"], "whatsapp-pdf")
-        promo = p.get("prezzo_rif") is not None
-        disc = (f'<div class="disc" style="position:absolute;top:0;left:0;font-size:28px;padding:3px 12px">'
-                f'{esc(p["sconto_sito"])}</div>') if promo else ""
-        tiles += f"""<div class="t"><a href="#p{i}" class="f"><img src="{foto(p)}">{disc}</a>
-  <a href="#p{i}" class="n">{esc(p["nome"])}</a>
-  <div class="pr {'promo' if promo else 'pieno'}">{euro(p["prezzo"])}<span class="grey"> + IVA</span></div>
-  <div class="tb"><a href="#p{i}" class="sec">Dettagli</a><a href="{esc(url)}" class="btn">Acquista ›</a></div></div>"""
-
-    indice = f"""<section class="pag" id="indice">
-<div class="head"><div class="riga">{logo_svg(50)}<span class="mo">Mercato Online</span></div>
-  <h1>{esc(cat["titolo"])}</h1><div class="chip">★ I preferiti dai nostri clienti</div>
-  <div class="sub">{esc(cat.get("sottotitolo", ""))}</div></div>
-<div class="grid">{tiles}</div>
-<div class="foot"><div class="t1">Tocca un prodotto per i dettagli, oppure "Acquista" per andare al sito.</div>
-  <div class="t2">Prezzi IVA esclusa verificati su metro.it il {esc(data)}.</div>
-  <a class="out" href="{esc(url_cat)}">Vedi tutta la categoria su metro.it ›</a></div>
-</section>"""
 
     schede = ""
     for i, p in enumerate(prodotti, 1):
         url = con_utm(p["url"], cfg, cat["titolo"], "whatsapp-pdf")
         schede += f"""<section class="pag" id="p{i}">
 <div class="top"><div class="riga">{logo_svg(42)}<span class="mo">Mercato Online</span></div>
-  <a class="cat" href="#indice">‹ {esc(cat["titolo"])} · {i}/{tot}</a></div>
+  <span class="cat">{esc(cat["titolo"])} · {i}/{tot}</span></div>
 <a href="{esc(url)}" class="foto"><img src="{foto(p)}">{badge_foto(p, 36)}</a>
 <div class="corpo">
   <div class="brand">{esc(p.get("marca", ""))}</div>
@@ -329,7 +308,7 @@ def html_wa_pdf(cat, cfg, data):
   <div>{blocco_prezzo(p, 104)}</div>
   <div class="info">{righe_info(p, 31)}</div>
   <a class="btn big" href="{esc(url)}">Acquista online su metro.it ›</a>
-  <div class="nav"><a href="#indice">‹ Tutti i prodotti</a>{f'<a href="#p{i+1}">Prodotto successivo ›</a>' if i < tot else '<a href="#indice">Torna all’indice ›</a>'}</div>
+  <div class="nav">{f'<a href="#p{i-1}">‹ Prodotto precedente</a>' if i > 1 else '<span></span>'}{f'<a href="#p{i+1}">Prodotto successivo ›</a>' if i < tot else f'<a href="{esc(url_cat)}">Vedi tutta la categoria ›</a>'}</div>
 </div>
 <div class="fondo"><div class="t1">{esc(cfg["footer_titolo"])}</div><div class="t2">{esc(cfg["footer_testo"])}</div>
   <div class="legal">{nota}</div></div>
@@ -342,7 +321,6 @@ body {{ width: 1080px; }}
 .pag:last-child {{ break-after: auto; }}
 .riga {{ display: flex; align-items: center; }}
 .mo {{ color: #fff; font-weight: 700; font-size: 32px; border-left: 2px solid rgba(255,255,255,.35); padding-left: 22px; margin-left: 22px; }}
-/* indice */
 .head {{ background: {NAVY}; color: #fff; padding: 60px 56px 36px; flex: none; }}
 h1 {{ font-size: 100px; font-weight: 900; line-height: 1; margin-top: 34px; }}
 .chip {{ display: inline-block; margin-top: 22px; background: {YELLOW}; color: {NAVY}; border-radius: 50px; padding: 10px 28px; font-size: 30px; font-weight: 900; }}
@@ -378,7 +356,7 @@ h1 {{ font-size: 100px; font-weight: 900; line-height: 1; margin-top: 34px; }}
 .fondo .t1 {{ font-size: 24px; font-weight: 700; color: {YELLOW}; }}
 .fondo .t2 {{ font-size: 30px; font-weight: 700; margin-top: 4px; }}
 .fondo .legal {{ font-size: 17px; opacity: .75; margin-top: 12px; line-height: 1.35; }}
-</style></head><body>{indice}{schede}</body></html>"""
+</style></head><body>{schede}</body></html>"""
 
 
 def messaggio(cat, cfg, data):
@@ -402,8 +380,7 @@ LEGGIMI = """VOLANTINI METRO MERCATO ONLINE - HORECA (prezzi verificati il {data
 PDF_A4/        5 volantini A4 (uno per categoria): pulsanti cliccabili e QR code.
                Per e-mail, stampa o per chi legge da computer.
 PDF_WhatsApp/  5 volantini in formato smartphone (verticale 9:16), uno per categoria:
-               - pagina 1: i 6 prodotti (tocca "Dettagli" o "Acquista")
-               - pagine 2-7: una scheda per prodotto con il pulsante "Acquista online su metro.it"
+               una pagina per prodotto con il pulsante "Acquista online su metro.it"
 Testi_WhatsApp/ testo facoltativo da incollare insieme al PDF (con i link diretti ai prodotti).
 
 COME INVIARE SU WHATSAPP
