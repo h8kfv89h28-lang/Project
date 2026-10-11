@@ -5,7 +5,7 @@
     {
       "titolo": "Cottura",
       "url_categoria": "https://www.metro.it/marketplace/c/griglie-affumicatori-e-pirofile-con-coperchio",
-      "sottotitolo": "Forni, friggitrici e cuocipasta per l'alta stagione invernale e le feste: i più scelti dai clienti METRO.",
+      "sottotitolo": "Forni, friggitrici e cuocipasta professionali: i più scelti dai clienti del Mercato Online METRO.",
       "prodotti": [
         {
           "marca": "Fla srl · Made in Italy",
@@ -18,8 +18,6 @@
             "Capacità 7 teglie, camera in acciaio inox",
             "Motori con inversione di marcia"
           ],
-          "prezzo_rif": 2735.0,
-          "etichetta_rif": "Prezzo abituale",
           "venditore": "Fla srl"
         },
         {
@@ -45,7 +43,9 @@
             "Termostato E.G.O di precisione",
             "Rubinetto di scarico, acciaio inox"
           ],
-          "venditore": "Climahostel"
+          "venditore": "Climahostel",
+          "prezzo_rif": 900.0,
+          "etichetta_rif": "Prezzo abituale"
         },
         {
           "marca": "CookRite by Atosa",
@@ -58,7 +58,9 @@
             "Metano, convertibile GPL (ugelli inclusi)",
             "Cestelli inclusi 2x1/3 + 2x1/6"
           ],
-          "badge": "Pezzi limitati"
+          "badge": "Pezzi limitati",
+          "prezzo_rif": 1604.59,
+          "etichetta_rif": "Prezzo abituale"
         },
         {
           "marca": "METRO Professional",
@@ -91,7 +93,7 @@
     {
       "titolo": "Refrigerazione",
       "url_categoria": "https://www.metro.it/marketplace/c/impianti-refrigerazione",
-      "sottotitolo": "Abbattitori, banchi e armadi per conservare in sicurezza e ridurre gli sprechi nei mesi di pienone.",
+      "sottotitolo": "Abbattitori, banchi e armadi refrigerati per conservare in sicurezza e ridurre gli sprechi.",
       "prodotti": [
         {
           "marca": "METRO Professional",
@@ -118,9 +120,9 @@
             "Ventilato, classe energetica A",
             "Ripiani compatibili GN 1/1"
           ],
+          "badge": "Pezzi limitati",
           "prezzo_rif": 866.8,
-          "etichetta_rif": "Prezzo più basso 30 gg",
-          "badge": "Pezzi limitati"
+          "etichetta_rif": "Prezzo più basso 30 gg"
         },
         {
           "marca": "METRO Professional",
@@ -181,7 +183,7 @@
     {
       "titolo": "Preparazione",
       "url_categoria": "https://www.metro.it/marketplace/c/attrezzature-per-la-preparazione",
-      "sottotitolo": "Affettatrici, sottovuoto e spremiagrumi: velocità in cucina e spremute fresche per la stagione degli agrumi.",
+      "sottotitolo": "Affettatrici, sottovuoto, spremiagrumi e robot: più velocità e precisione in cucina.",
       "prodotti": [
         {
           "marca": "Alpaka",
@@ -194,9 +196,9 @@
             "Caricatore da 8 kg di frutta",
             "Rubinetto di erogazione"
           ],
+          "venditore": "Alpaka",
           "prezzo_rif": 816.75,
-          "etichetta_rif": "Prezzo più basso 30 gg",
-          "venditore": "Alpaka"
+          "etichetta_rif": "Prezzo più basso 30 gg"
         },
         {
           "marca": "HENDI",
@@ -209,7 +211,9 @@
             "Ingombro 210 x 380 x 320 mm",
             "Spedizione gratuita"
           ],
-          "venditore": "Fla srl"
+          "venditore": "Fla srl",
+          "prezzo_rif": 490.0,
+          "etichetta_rif": "Prezzo abituale"
         },
         {
           "marca": "H.Koenig",
@@ -234,9 +238,9 @@
             "2000 W, 1100-2800 giri/min",
             "Ciotola e lame in acciaio inox"
           ],
+          "venditore": "expondo",
           "prezzo_rif": 368.03,
-          "etichetta_rif": "Prezzo abituale",
-          "venditore": "expondo"
+          "etichetta_rif": "Prezzo abituale"
         },
         {
           "marca": "Maxima",
@@ -249,9 +253,9 @@
             "Uso professionale per carne",
             "Spedizione gratuita"
           ],
+          "venditore": "Alpaka",
           "prezzo_rif": 343.97,
-          "etichetta_rif": "Prezzo più basso 30 gg",
-          "venditore": "Alpaka"
+          "etichetta_rif": "Prezzo più basso 30 gg"
         },
         {
           "marca": "METRO Professional",
@@ -272,7 +276,7 @@
     {
       "titolo": "Bar e Caffetteria",
       "url_categoria": "https://www.metro.it/marketplace/c/preparazione-bevande",
-      "sottotitolo": "Caffè, ghiaccio e bicchieri sempre pronti: tutto per il banco bar nella stagione invernale e sciistica.",
+      "sottotitolo": "Caffè, ghiaccio, bicchieri e bevande sempre pronti per il servizio al banco.",
       "prodotti": [
         {
           "marca": "JURA",
@@ -352,14 +356,16 @@
             "Pannello di controllo programmabile",
             "Spedizione gratuita"
           ],
-          "venditore": "MDC-Nolimit"
+          "venditore": "MDC-Nolimit",
+          "prezzo_rif": 329.13,
+          "etichetta_rif": "Prezzo abituale"
         }
       ]
     },
     {
       "titolo": "Lavaggio",
       "url_categoria": "https://www.metro.it/marketplace/c/lavaggio",
-      "sottotitolo": "Lavastoviglie e lavabicchieri professionali per reggere i turni pieni delle feste e della stagione invernale.",
+      "sottotitolo": "Lavastoviglie e lavabicchieri professionali per turni di servizio senza intoppi.",
       "prodotti": [
         {
           "marca": "METRO Professional",
@@ -412,7 +418,9 @@
             "Pompa di scarico integrata",
             "Altezza utile porta 28 cm"
           ],
-          "venditore": "RISTORED SRL"
+          "venditore": "RISTORED SRL",
+          "prezzo_rif": 970.0,
+          "etichetta_rif": "Prezzo abituale"
         },
         {
           "marca": "METRO Professional",
@@ -437,11 +445,12 @@
             "Corpo in acciaio inox AISI 304",
             "Dosatore brillantante incluso"
           ],
+          "venditore": "LAVASYSTEM GROUP",
           "prezzo_rif": 850.0,
-          "etichetta_rif": "Prezzo abituale",
-          "venditore": "LAVASYSTEM GROUP"
+          "etichetta_rif": "Prezzo abituale"
         }
       ]
     }
-  ]
+  ],
+  "criterio_promo": "Promo = prezzo mostrato in rosso sul sito (classe CSS text-metro-red); prezzo di riferimento = prima riga 'reference-price-row' della pagina prodotto"
 }

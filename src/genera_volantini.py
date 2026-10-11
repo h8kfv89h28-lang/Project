@@ -181,7 +181,7 @@ def disegna_header(c, cat, cfg):
 
     c.setFont(FONT_B, 10)
     c.setFillColor(GIALLO)
-    c.drawString(24, PAGE_H - 74, cfg["stagione"]["etichetta"].upper())
+    c.drawString(24, PAGE_H - 74, cfg["etichetta"].upper())
     c.setFillColor(white)
     c.setFont(FONT_B, 30)
     c.drawString(24, PAGE_H - 106, cat["titolo"])
@@ -191,12 +191,14 @@ def disegna_header(c, cat, cfg):
 
     # bollino a destra
     cx, cy = PAGE_W - 78, PAGE_H - 92
-    c.setFillColor(ROSSO)
-    c.circle(cx, cy, 46, stroke=0, fill=1)
+    c.setFillColor(BLU)
+    c.circle(cx, cy, 48, stroke=0, fill=1)
     c.setFillColor(white)
-    righe = cfg["stagione"]["bollino"]
+    c.circle(cx, cy, 45, stroke=0, fill=1)
+    c.setFillColor(BLU)
+    righe = cfg["bollino"]
     for i, r in enumerate(righe):
-        size = 15 if i == 1 else 9
+        size = 15 if i == 1 else (9 if i == 0 else 7.5)
         c.setFont(FONT_B, size)
         c.drawCentredString(cx, cy + 14 - i * 15 - (2 if i == 1 else 0), r)
 
@@ -305,9 +307,10 @@ def disegna_card(c, x, y, w, h, prod, cfg, cat_titolo):
     if promo:
         c.setFont(FONT, 8.5)
         c.drawString(nx, prezzo_y + 11, vecchio)
-        c.setStrokeColor(ROSSO)
-        c.setLineWidth(0.9)
-        c.line(nx - 1, prezzo_y + 14, nx + pdfmetrics.stringWidth(vecchio, FONT, 8.5) + 1, prezzo_y + 14)
+        if etichetta.startswith("Prezzo più basso"):  # come sul sito: barrato solo il prezzo più basso 30 gg
+            c.setStrokeColor(ROSSO)
+            c.setLineWidth(0.9)
+            c.line(nx - 1, prezzo_y + 14, nx + pdfmetrics.stringWidth(vecchio, FONT, 8.5) + 1, prezzo_y + 14)
         c.setFont(FONT, 5.8)
         c.drawString(nx, prezzo_y + 3.5, etichetta)
         c.setFont(FONT, 6.5)
@@ -325,30 +328,26 @@ def disegna_card(c, x, y, w, h, prod, cfg, cat_titolo):
     c.linkURL(url, (bx, by, bx + bw, by + bh), relative=0)
 
 
-def disegna_footer(c, cfg):
+def disegna_footer(c, cat, cfg):
     h = 92
     c.setFillColor(BLU)
     c.rect(0, 0, PAGE_W, h, stroke=0, fill=1)
-    ref = cfg["referente"]
     c.setFillColor(GIALLO)
     c.setFont(FONT_B, 9)
-    c.drawString(24, h - 22, "IL TUO REFERENTE METRO")
+    c.drawString(24, h - 24, cfg["footer_titolo"])
     c.setFillColor(white)
-    c.setFont(FONT_B, 14)
-    c.drawString(24, h - 40, ref["nome"])
-    c.setFont(FONT, 9.5)
-    c.drawString(24, h - 54, f"{ref['ruolo']}  ·  Tel. {ref['telefono']}")
+    c.setFont(FONT_B, 13)
+    c.drawString(24, h - 43, cfg["footer_testo"])
 
-    numero = re.sub(r"\D", "", ref.get("whatsapp", ref["telefono"]))
-    testo = urllib.parse.quote(cfg.get("messaggio_whatsapp", "Buongiorno, vorrei informazioni sul volantino METRO."))
-    wa = f"https://wa.me/{numero}?text={testo}"
-    bx, by, bw, bh = PAGE_W - 24 - 190, h - 56, 190, 30
-    c.setFillColor(HexColor("#25D366"))
-    c.roundRect(bx, by, bw, bh, 15, stroke=0, fill=1)
-    c.setFillColor(white)
-    c.setFont(FONT_B, 10.5)
-    c.drawCentredString(bx + bw / 2, by + 11, "Chiedi un preventivo su WhatsApp")
-    c.linkURL(wa, (bx, by, bx + bw, by + bh), relative=0)
+    url_cat = cat.get("url_categoria")
+    if url_cat:
+        bx, by, bw, bh = PAGE_W - 24 - 170, h - 54, 170, 30
+        c.setFillColor(GIALLO)
+        c.roundRect(bx, by, bw, bh, 15, stroke=0, fill=1)
+        c.setFillColor(BLU)
+        c.setFont(FONT_B, 10)
+        c.drawCentredString(bx + bw / 2, by + 11, "Vedi tutta la categoria  ›")
+        c.linkURL(con_utm(url_cat, cfg, cat["titolo"]), (bx, by, bx + bw, by + bh), relative=0)
 
     c.setFillColor(HexColor("#C7D2FE"))
     c.setFont(FONT, 6.8)
@@ -365,11 +364,11 @@ def genera_categoria(cat, cfg, out_dir, bozza):
     path = os.path.join(out_dir, nome)
     c = canvas.Canvas(path, pagesize=A4)
     c.setTitle(f"METRO Mercato Online – {cat['titolo']}")
-    c.setAuthor(cfg["referente"]["nome"])
-    c.setSubject(cfg["stagione"]["etichetta"])
+    c.setAuthor("METRO Italia")
+    c.setSubject(cfg["etichetta"])
 
     disegna_header(c, cat, cfg)
-    disegna_footer(c, cfg)
+    disegna_footer(c, cat, cfg)
 
     top, bottom, margin, gap = PAGE_H - 168 - 12, 92 + 12, 18, 9
     cols, rows = 2, 3

@@ -5,7 +5,9 @@ Generatore di volantini PDF (1 per categoria, max 6 referenze) da inviare ai cli
 - Foto prodotto incorporate come JPEG statici (nessun contenuto dinamico).
 - Prezzo promozionale in **rosso** (con prezzo pieno barrato e % sconto), prezzo pieno in **blu**.
 - Pulsante "ACQUISTA ONLINE" cliccabile e QR code verso la pagina prodotto (con UTM per misurare i clic per campagna).
-- Footer con referente commerciale e pulsante "Chiedi un preventivo su WhatsApp" (link wa.me).
+- Footer generico: invito a fare riferimento al proprio referente commerciale METRO (nessun contatto specifico)
+  e pulsante "Vedi tutta la categoria".
+- Promo = prezzo rosso sul sito (classe `text-metro-red`), verificato pagina per pagina.
 
 ## Uso
 
@@ -15,7 +17,7 @@ python src/genera_volantini.py --prodotti data/prodotti.json          # volantin
 python src/genera_volantini.py --prodotti data/prodotti.esempio.json --out output/bozza   # bozza layout
 ```
 
-- `config.json`: referente, testi stagionali, note legali, parametri UTM.
+- `config.json`: etichetta e bollino dell'header, testi del footer, note legali, parametri UTM.
 - `data/prodotti.json`: categorie e referenze (`marca`, `nome`, `punti`, `prezzo` attuale, `prezzo_rif` +
   `etichetta_rif` se il sito mostra un prezzo barrato, `badge` opzionale, `url`, `immagine`) + `data_verifica`.
   Le referenze provengono dalle sezioni "I preferiti dai nostri clienti" delle categorie del Mercato Online.
