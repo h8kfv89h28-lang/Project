@@ -340,13 +340,13 @@ h1 {{ font-size: 100px; font-weight: 900; line-height: 1; margin-top: 34px; }}
 /* scheda prodotto */
 .top {{ background: {NAVY}; height: 120px; padding: 0 50px; display: flex; align-items: center; justify-content: space-between; flex: none; }}
 .top .cat {{ color: {NAVY}; background: #fff; border-radius: 40px; padding: 10px 26px; font-size: 27px; font-weight: 700; }}
-.foto {{ position: relative; height: 580px; margin: 28px 50px 0; flex: none; display: flex; align-items: center; justify-content: center;
+.foto {{ position: relative; height: 580px; min-height: 440px; margin: 28px 50px 0; flex: 0 1 auto; display: flex; align-items: center; justify-content: center;
          background: #fff; border-radius: 22px; padding: 24px; }}
-.foto img {{ max-height: 530px; max-width: 100%; object-fit: contain; }}
-.corpo {{ flex: 1; padding: 24px 56px 0; display: flex; flex-direction: column; min-height: 0; }}
+.foto img {{ max-height: 100%; max-width: 100%; object-fit: contain; }}
+.corpo {{ flex: 1 0 auto; padding: 24px 56px 0; display: flex; flex-direction: column; }}
 .brand {{ font-size: 26px; letter-spacing: 1px; color: {GREY}; text-transform: uppercase; }}
 .nome {{ font-size: 50px; font-weight: 900; line-height: 1.15; margin-top: 4px; display: -webkit-box; -webkit-line-clamp: 2;
-         -webkit-box-orient: vertical; overflow: hidden; }}
+         -webkit-box-orient: vertical; overflow: hidden; flex-shrink: 0; }}
 .info {{ background: #fff; border-radius: 16px; padding: 16px 24px; margin: 18px 0 22px; border: 2px solid #DCE3EC; }}
 .cta {{ display: flex; align-items: stretch; gap: 26px; margin-bottom: 30px; }}
 .big {{ flex: 1; display: flex; flex-direction: column; justify-content: center; font-size: 66px; line-height: 1.1; border-radius: 16px; }}
