@@ -6,5 +6,8 @@
         "repo": "affaan-m/ECC"
       }
     }
+  },
+  "enabledPlugins": {
+    "ecc@ecc": true
   }
 }
