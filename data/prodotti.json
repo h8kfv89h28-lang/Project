@@ -128,6 +128,24 @@
             "recensioni": 5
           },
           "disponibilita_limitata": false
+        },
+        {
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Forno per pizza GPO11402, 2 camere",
+          "url": "https://www.metro.it/marketplace/product/0757ed03-b760-4e7b-bfb8-bd0485444e7c",
+          "immagine": "https://images.metro-marketplace.eu/item_image/9bc6de58-528d-43a2-9c82-322701acdc90?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 499.0,
+          "punti": [
+            "2 camere per pizze da 40 cm",
+            "Temperatura fino a 400 °C",
+            "Comandi meccanici, 5200 W"
+          ],
+          "venditore": "METRO",
+          "consegna": {
+            "costo": "29,00 €",
+            "giorni": "3-7"
+          },
+          "disponibilita_limitata": true
         }
       ]
     },
@@ -256,6 +274,63 @@
           },
           "classe_energetica": "D",
           "disponibilita_limitata": false
+        },
+        {
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Congelatore con porta in vetro GFR6600SG",
+          "url": "https://www.metro.it/marketplace/product/fc8a0c88-3187-4170-9350-9b27b5209183",
+          "immagine": "https://images.metro-marketplace.eu/item_image/3c6b60f9-75bf-49f2-87c4-89da26a1c047?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 887.48,
+          "punti": [
+            "380 L netti, da -20 a -17 °C",
+            "Ventilato, sbrinamento automatico",
+            "5 ripiani, adatto a teglie GN 1/1"
+          ],
+          "prezzo_rif": 916.48,
+          "etichetta_rif": "Prezzo più basso 30 gg",
+          "sconto_sito": "-3%",
+          "venditore": "METRO",
+          "consegna": {
+            "costo": "29,00 €",
+            "giorni": "3-7"
+          },
+          "valutazione": {
+            "media": 5.0,
+            "recensioni": 1
+          },
+          "classe_energetica": "C",
+          "disponibilita_limitata": false
+        },
+        {
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Frigorifero GRE6400, 380 L",
+          "url": "https://www.metro.it/marketplace/product/876d5afb-9a5b-4c0b-8b38-5f1ae466c341",
+          "immagine": "https://images.metro-marketplace.eu/item_image/a0b7a5ad-6570-4502-9136-a148a384fc2d?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 690.0,
+          "punti": [
+            "Capacità netta 240 L, da 0 a +8 °C",
+            "5 ripiani regolabili",
+            "Porta in acciaio reversibile"
+          ],
+          "prezzo_rif": 804.99,
+          "etichetta_rif": "Prezzo consigliato",
+          "sconto_sito": "-14%",
+          "venditore": "METRO",
+          "consegna": {
+            "costo": "29,00 €",
+            "giorni": "3-7"
+          },
+          "sconto_quantita": {
+            "da": 6,
+            "prezzo": 662.53,
+            "risparmio": "-3%"
+          },
+          "valutazione": {
+            "media": 5.0,
+            "recensioni": 1
+          },
+          "classe_energetica": "B",
+          "disponibilita_limitata": false
         }
       ]
     },
@@ -372,6 +447,27 @@
           "valutazione": {
             "media": 5.0,
             "recensioni": 2
+          },
+          "disponibilita_limitata": false
+        },
+        {
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Affettatrice GFS4035, lama 35 cm",
+          "url": "https://www.metro.it/marketplace/product/7d027118-1a74-4f69-a39f-86d3c95ae65a",
+          "immagine": "https://images.metro-marketplace.eu/item_image/3a5ba216-23e2-439a-a8d5-e48e9f902d1a?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 729.0,
+          "punti": [
+            "Lama in acciaio inox da 35 cm",
+            "Spessore di taglio da 0 a 30 mm",
+            "Affilatore integrato"
+          ],
+          "prezzo_rif": 749.0,
+          "etichetta_rif": "Prezzo abituale",
+          "sconto_sito": "-2%",
+          "venditore": "METRO",
+          "consegna": {
+            "costo": "29,00 €",
+            "giorni": "3-7"
           },
           "disponibilita_limitata": false
         }
