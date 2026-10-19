@@ -1,5 +1,5 @@
 {
-  "data_verifica": "12/10/2026",
+  "data_verifica": "19/10/2026",
   "fonte": "Attrezzature vendute da METRO (Venduto da: METRO) tra le più scelte nelle categorie di metro.it/marketplace, prezzi verificati sulle pagine prodotto",
   "categorie": [
     {
@@ -7,24 +7,6 @@
       "url_categoria": "https://www.metro.it/marketplace/c/griglie-affumicatori-e-pirofile-con-coperchio",
       "sottotitolo": "Forni, friggitrici e cuocipasta professionali per una cucina sempre al massimo.",
       "prodotti": [
-        {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Forno combinato a vapore GCS1007M, manuale",
-          "url": "https://www.metro.it/marketplace/product/b6cfdbc2-03c6-45b4-a0f7-e0914103bd98",
-          "immagine": "https://images.metro-marketplace.eu/item_image/e4ad8b60-8bf2-4edd-8c5d-49edb2d12eae?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 1890.0,
-          "punti": [
-            "Vapore e aria calda combinati",
-            "Temperatura da 100 a 270 °C, 400 V",
-            "Prodotto in Italia, uso professionale"
-          ],
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "29,00 €",
-            "giorni": "3-7"
-          },
-          "disponibilita_limitata": true
-        },
         {
           "marca": "METRO PROFESSIONAL",
           "nome": "Friggitrice doppia GDF3028, 2 x 8 L, 6500 W",
@@ -43,7 +25,7 @@
           },
           "valutazione": {
             "media": 4.2,
-            "recensioni": 23
+            "recensioni": 24
           },
           "disponibilita_limitata": false
         },
@@ -136,14 +118,14 @@
             "costo": "7,00 €",
             "giorni": "2-4"
           },
-          "valutazione": {
-            "media": 3.6,
-            "recensioni": 5
-          },
           "sconto_quantita": {
             "da": 6,
             "prezzo": 289.63,
             "risparmio": "-3%"
+          },
+          "valutazione": {
+            "media": 3.6,
+            "recensioni": 5
           },
           "disponibilita_limitata": false
         }
@@ -154,57 +136,6 @@
       "url_categoria": "https://www.metro.it/marketplace/c/impianti-refrigerazione",
       "sottotitolo": "Abbattitori, banchi e armadi refrigerati per conservare in sicurezza e ridurre gli sprechi.",
       "prodotti": [
-        {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Abbattitore di temperatura GBF5511BN, 94 L",
-          "url": "https://www.metro.it/marketplace/product/64373b9a-1bfc-46ea-b074-41450721445c",
-          "immagine": "https://images.metro-marketplace.eu/item_image/b5540274-eba4-4ccb-9a32-dc972ee7ea8b?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 1199.0,
-          "punti": [
-            "Abbatte 25 kg in 98 min (+65 → +10 °C)",
-            "Surgela 15 kg in 240 min (fino a -18 °C)",
-            "5 teglie GN 1/1 o 600 x 400 mm"
-          ],
-          "prezzo_rif": 1490.0,
-          "etichetta_rif": "Prezzo più basso 30 gg",
-          "sconto_sito": "-19%",
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "29,00 €",
-            "giorni": "3-7"
-          },
-          "valutazione": {
-            "media": 5.0,
-            "recensioni": 1
-          },
-          "disponibilita_limitata": false
-        },
-        {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Banco refrigerato 3 porte GCC3100BS, 400 L",
-          "url": "https://www.metro.it/marketplace/product/9ef03c10-ea45-4a74-ac48-9783df5fef03",
-          "immagine": "https://images.metro-marketplace.eu/item_image/46ddec9d-b9da-48c2-957e-85180d28e1d3?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 811.63,
-          "punti": [
-            "3 porte, 334 L netti, da -2 a +8 °C",
-            "Ventilato, classe energetica A",
-            "6 ripiani grandi + 4 piccoli, GN 1/1"
-          ],
-          "prezzo_rif": 866.8,
-          "etichetta_rif": "Prezzo più basso 30 gg",
-          "sconto_sito": "-6%",
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "29,00 €",
-            "giorni": "3-7"
-          },
-          "valutazione": {
-            "media": 3.6,
-            "recensioni": 5
-          },
-          "classe_energetica": "A",
-          "disponibilita_limitata": true
-        },
         {
           "marca": "METRO PROFESSIONAL",
           "nome": "Banco refrigerato 2 porte GCC2100BS, 270 L",
@@ -224,14 +155,14 @@
             "costo": "29,00 €",
             "giorni": "3-7"
           },
-          "valutazione": {
-            "media": 3.3,
-            "recensioni": 3
-          },
           "sconto_quantita": {
             "da": 6,
             "prezzo": 690.41,
             "risparmio": "-4%"
+          },
+          "valutazione": {
+            "media": 3.3,
+            "recensioni": 3
           },
           "classe_energetica": "A",
           "disponibilita_limitata": false
@@ -255,14 +186,14 @@
             "costo": "29,00 €",
             "giorni": "3-7"
           },
-          "valutazione": {
-            "media": 2.0,
-            "recensioni": 1
-          },
           "sconto_quantita": {
             "da": 6,
             "prezzo": 501.54,
             "risparmio": "-5%"
+          },
+          "valutazione": {
+            "media": 2.0,
+            "recensioni": 1
           },
           "classe_energetica": "C",
           "disponibilita_limitata": false
@@ -283,14 +214,14 @@
             "costo": "29,00 €",
             "giorni": "3-7"
           },
-          "valutazione": {
-            "media": 4.2,
-            "recensioni": 12
-          },
           "sconto_quantita": {
             "da": 10,
             "prezzo": 1248.95,
             "risparmio": "-3%"
+          },
+          "valutazione": {
+            "media": 4.3,
+            "recensioni": 13
           },
           "classe_energetica": "C",
           "disponibilita_limitata": false
@@ -314,14 +245,14 @@
             "costo": "29,00 €",
             "giorni": "3-7"
           },
-          "valutazione": {
-            "media": 4.5,
-            "recensioni": 11
-          },
           "sconto_quantita": {
             "da": 6,
             "prezzo": 368.69,
             "risparmio": "-4%"
+          },
+          "valutazione": {
+            "media": 4.5,
+            "recensioni": 11
           },
           "classe_energetica": "D",
           "disponibilita_limitata": false
@@ -365,6 +296,9 @@
             "Ciotola in acciaio inox illuminata",
             "Ampia gamma di accessori inclusi"
           ],
+          "prezzo_rif": 623.69,
+          "etichetta_rif": "Prezzo più basso 30 gg",
+          "sconto_sito": "-8%",
           "venditore": "METRO",
           "consegna": {
             "costo": "7,00 €",
@@ -399,7 +333,7 @@
           "nome": "Planetaria ARTISAN con affettaverdure",
           "url": "https://www.metro.it/marketplace/product/3aba947b-f546-498b-a69e-929407eea337",
           "immagine": "https://images.metro-marketplace.eu/item_image/26168ee3-6af2-4501-ac8c-12f674590e05?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 378.88,
+          "prezzo": 362.74,
           "punti": [
             "Ciotola inox 4,8 L: fino a 1 kg di farina",
             "300 W ad azionamento diretto",
@@ -414,29 +348,7 @@
             "media": 4.0,
             "recensioni": 4
           },
-          "disponibilita_limitata": false
-        },
-        {
-          "marca": "H.KOENIG",
-          "nome": "Affettatrice professionale MSX250, lama 25 cm",
-          "url": "https://www.metro.it/marketplace/product/d7d273a7-3f6d-4d5e-abf4-d55f6dbdca9d",
-          "immagine": "https://images.metro-marketplace.eu/item_image/8322f272-7c2a-4949-9d81-201283f15cbf?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 303.66,
-          "punti": [
-            "Lama made in Italy da 25 cm",
-            "Spessore di taglio regolabile 0-12 mm",
-            "Affilatoio integrato, motore 240 W"
-          ],
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "7,00 €",
-            "giorni": "2-6"
-          },
-          "valutazione": {
-            "media": 4.0,
-            "recensioni": 1
-          },
-          "disponibilita_limitata": false
+          "disponibilita_limitata": true
         },
         {
           "marca": "METRO PROFESSIONAL",
@@ -475,7 +387,7 @@
           "nome": "Macchina da caffè automatica ECAM 356.57B",
           "url": "https://www.metro.it/marketplace/product/765252c9-28e9-41ac-849f-1cd8203f486a",
           "immagine": "https://images.metro-marketplace.eu/item_image/a98ff7d8-110a-4bc8-a7ed-419572105e8f?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 523.15,
+          "prezzo": 478.92,
           "punti": [
             "Caffè in chicchi o macinato",
             "Sistema LatteCrema per cappuccini",
@@ -483,7 +395,7 @@
           ],
           "prezzo_rif": 649.0,
           "etichetta_rif": "Prezzo consigliato",
-          "sconto_sito": "-19%",
+          "sconto_sito": "-26%",
           "venditore": "METRO",
           "consegna": {
             "costo": "7,00 €",
@@ -529,8 +441,8 @@
             "giorni": "2-4"
           },
           "valutazione": {
-            "media": 3.5,
-            "recensioni": 13
+            "media": 3.6,
+            "recensioni": 14
           },
           "disponibilita_limitata": false
         },
@@ -578,14 +490,14 @@
             "costo": "29,00 €",
             "giorni": "3-7"
           },
-          "valutazione": {
-            "media": 3.3,
-            "recensioni": 21
-          },
           "sconto_quantita": {
             "da": 6,
             "prezzo": 353.43,
             "risparmio": "-4%"
+          },
+          "valutazione": {
+            "media": 3.4,
+            "recensioni": 22
           },
           "classe_energetica": "D",
           "disponibilita_limitata": false
@@ -639,14 +551,14 @@
             "costo": "29,00 €",
             "giorni": "3-7"
           },
-          "valutazione": {
-            "media": 4.3,
-            "recensioni": 3
-          },
           "sconto_quantita": {
             "da": 6,
             "prezzo": 1894.03,
             "risparmio": "-4%"
+          },
+          "valutazione": {
+            "media": 4.3,
+            "recensioni": 3
           },
           "disponibilita_limitata": false
         },
@@ -704,9 +616,6 @@
             "Bicchieri alti fino a 30 cm",
             "Dosatore brillantante peristaltico"
           ],
-          "prezzo_rif": 1031.71,
-          "etichetta_rif": "Prezzo abituale",
-          "sconto_sito": "-4%",
           "venditore": "METRO",
           "consegna": {
             "costo": "29,00 €",
