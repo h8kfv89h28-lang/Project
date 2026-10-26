@@ -1,5 +1,5 @@
 {
-  "data_verifica": "19/10/2026",
+  "data_verifica": "26/10/2026",
   "fonte": "Attrezzature vendute da METRO (Venduto da: METRO) tra le più scelte nelle categorie di metro.it/marketplace, prezzi verificati sulle pagine prodotto",
   "categorie": [
     {
@@ -74,7 +74,7 @@
             "costo": "29,00 €",
             "giorni": "3-7"
           },
-          "disponibilita_limitata": true
+          "disponibilita_limitata": false
         },
         {
           "marca": "METRO PROFESSIONAL",
@@ -173,11 +173,6 @@
             "costo": "29,00 €",
             "giorni": "3-7"
           },
-          "sconto_quantita": {
-            "da": 6,
-            "prezzo": 690.41,
-            "risparmio": "-4%"
-          },
           "valutazione": {
             "media": 3.3,
             "recensioni": 3
@@ -234,12 +229,12 @@
           },
           "sconto_quantita": {
             "da": 10,
-            "prezzo": 1248.95,
+            "prezzo": 1250.19,
             "risparmio": "-3%"
           },
           "valutazione": {
-            "media": 4.3,
-            "recensioni": 13
+            "media": 4.4,
+            "recensioni": 14
           },
           "classe_energetica": "C",
           "disponibilita_limitata": false
@@ -249,7 +244,7 @@
           "nome": "Frigorifero per bevande GSC2360C, 347 L",
           "url": "https://www.metro.it/marketplace/product/4b039b5d-88c4-45ad-8af3-2f350dade9fb",
           "immagine": "https://images.metro-marketplace.eu/item_image/f1187f2c-150f-468c-8037-a189cdccb152?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 386.75,
+          "prezzo": 549.0,
           "punti": [
             "347 litri, da +2 a +8 °C",
             "4 ripiani regolabili da 40 kg",
@@ -257,7 +252,7 @@
           ],
           "prezzo_rif": 607.99,
           "etichetta_rif": "Prezzo consigliato",
-          "sconto_sito": "-36%",
+          "sconto_sito": "-9%",
           "venditore": "METRO",
           "consegna": {
             "costo": "29,00 €",
@@ -265,8 +260,8 @@
           },
           "sconto_quantita": {
             "da": 6,
-            "prezzo": 368.69,
-            "risparmio": "-4%"
+            "prezzo": 530.95,
+            "risparmio": "-3%"
           },
           "valutazione": {
             "media": 4.5,
@@ -299,7 +294,7 @@
             "recensioni": 1
           },
           "classe_energetica": "C",
-          "disponibilita_limitata": false
+          "disponibilita_limitata": true
         },
         {
           "marca": "METRO PROFESSIONAL",
@@ -371,9 +366,6 @@
             "Ciotola in acciaio inox illuminata",
             "Ampia gamma di accessori inclusi"
           ],
-          "prezzo_rif": 623.69,
-          "etichetta_rif": "Prezzo più basso 30 gg",
-          "sconto_sito": "-8%",
           "venditore": "METRO",
           "consegna": {
             "costo": "7,00 €",
@@ -427,31 +419,6 @@
         },
         {
           "marca": "METRO PROFESSIONAL",
-          "nome": "Macchina sottovuoto a campana GVS1200, 7 L",
-          "url": "https://www.metro.it/marketplace/product/62dd1035-9771-48db-a190-27d97665b651",
-          "immagine": "https://images.metro-marketplace.eu/item_image/38f5d8de-0968-476f-9a7a-aef588b119cf?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 299.0,
-          "punti": [
-            "Pompa 70 L/min, vuoto -0,95 bar",
-            "Camera 30,5 x 32,2 x 10 cm, 5 funzioni",
-            "Inox e vetro, 30 sacchetti inclusi"
-          ],
-          "prezzo_rif": 399.0,
-          "etichetta_rif": "Prezzo più basso 30 gg",
-          "sconto_sito": "-25%",
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "7,00 €",
-            "giorni": "2-4"
-          },
-          "valutazione": {
-            "media": 5.0,
-            "recensioni": 2
-          },
-          "disponibilita_limitata": false
-        },
-        {
-          "marca": "METRO PROFESSIONAL",
           "nome": "Affettatrice GFS4035, lama 35 cm",
           "url": "https://www.metro.it/marketplace/product/7d027118-1a74-4f69-a39f-86d3c95ae65a",
           "immagine": "https://images.metro-marketplace.eu/item_image/3a5ba216-23e2-439a-a8d5-e48e9f902d1a?impolicy=pdp_mobile_main_preview&imwidth=768",
@@ -470,6 +437,32 @@
             "giorni": "3-7"
           },
           "disponibilita_limitata": false
+        },
+        {
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Tritatutto per verdure GFC1005, 5 L, 800 W",
+          "url": "https://www.metro.it/marketplace/product/0ee0501e-74b9-4829-9c99-7e443a146544",
+          "immagine": "https://images.metro-marketplace.eu/item_image/13e39ea0-3fc5-44a1-9885-cf4a86943a70?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 399.0,
+          "punti": [
+            "Vasca da 5 L, motore da 800 W",
+            "Motore potente raffreddato ad aria",
+            "Coperchio trasparente con apertura"
+          ],
+          "prezzo_rif": 615.99,
+          "etichetta_rif": "Prezzo consigliato",
+          "sconto_sito": "-35%",
+          "venditore": "METRO",
+          "consegna": {
+            "costo": "7,00 €",
+            "giorni": "2-4"
+          },
+          "sconto_quantita": {
+            "da": 6,
+            "prezzo": 381.62,
+            "risparmio": "-4%"
+          },
+          "disponibilita_limitata": false
         }
       ]
     },
@@ -478,27 +471,6 @@
       "url_categoria": "https://www.metro.it/marketplace/c/preparazione-bevande",
       "sottotitolo": "Caffè, ghiaccio, bicchieri e bevande sempre pronti per il servizio al banco.",
       "prodotti": [
-        {
-          "marca": "DE'LONGHI",
-          "nome": "Macchina da caffè automatica ECAM 356.57B",
-          "url": "https://www.metro.it/marketplace/product/765252c9-28e9-41ac-849f-1cd8203f486a",
-          "immagine": "https://images.metro-marketplace.eu/item_image/a98ff7d8-110a-4bc8-a7ed-419572105e8f?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 478.92,
-          "punti": [
-            "Caffè in chicchi o macinato",
-            "Sistema LatteCrema per cappuccini",
-            "5 intensità e tasti a selezione diretta"
-          ],
-          "prezzo_rif": 649.0,
-          "etichetta_rif": "Prezzo consigliato",
-          "sconto_sito": "-26%",
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "7,00 €",
-            "giorni": "2-4"
-          },
-          "disponibilita_limitata": true
-        },
         {
           "marca": "H.KOENIG",
           "nome": "Macchina espresso 20 bar con macinacaffè EXPRO980",
@@ -514,31 +486,6 @@
           "consegna": {
             "costo": "7,00 €",
             "giorni": "2-6"
-          },
-          "disponibilita_limitata": false
-        },
-        {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Fabbricatore di ghiaccio GIM1026B, 26 kg/24h",
-          "url": "https://www.metro.it/marketplace/product/e4e18db0-8541-4355-a86c-50e946314e4c",
-          "immagine": "https://images.metro-marketplace.eu/item_image/a3315218-8ffc-42fc-a620-b6ff078f416f?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 299.0,
-          "punti": [
-            "Fino a 26 kg di ghiaccio al giorno",
-            "Cubetti a cono cavo, riserva 6 kg",
-            "Inox, paletta e tubi inclusi"
-          ],
-          "prezzo_rif": 453.99,
-          "etichetta_rif": "Prezzo consigliato",
-          "sconto_sito": "-34%",
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "7,00 €",
-            "giorni": "2-4"
-          },
-          "valutazione": {
-            "media": 3.6,
-            "recensioni": 14
           },
           "disponibilita_limitata": false
         },
@@ -592,8 +539,8 @@
             "risparmio": "-4%"
           },
           "valutazione": {
-            "media": 3.4,
-            "recensioni": 22
+            "media": 3.5,
+            "recensioni": 24
           },
           "classe_energetica": "D",
           "disponibilita_limitata": false
@@ -619,6 +566,62 @@
             "prezzo": 288.49,
             "risparmio": "-3%"
           },
+          "disponibilita_limitata": false
+        },
+        {
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Frigo vetrina per bevande GBC3002, 198 L",
+          "url": "https://www.metro.it/marketplace/product/6ebf79ec-d270-46ee-93e6-e32f4641dfea",
+          "immagine": "https://images.metro-marketplace.eu/item_image/7746342a-81e0-4588-bafc-ab7a21a827d3?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 306.52,
+          "punti": [
+            "6 ripiani regolabili, fino a 30 kg",
+            "Porta a chiusura automatica con serratura",
+            "Sbrinamento automatico"
+          ],
+          "prezzo_rif": 339.56,
+          "etichetta_rif": "Prezzo più basso 30 gg",
+          "sconto_sito": "-9%",
+          "venditore": "METRO",
+          "consegna": {
+            "costo": "29,00 €",
+            "giorni": "3-7"
+          },
+          "sconto_quantita": {
+            "da": 6,
+            "prezzo": 291.19,
+            "risparmio": "-5%"
+          },
+          "valutazione": {
+            "media": 4.2,
+            "recensioni": 5
+          },
+          "disponibilita_limitata": false
+        },
+        {
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Frigorifero per bevande GSC4280, 280 L",
+          "url": "https://www.metro.it/marketplace/product/bace102e-eb69-4efe-9e68-00a8405a156b",
+          "immagine": "https://images.metro-marketplace.eu/item_image/4eb38eed-28c7-4718-81f6-9c6e0b8cb72b?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 335.79,
+          "punti": [
+            "Da +4 a +18 °C, raffreddamento ventilato",
+            "6 ripiani regolabili, fino a 25 kg",
+            "Luce LED, porta con serratura e chiave"
+          ],
+          "prezzo_rif": 364.79,
+          "etichetta_rif": "Prezzo più basso 30 gg",
+          "sconto_sito": "-7%",
+          "venditore": "METRO",
+          "consegna": {
+            "costo": "29,00 €",
+            "giorni": "3-7"
+          },
+          "valutazione": {
+            "media": 4.6,
+            "recensioni": 15
+          },
+          "classe_energetica": "C",
           "disponibilita_limitata": false
         }
       ]
