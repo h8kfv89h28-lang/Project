@@ -52,7 +52,7 @@ def json_ld(h):
 def estrai(h, meta=None):
     meta = meta or {}
     r = {}
-    m = re.search(r'<button class="([^"]*)" test-target="price-box__total">(.*?)</button>', h, re.S)
+    m = re.search(r'<button class="([^"]*)"[^>]*test-target="price-box__total"[^>]*>(.*?)</button>', h, re.S)
     if m:
         r["prezzo"] = num(testo(m.group(2)))
         r["promo"] = "text-metro-red" in m.group(1)
