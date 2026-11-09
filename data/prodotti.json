@@ -1,31 +1,39 @@
 {
-  "data_verifica": "02/11/2026",
+  "data_verifica": "09/11/2026",
   "fonte": "Attrezzature vendute da METRO (Venduto da: METRO) tra le più scelte nelle categorie di metro.it/marketplace, prezzi verificati sulle pagine prodotto",
   "categorie": [
     {
       "titolo": "Cottura",
       "url_categoria": "https://www.metro.it/marketplace/c/griglie-affumicatori-e-pirofile-con-coperchio",
-      "sottotitolo": "Forni, friggitrici e cuocipasta professionali per una cucina sempre al massimo.",
+      "sottotitolo": "Forni, piastre e cuocipasta professionali per una cucina sempre al massimo.",
       "prodotti": [
         {
           "marca": "METRO PROFESSIONAL",
-          "nome": "Friggitrice doppia GDF3028, 2 x 8 L, 6500 W",
-          "url": "https://www.metro.it/marketplace/product/89947111-adf5-4c21-aaad-98d04e901b4f",
-          "immagine": "https://images.metro-marketplace.eu/item_image/a484aad4-0d23-44e8-a353-742366a7ec6d?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 349.0,
+          "nome": "Piastra grill GEG2112, liscia/rigata",
+          "url": "https://www.metro.it/marketplace/product/21840c37-5198-4a5f-86fb-9c2e47ab1356",
+          "immagine": "https://images.metro-marketplace.eu/item_image/1a88332d-7028-4aa9-982b-a36ebb9f88b1?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 299.0,
           "punti": [
-            "2 vasche da 8 L, 2 x 3250 W",
-            "1600 g di patatine fritte in 5 minuti",
-            "Inox 18/10 e rubinetti di scarico olio"
+            "Superficie cromata liscia e rigata",
+            "Termostato da 50 a 300 °C",
+            "Vaschetta raccogli olio estraibile"
           ],
+          "prezzo_rif": 363.99,
+          "etichetta_rif": "Prezzo consigliato",
+          "sconto_sito": "-17%",
           "venditore": "METRO",
           "consegna": {
             "costo": "7,00 €",
             "giorni": "2-4"
           },
+          "sconto_quantita": {
+            "da": 6,
+            "prezzo": 286.98,
+            "risparmio": "-4%"
+          },
           "valutazione": {
-            "media": 4.2,
-            "recensioni": 24
+            "media": 5.0,
+            "recensioni": 2
           },
           "disponibilita_limitata": false
         },
@@ -287,28 +295,28 @@
         },
         {
           "marca": "METRO PROFESSIONAL",
-          "nome": "Frigorifero GRE6400, 380 L",
-          "url": "https://www.metro.it/marketplace/product/876d5afb-9a5b-4c0b-8b38-5f1ae466c341",
-          "immagine": "https://images.metro-marketplace.eu/item_image/a0b7a5ad-6570-4502-9136-a148a384fc2d?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 690.0,
+          "nome": "Frigorifero GRE4600, 600 L",
+          "url": "https://www.metro.it/marketplace/product/a9acb2fc-3e18-498c-8aeb-86ff4ee0f7d4",
+          "immagine": "https://images.metro-marketplace.eu/item_image/5ca972eb-095e-4eb6-ba74-0b7e8e9e4522?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 890.0,
           "punti": [
-            "Capacità netta 240 L, da 0 a +8 °C",
-            "5 ripiani regolabili",
-            "Porta in acciaio reversibile"
+            "Da -1 a +6 °C, ventilazione assistita",
+            "5 ripiani GN 2/1 da 55 kg ciascuno",
+            "Porta autochiudente con serratura"
           ],
-          "prezzo_rif": 804.99,
+          "prezzo_rif": 1168.99,
           "etichetta_rif": "Prezzo consigliato",
-          "sconto_sito": "-14%",
+          "sconto_sito": "-23%",
           "venditore": "METRO",
           "consegna": {
             "costo": "29,00 €",
             "giorni": "3-7"
           },
           "valutazione": {
-            "media": 5.0,
-            "recensioni": 1
+            "media": 4.4,
+            "recensioni": 8
           },
-          "classe_energetica": "B",
+          "classe_energetica": "C",
           "disponibilita_limitata": true
         }
       ]
@@ -346,15 +354,15 @@
           "disponibilita_limitata": false
         },
         {
-          "marca": "KENWOOD",
-          "nome": "Robot Titanium Chef Patissier XL, 1400 W",
-          "url": "https://www.metro.it/marketplace/product/0baf0c1a-a7cf-4d4e-945a-bc1756c268a1",
-          "immagine": "https://images.metro-marketplace.eu/item_image/67017354-13e5-4bb4-8f6d-8b92e4564a7b?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 583.01,
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Affettatrice GFS4030, lama 30 cm",
+          "url": "https://www.metro.it/marketplace/product/d79cfe0f-7f8e-4642-8732-2c3587185927",
+          "immagine": "https://images.metro-marketplace.eu/item_image/5095298b-ba0c-4be3-aba7-ed9e32bc7d5f?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 749.0,
           "punti": [
-            "Pesa e riscalda direttamente in ciotola",
-            "Ciotola in acciaio inox illuminata",
-            "Ampia gamma di accessori inclusi"
+            "Lama inox da 30 cm, taglio 0-15 mm",
+            "Affilatore integrato",
+            "Corpo in alluminio anodizzato"
           ],
           "venditore": "METRO",
           "consegna": {
@@ -362,10 +370,10 @@
             "giorni": "2-4"
           },
           "valutazione": {
-            "media": 4.8,
-            "recensioni": 5
+            "media": 5.0,
+            "recensioni": 1
           },
-          "disponibilita_limitata": true
+          "disponibilita_limitata": false
         },
         {
           "marca": "H.KOENIG",
@@ -505,7 +513,7 @@
           },
           "valutazione": {
             "media": 4.2,
-            "recensioni": 5
+            "recensioni": 6
           },
           "disponibilita_limitata": false,
           "sconto_quantita": {
@@ -658,8 +666,8 @@
             "risparmio": "-4%"
           },
           "valutazione": {
-            "media": 4.3,
-            "recensioni": 3
+            "media": 4.5,
+            "recensioni": 4
           },
           "disponibilita_limitata": false
         },
@@ -745,8 +753,8 @@
             "giorni": "3-7"
           },
           "valutazione": {
-            "media": 1.0,
-            "recensioni": 1
+            "media": 1.5,
+            "recensioni": 2
           },
           "disponibilita_limitata": false,
           "prezzo_rif": 799.0,
