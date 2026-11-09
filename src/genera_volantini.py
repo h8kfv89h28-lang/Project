@@ -220,9 +220,9 @@ def html_a4(cat, cfg, data):
         url = con_utm(p["url"], cfg, cat["titolo"], "volantino-pdf")
         cards += f"""
 <div class="card">
-  <a href="{esc(url)}" class="foto"><img src="{foto(p)}">{badge_foto(p, 12)}</a>
+  <div class="foto"><img src="{foto(p)}">{badge_foto(p, 12)}</div>
   <div class="brand">{esc(p.get("marca", ""))}</div>
-  <a href="{esc(url)}" class="nome">{esc(p["nome"])}</a>
+  <div class="nome">{esc(p["nome"])}</div>
   {blocco_valutazione(p, 10.5)}
   <div style="margin-top:7px">{lista_punti(p, 10.8)}</div>
   <div style="flex:1"></div>
@@ -234,7 +234,6 @@ def html_a4(cat, cfg, data):
     <a href="{esc(url)}" class="qr"><img src="{qr_uri(url)}"><span>Inquadra</span></a>
   </div>
 </div>"""
-    url_cat = con_utm(cat.get("url_categoria", "https://www.metro.it/marketplace"), cfg, cat["titolo"], "volantino-pdf")
     nota = esc(cfg["note_legali"].format(data=data))
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>{css_base()}
 @page {{ size: A4; margin: 0; }}
@@ -267,7 +266,7 @@ h1 {{ font-size: 34px; font-weight: 900; line-height: 1.1; margin-top: 2px; }}
 .bottom {{ background: {NAVY}; color: #fff; padding: 12px 26px; display: flex; align-items: center; justify-content: space-between; flex: none; }}
 .bottom .t1 {{ font-size: 12px; font-weight: 700; color: {YELLOW}; }}
 .bottom .t2 {{ font-size: 14px; font-weight: 700; margin-top: 1px; }}
-.bottom .out {{ border: 1.5px solid #fff; border-radius: 6px; padding: 8px 14px; font-size: 12.5px; font-weight: 700; }}
+.bottom .out {{ font-size: 12.5px; font-weight: 700; }}
 </style></head><body>
 <div class="top"><div style="display:flex;align-items:center">{logo_svg(22)}<span class="mo">Mercato Online</span></div>
   <span class="url">metro.it/marketplace</span></div>
@@ -279,17 +278,16 @@ h1 {{ font-size: 34px; font-weight: 900; line-height: 1.1; margin-top: 2px; }}
 <div class="grid">{cards}</div>
 <div class="legal">{nota}</div>
 <div class="bottom"><div><div class="t1">{esc(cfg["footer_titolo"])}</div><div class="t2">{esc(cfg["footer_testo"])}</div></div>
-  <a class="out" href="{esc(url_cat)}">Vedi tutta la categoria ›</a></div>
+  <div class="out">Vedi tutta la categoria su metro.it</div></div>
 </body></html>"""
 
 
 # ---------------------------------------------------------------- WhatsApp (PDF verticale 9:16, 1080 x 1920 px per pagina)
 def html_wa_pdf(cat, cfg, data):
-    """PDF da smartphone: una pagina per prodotto con il pulsante "Acquista online" verso il sito
-    e la navigazione precedente/successivo tra le pagine."""
+    """PDF da smartphone: una pagina per prodotto; gli unici link sono il pulsante "Acquista online"
+    e il QR code."""
     prodotti = cat["prodotti"][:MAX_REFERENZE]
     tot = len(prodotti)
-    url_cat = con_utm(cat.get("url_categoria", "https://www.metro.it/marketplace"), cfg, cat["titolo"], "whatsapp-pdf")
     nota = esc(cfg["note_legali"].format(data=data))
 
     schede = ""
@@ -298,16 +296,16 @@ def html_wa_pdf(cat, cfg, data):
         schede += f"""<section class="pag" id="p{i}">
 <div class="top"><div class="riga">{logo_svg(42)}<span class="mo">Mercato Online</span></div>
   <span class="cat">{esc(cat["titolo"])} · {i}/{tot}</span></div>
-<a href="{esc(url)}" class="foto"><img src="{foto(p)}">{badge_foto(p, 36)}</a>
+<div class="foto"><img src="{foto(p)}">{badge_foto(p, 36)}</div>
 <div class="corpo">
   <div class="brand">{esc(p.get("marca", ""))}</div>
-  <a href="{esc(url)}" class="nome">{esc(p["nome"])}</a>
+  <div class="nome">{esc(p["nome"])}</div>
   {blocco_valutazione(p, 32)}
   <div style="margin-top:22px">{lista_punti(p, 36)}</div>
   <div style="flex:1"></div>
   <div>{blocco_prezzo(p, 104)}</div>
   <div class="info">{righe_info(p, 31)}</div>
-  <div class="cta"><a class="btn big" href="{esc(url)}">Acquista online<br><span>su metro.it ›</span></a>
+  <div class="cta"><a class="btn big" href="{esc(url)}">Acquista Online</a>
     <a class="qrw" href="{esc(url)}"><img src="{qr_uri(url)}"><span>Inquadra il QR</span></a></div>
 </div>
 <div class="fondo"><div class="t1">{esc(cfg["footer_titolo"])}</div><div class="t2">{esc(cfg["footer_testo"])}</div>
@@ -342,17 +340,16 @@ h1 {{ font-size: 100px; font-weight: 900; line-height: 1; margin-top: 34px; }}
 /* scheda prodotto */
 .top {{ background: {NAVY}; height: 120px; padding: 0 50px; display: flex; align-items: center; justify-content: space-between; flex: none; }}
 .top .cat {{ color: {NAVY}; background: #fff; border-radius: 40px; padding: 10px 26px; font-size: 27px; font-weight: 700; }}
-.foto {{ position: relative; height: 580px; margin: 28px 50px 0; flex: none; display: flex; align-items: center; justify-content: center;
+.foto {{ position: relative; height: 580px; min-height: 440px; margin: 28px 50px 0; flex: 0 1 auto; display: flex; align-items: center; justify-content: center;
          background: #fff; border-radius: 22px; padding: 24px; }}
-.foto img {{ max-height: 530px; max-width: 100%; object-fit: contain; }}
-.corpo {{ flex: 1; padding: 24px 56px 0; display: flex; flex-direction: column; min-height: 0; }}
+.foto img {{ max-height: 100%; max-width: 100%; object-fit: contain; }}
+.corpo {{ flex: 1 0 auto; padding: 24px 56px 0; display: flex; flex-direction: column; }}
 .brand {{ font-size: 26px; letter-spacing: 1px; color: {GREY}; text-transform: uppercase; }}
 .nome {{ font-size: 50px; font-weight: 900; line-height: 1.15; margin-top: 4px; display: -webkit-box; -webkit-line-clamp: 2;
-         -webkit-box-orient: vertical; overflow: hidden; }}
+         -webkit-box-orient: vertical; overflow: hidden; flex-shrink: 0; }}
 .info {{ background: #fff; border-radius: 16px; padding: 16px 24px; margin: 18px 0 22px; border: 2px solid #DCE3EC; }}
 .cta {{ display: flex; align-items: stretch; gap: 26px; margin-bottom: 30px; }}
-.big {{ flex: 1; display: flex; flex-direction: column; justify-content: center; font-size: 50px; line-height: 1.1; border-radius: 16px; }}
-.big span {{ font-size: 32px; font-weight: 400; }}
+.big {{ flex: 1; display: flex; flex-direction: column; justify-content: center; font-size: 66px; line-height: 1.1; border-radius: 16px; }}
 .qrw {{ display: flex; flex-direction: column; align-items: center; background: #fff; border: 2px solid #DCE3EC; border-radius: 16px; padding: 12px 14px 8px; }}
 .qrw img {{ width: 170px; height: 170px; }}
 .qrw span {{ font-size: 20px; color: {GREY}; margin-top: 4px; }}
@@ -384,7 +381,7 @@ LEGGIMI = """VOLANTINI METRO MERCATO ONLINE - HORECA (prezzi verificati il {data
 PDF_A4/        5 volantini A4 (uno per categoria): pulsanti cliccabili e QR code.
                Per e-mail, stampa o per chi legge da computer.
 PDF_WhatsApp/  5 volantini in formato smartphone (verticale 9:16), uno per categoria:
-               una pagina per prodotto con il pulsante "Acquista online su metro.it" e il QR code
+               una pagina per prodotto con il pulsante "Acquista online" e il QR code
 Testi_WhatsApp/ testo facoltativo da incollare insieme al PDF (con i link diretti ai prodotti).
 
 COME INVIARE SU WHATSAPP
