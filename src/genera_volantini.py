@@ -22,6 +22,7 @@ import json
 import os
 import re
 import shutil
+import tempfile
 import unicodedata
 import urllib.parse
 import urllib.request
@@ -124,7 +125,19 @@ def foto(prod):
             sfondo.paste(img, mask=img.split()[-1])
             img = sfondo
         img.convert("RGB").save(path, "JPEG", quality=90)
-    return "file://" + path
+    return "file://" + foto_ottimizzata(path)
+
+
+def foto_ottimizzata(path, lato_max=900, qualita=82):
+    """Copia più leggera della foto per l'inserimento nel PDF (stessa resa a schermo e in stampa)."""
+    dest_dir = os.path.join(tempfile.gettempdir(), "volantini_foto")
+    os.makedirs(dest_dir, exist_ok=True)
+    dest = os.path.join(dest_dir, f"{os.path.splitext(os.path.basename(path))[0]}_{lato_max}_{qualita}.jpg")
+    if not os.path.exists(dest):
+        img = Image.open(path).convert("RGB")
+        img.thumbnail((lato_max, lato_max))
+        img.save(dest, "JPEG", quality=qualita, optimize=True, progressive=True)
+    return dest
 
 
 def logo_svg(altezza):
@@ -214,7 +227,7 @@ def righe_info(p, fs, quantita=True):
     testo = " · ".join(x for x in (gg, costo) if x)
     if testo:
         righe.append(f'{ICONA_CAMION} {testo[0].upper() + testo[1:]}')
-    return "".join(f'<div style="font-size:{fs}px;line-height:1.5;white-space:nowrap">{r}</div>' for r in righe)
+    return "".join(f'<div style="font-size:{fs}px;line-height:1.45;white-space:nowrap">{r}</div>' for r in righe)
 
 
 def badge_foto(p, fs):
@@ -251,11 +264,11 @@ def html_a4(cat, cfg, data):
   <div class="brand">{esc(p.get("marca", ""))}</div>
   <div class="nome">{esc_nb(p["nome"])}</div>
   {blocco_valutazione(p, 10.5)}
-  <div style="margin-top:7px">{lista_punti(p, 10.8)}</div>
-  <div style="flex:1"></div>
+  <div style="margin-top:7px" class="punti-a4">{lista_punti(p, 10.8)}</div>
   <div class="sep"></div>
   {blocco_prezzo(p, 25)}
   <div style="margin-top:5px">{righe_info(p, 10.2)}</div>
+  <div style="flex:1"></div>
   <div class="cta">
     <a class="btn" href="{esc(url)}">Acquista online ›</a>
     <a href="{esc(url)}" class="qr"><img src="{qr_uri(url_qr)}" alt="QR code"><span>Inquadra</span></a>
@@ -277,15 +290,16 @@ h1 {{ font-size: 34px; font-weight: 900; line-height: 1.1; margin-top: 2px; }}
 .agg {{ font-size: 10.5px; color: {GREY}; margin-top: 6px; text-align: right; }}
 .grid {{ flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr);
          gap: 11px; padding: 12px 18px 6px; min-height: 0; }}
-.card {{ background: #fff; border: 1px solid #DCE3EC; border-radius: 10px; padding: 10px 12px;
+.card {{ background: #fff; border: 1px solid #DCE3EC; border-radius: 10px; padding: 9px 12px 6px;
          display: flex; flex-direction: column; min-height: 0; overflow: hidden; }}
-.foto {{ position: relative; height: 116px; flex: none; display: flex; align-items: center; justify-content: center; }}
-.foto img {{ max-height: 112px; max-width: 100%; object-fit: contain; }}
-.brand {{ font-size: 9.5px; letter-spacing: .5px; color: {GREY}; margin-top: 8px; text-transform: uppercase; }}
+.foto {{ position: relative; height: 100px; flex: none; display: flex; align-items: center; justify-content: center; }}
+.foto img {{ max-height: 98px; max-width: 100%; object-fit: contain; }}
+.brand {{ font-size: 9.5px; letter-spacing: .5px; color: {GREY}; margin-top: 6px; text-transform: uppercase; }}
 .nome {{ font-size: 13px; font-weight: 700; line-height: 1.25; margin-top: 2px; display: -webkit-box;
          -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 32px; }}
 .sep {{ border-top: 1px solid #E8EDF3; margin: 6px 0 7px; }}
-.cta {{ display: flex; align-items: center; gap: 8px; margin-top: 7px; }}
+.punti-a4 {{ min-height: 52px; }}
+.cta {{ display: flex; align-items: center; gap: 8px; margin-top: 4px; }}
 .cta .btn {{ flex: 1; font-size: 13px; padding: 11px 4px; }}
 .qr {{ display: flex; flex-direction: column; align-items: center; }}
 .qr img {{ width: 62px; height: 62px; }}
@@ -332,7 +346,7 @@ def html_wa_pdf(cat, cfg, data):
   {blocco_valutazione(p, 32)}
   <div style="margin-top:22px">{lista_punti(p, 36)}</div>
   <div style="flex:1"></div>
-  <div>{blocco_prezzo(p, 104)}</div>
+  <div style="margin-top:18px">{blocco_prezzo(p, 104)}</div>
   <div class="info">{righe_info(p, 31)}</div>
   <div class="cta"><a class="btn big" href="{esc(url)}">Acquista Online</a>
     <a class="qrw" href="{esc(url)}"><img src="{qr_uri(url_qr)}" alt="QR code"><span>Inquadra il QR</span></a></div>
@@ -386,7 +400,7 @@ h1 {{ font-size: 100px; font-weight: 900; line-height: 1; margin-top: 34px; }}
 .fondo {{ background: {NAVY}; color: #fff; padding: 24px 56px 26px; flex: none; }}
 .fondo .t1 {{ font-size: 24px; font-weight: 700; color: {YELLOW}; }}
 .fondo .t2 {{ font-size: 30px; font-weight: 700; margin-top: 4px; }}
-.fondo .legal {{ font-size: 17px; opacity: .75; margin-top: 12px; line-height: 1.35; }}
+.fondo .legal {{ font-size: 19px; color: #D5DEEC; margin-top: 12px; line-height: 1.35; }}
 </style></head><body>{schede}</body></html>"""
 
 
@@ -511,13 +525,23 @@ def main():
             page.goto("file://" + f, wait_until="load")
             page.evaluate("document.fonts.ready")
 
+        def tagliati(selettore):
+            """Elementi il cui contenuto non entra nello spazio disponibile (testo o pulsanti tagliati)."""
+            return page.evaluate("""s => [...document.querySelectorAll(s)]
+                .filter(e => e.scrollHeight > e.clientHeight + 1)
+                .map(e => (e.querySelector(".nome") || e).textContent.trim().slice(0, 50) + " (+" + (e.scrollHeight - e.clientHeight) + " px)")""", selettore)
+
         for cat in dati["categorie"]:
             nome = slug(cat["titolo"])
             carica(f"{nome}_a4.html", html_a4(cat, cfg, data), 794, 1123)
+            for t in tagliati(".card"):
+                print(f"AVVISO: {cat['titolo']} A4, scheda con contenuto tagliato: {t}")
             pdf_a4 = os.path.join(cartelle["a4"], f"Volantino_METRO_{nome}_A4.pdf")
             page.pdf(path=pdf_a4, width="210mm", height="297mm", print_background=True, page_ranges="1")
 
             carica(f"{nome}_wa.html", html_wa_pdf(cat, cfg, data), 1080, 1920)
+            for t in tagliati(".pag"):
+                print(f"AVVISO: {cat['titolo']} WhatsApp, pagina con contenuto tagliato: {t}")
             pdf_wa = os.path.join(cartelle["wa"], f"Volantino_METRO_{nome}_WhatsApp.pdf")
             page.pdf(path=pdf_wa, width="1080px", height="1920px", print_background=True)
 

@@ -31,6 +31,9 @@ Chromium: trovato automaticamente in `/opt/pw-browsers` (versione più recente) 
 
 Prima di generare, lo script controlla i dati: si ferma se manca un campo obbligatorio, se due prodotti hanno lo
 stesso link o se il venditore non è METRO; segnala come avviso prezzi sotto 290 € e punti chiave troppo lunghi.
+Durante la generazione segnala anche le schede A4 o le pagine WhatsApp il cui contenuto viene tagliato
+(`AVVISO: ... contenuto tagliato`): in quel caso accorciare nome o punti chiave.
+Test rapidi: `python -m unittest discover tests`.
 I volantini vengono scritti in `output.tmp/` e sostituiscono `output/` solo se la generazione riesce.
 
 Tracciamento clic (UTM): `utm_medium` = `volantino-pdf` / `whatsapp-pdf` / `whatsapp-messaggio` per i pulsanti e i link,
