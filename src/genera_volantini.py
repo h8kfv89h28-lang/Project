@@ -293,21 +293,21 @@ h1 {{ font-size: 34px; font-weight: 900; line-height: 1.1; margin-top: 2px; }}
 .chip {{ background: #E6F0FF; border-radius: 20px; padding: 6px 13px; font-size: 12px; font-weight: 700; white-space: nowrap; text-align: center; }}
 .agg {{ font-size: 10.5px; color: {GREY}; margin-top: 6px; text-align: right; }}
 .grid {{ flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr);
-         gap: 11px; padding: 12px 18px 6px; min-height: 0; }}
+         gap: 9px; padding: 8px 18px 4px; min-height: 0; }}
 .card {{ background: #fff; border: 1px solid #DCE3EC; border-radius: 10px; padding: 9px 12px 6px;
          display: flex; flex-direction: column; min-height: 0; overflow: hidden; }}
-.foto {{ position: relative; height: 100px; flex: none; display: flex; align-items: center; justify-content: center; }}
-.foto img {{ max-height: 98px; max-width: 100%; object-fit: contain; }}
+.foto {{ position: relative; height: 92px; flex: none; display: flex; align-items: center; justify-content: center; }}
+.foto img {{ max-height: 90px; max-width: 100%; object-fit: contain; }}
 .brand {{ font-size: 9.5px; letter-spacing: .5px; color: {GREY}; margin-top: 6px; text-transform: uppercase; }}
 .nome {{ font-size: 13px; font-weight: 700; line-height: 1.25; margin-top: 2px; display: -webkit-box;
          -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 32px; }}
 .sep {{ border-top: 1px solid #E8EDF3; margin: 6px 0 7px; }}
 .punti-a4 {{ min-height: 52px; }}
-.cta {{ display: flex; align-items: center; gap: 8px; margin-top: 4px; }}
+.cta {{ display: flex; align-items: center; gap: 10px; margin-top: 4px; }}
 .cta .btn {{ flex: 1; font-size: 13px; padding: 11px 4px; }}
 .qr {{ display: flex; flex-direction: column; align-items: center; }}
-.qr img {{ width: 62px; height: 62px; }}
-.qr span {{ font-size: 8px; color: {GREY}; }}
+.qr img {{ width: 76px; height: 76px; }}
+.qr span {{ font-size: 8px; line-height: 1; margin-top: 1px; color: {GREY}; }}
 .legal {{ font-size: 8.6px; color: {GREY}; padding: 0 20px 6px; line-height: 1.35; flex: none; }}
 .bottom {{ background: {NAVY}; color: #fff; padding: 12px 26px; display: flex; align-items: center; justify-content: space-between; flex: none; }}
 .bottom .t1 {{ font-size: 12px; font-weight: 700; color: {YELLOW}; }}
