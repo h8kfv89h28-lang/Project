@@ -255,7 +255,11 @@ def lista_punti(p, fs, n=3):
 # ---------------------------------------------------------------- A4 (794 x 1123 px)
 def html_a4(cat, cfg, data):
     cards = ""
-    for p in cat["prodotti"][:MAX_REFERENZE]:
+    prodotti = cat["prodotti"][:MAX_REFERENZE]
+    righe_con_stelle = {i // 3 for i, p in enumerate(prodotti) if mostra_valutazione(p)}
+    for i, p in enumerate(prodotti):
+        stelle_a4 = blocco_valutazione(p, 10.5) or (
+            '<div style="font-size:10.5px;margin-top:.3em">&nbsp;</div>' if i // 3 in righe_con_stelle else "")
         url = con_utm(p["url"], cfg, cat["titolo"], "volantino-pdf")
         url_qr = con_utm(p["url"], cfg, cat["titolo"], "a4-qr", contenuto=False)
         cards += f"""
@@ -263,7 +267,7 @@ def html_a4(cat, cfg, data):
   <div class="foto"><img src="{foto(p)}" alt="{esc(p["nome"])}">{badge_foto(p, 12)}</div>
   <div class="brand">{esc(p.get("marca", ""))}</div>
   <div class="nome">{esc_nb(p["nome"])}</div>
-  {blocco_valutazione(p, 10.5)}
+  {stelle_a4}
   <div style="margin-top:7px" class="punti-a4">{lista_punti(p, 10.8)}</div>
   <div class="sep"></div>
   {blocco_prezzo(p, 25)}
@@ -409,13 +413,13 @@ def messaggio(cat, cfg, data):
     num = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣"]
     righe = [f"*METRO Mercato Online · {cat['titolo']}*",
              f"Ti invio una selezione di attrezzature professionali vendute direttamente da METRO (prezzi IVA esclusa verificati su metro.it il {data}).",
-             "Nel PDF tocca *Acquista online* per andare direttamente al prodotto.", ""]
+             "Nel PDF tocca *Acquista Online* per andare direttamente al prodotto.", ""]
     for i, p in enumerate(cat["prodotti"][:MAX_REFERENZE]):
         prezzo = f"*{euro(p['prezzo'])}* + IVA"
         if p.get("prezzo_rif") is not None:
             prezzo += f" ({p['sconto_sito']})"
         righe += [f"{num[i]} {p['nome']} · {prezzo}",
-                  f"👉 {con_utm(p['url'], cfg, cat['titolo'], 'whatsapp-messaggio')}", ""]
+                  f"👉 {con_utm(p['url'], cfg, cat['titolo'], 'whatsapp-messaggio', contenuto=False)}", ""]
     righe.append(f"Per informazioni o un preventivo {cfg['footer_testo'][0].lower() + cfg['footer_testo'][1:]}")
     return "\n".join(righe) + "\n"
 

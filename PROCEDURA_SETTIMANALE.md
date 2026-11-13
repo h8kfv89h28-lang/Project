@@ -7,7 +7,10 @@ categoria), `src/estrai_pagina.py` (lettura dati dalla pagina), `src/genera_vola
 Per ogni prodotto in `data/prodotti.json` scaricare la pagina prodotto con Firecrawl
 (`formats: ["rawHtml"]`, `maxAge: 0`, `waitFor: 3000`, al massimo 2 richieste in parallelo e 10 al minuto).
 Il risultato viene salvato su file: copiarlo in `/tmp/pagine/<id>.json` ed eseguire
-`python src/estrai_pagina.py /tmp/pagine/*.json`, che restituisce per ogni pagina:
+`python src/estrai_pagina.py /tmp/pagine/*.json`, che restituisce per ogni pagina i dati sotto. Se un dato essenziale
+(prezzo, venditore, titolo, foto) manca su **tutte** le pagine lo script esce con `ERRORE` e codice 2: è cambiato l'HTML
+del sito, aggiornare le espressioni regolari prima di proseguire (un `AVVISO` su una sola pagina indica invece
+una pagina non disponibile da controllare):
 
 - **prezzo** e **promo** (colore come sul sito: classe `text-metro-red` = rosso/promo,
   `text-metro-blue-main` = blu/prezzo pieno);
