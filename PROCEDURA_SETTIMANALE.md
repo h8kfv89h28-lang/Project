@@ -47,6 +47,10 @@ Controllare visivamente che la foto corrisponda al prodotto.
 ```bash
 python src/genera_volantini.py
 ```
-Aggiornare `data_verifica` alla data odierna, controllare l'anteprima dei PDF, fare commit e push
+Aggiornare `data_verifica` alla data odierna. Se le sostituzioni cambiano i tipi di prodotto di una categoria,
+aggiornare anche il `sottotitolo` della categoria perché descriva solo ciò che c'è nel volantino.
+Lo script si ferma con `ERRORE:` se un dato obbligatorio manca o il venditore non è METRO (correggere e rilanciare)
+e stampa `AVVISO:` per prezzi sotto 290 € o punti oltre 42 caratteri. Crea anche `output/MarketPlace_A4.pdf` e
+`output/MarketPlace_WA.pdf`. Controllare l'anteprima dei PDF, fare commit e push
 sul branch, inviare il pacchetto `output/Volantini_METRO_Horeca.zip` (5 PDF A4 + 5 PDF WhatsApp + testi) con un riepilogo delle modifiche (prezzi cambiati,
 promo nuove/terminate, venditori cambiati, referenze sostituite e motivo).

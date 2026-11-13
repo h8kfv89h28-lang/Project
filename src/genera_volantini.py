@@ -15,6 +15,7 @@ Uso:
 
 import argparse
 import base64
+import glob
 import html
 import io
 import json
@@ -31,7 +32,15 @@ from PIL import Image
 from playwright.sync_api import sync_playwright
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CHROMIUM = os.environ.get("CHROMIUM_PATH", "/opt/pw-browsers/chromium-1194/chrome-linux/chrome")
+def trova_chromium():
+    """Percorso di Chromium: CHROMIUM_PATH, altrimenti la versione più recente in /opt/pw-browsers,
+    altrimenti None (Chromium gestito da Playwright)."""
+    env = os.environ.get("CHROMIUM_PATH")
+    if env and os.path.exists(env):
+        return env
+    candidati = sorted(glob.glob("/opt/pw-browsers/chromium-*/chrome-linux*/chrome"),
+                       key=lambda x: int(re.search(r"chromium-(\d+)", x).group(1)), reverse=True)
+    return candidati[0] if candidati else None
 MAX_REFERENZE = 6
 
 # Colori rilevati sul sito metro.it/marketplace
@@ -55,25 +64,42 @@ def esc(t):
     return html.escape(str(t), quote=True)
 
 
+UNITA = r"(?:L|l|cm|mm|m|W|kW|V|bar|kg|g|pz|gg|°C|°|%|x|lame|camer[ae]|port[ae]|vasc(?:a|he)|cest[oi]|pizze|zone)"
+
+
+def nbsp(t):
+    """Evita gli a capo tra numero e unità ("130 L", "50 x 50 cm", "2 camere"): spazi non separabili."""
+    t = str(t)
+    t = re.sub(r"(\d) (?=" + UNITA + r"\b)", "\\1\u00a0", t)
+    t = re.sub(r"(\d)\u00a0x (?=\d)", "\\1\u00a0x\u00a0", t)
+    return t
+
+
+def esc_nb(t):
+    return esc(nbsp(t))
+
+
 def slug(t):
     t = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode()  # caffè -> caffe
     return re.sub(r"[^A-Za-z0-9]+", "_", t).strip("_")
 
 
-def con_utm(url, cfg, categoria, medium):
+def con_utm(url, cfg, categoria, medium, contenuto=True):
     utm = cfg.get("utm") or {}
     if not utm:
         return url
     parti = urllib.parse.urlsplit(url)
     q = dict(urllib.parse.parse_qsl(parti.query))
     q.update({"utm_source": utm.get("source", "whatsapp"), "utm_medium": medium,
-              "utm_campaign": utm.get("campaign", "horeca"),
-              "utm_content": re.sub(r"[^a-z0-9]+", "-", categoria.lower()).strip("-")})
+              "utm_campaign": utm.get("campaign", "horeca")})
+    if contenuto:
+        q["utm_content"] = re.sub(r"[^a-z0-9]+", "-", categoria.lower()).strip("-")
     return urllib.parse.urlunsplit(parti._replace(query=urllib.parse.urlencode(q)))
 
 
 def qr_uri(url):
-    qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_M, box_size=10, border=1)
+    """QR del link (versione bassa = moduli più grandi e lettura più facile da stampa e da schermo)."""
+    qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=10, border=1)
     qr.add_data(url)
     qr.make(fit=True)
     buf = io.BytesIO()
@@ -209,7 +235,7 @@ def badge_foto(p, fs):
 
 
 def lista_punti(p, fs, n=3):
-    li = "".join(f"<li>{esc(x)}</li>" for x in p.get("punti", [])[:n])
+    li = "".join(f"<li>{esc_nb(x)}</li>" for x in p.get("punti", [])[:n])
     return f'<ul class="punti" style="font-size:{fs}px">{li}</ul>'
 
 
@@ -218,11 +244,12 @@ def html_a4(cat, cfg, data):
     cards = ""
     for p in cat["prodotti"][:MAX_REFERENZE]:
         url = con_utm(p["url"], cfg, cat["titolo"], "volantino-pdf")
+        url_qr = con_utm(p["url"], cfg, cat["titolo"], "a4-qr", contenuto=False)
         cards += f"""
 <div class="card">
-  <div class="foto"><img src="{foto(p)}">{badge_foto(p, 12)}</div>
+  <div class="foto"><img src="{foto(p)}" alt="{esc(p["nome"])}">{badge_foto(p, 12)}</div>
   <div class="brand">{esc(p.get("marca", ""))}</div>
-  <div class="nome">{esc(p["nome"])}</div>
+  <div class="nome">{esc_nb(p["nome"])}</div>
   {blocco_valutazione(p, 10.5)}
   <div style="margin-top:7px">{lista_punti(p, 10.8)}</div>
   <div style="flex:1"></div>
@@ -231,11 +258,12 @@ def html_a4(cat, cfg, data):
   <div style="margin-top:5px">{righe_info(p, 10.2)}</div>
   <div class="cta">
     <a class="btn" href="{esc(url)}">Acquista online ›</a>
-    <a href="{esc(url)}" class="qr"><img src="{qr_uri(url)}"><span>Inquadra</span></a>
+    <a href="{esc(url)}" class="qr"><img src="{qr_uri(url_qr)}" alt="QR code"><span>Inquadra</span></a>
   </div>
 </div>"""
     nota = esc(cfg["note_legali"].format(data=data))
-    return f"""<!doctype html><html><head><meta charset="utf-8"><style>{css_base()}
+    return f"""<!doctype html><html lang="it"><head><meta charset="utf-8">
+<title>Volantino METRO {esc(cat["titolo"])} – Mercato Online</title><style>{css_base()}
 @page {{ size: A4; margin: 0; }}
 body {{ width: 794px; height: 1123px; overflow: hidden; background: {BG}; display: flex; flex-direction: column; }}
 .top {{ background: {NAVY}; height: 50px; padding: 0 26px; display: flex; align-items: center; justify-content: space-between; flex: none; }}
@@ -258,9 +286,9 @@ h1 {{ font-size: 34px; font-weight: 900; line-height: 1.1; margin-top: 2px; }}
          -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 32px; }}
 .sep {{ border-top: 1px solid #E8EDF3; margin: 6px 0 7px; }}
 .cta {{ display: flex; align-items: center; gap: 8px; margin-top: 7px; }}
-.cta .btn {{ flex: 1; font-size: 13px; padding: 9px 4px; }}
+.cta .btn {{ flex: 1; font-size: 13px; padding: 11px 4px; }}
 .qr {{ display: flex; flex-direction: column; align-items: center; }}
-.qr img {{ width: 52px; height: 52px; }}
+.qr img {{ width: 62px; height: 62px; }}
 .qr span {{ font-size: 8px; color: {GREY}; }}
 .legal {{ font-size: 8.6px; color: {GREY}; padding: 0 20px 6px; line-height: 1.35; flex: none; }}
 .bottom {{ background: {NAVY}; color: #fff; padding: 12px 26px; display: flex; align-items: center; justify-content: space-between; flex: none; }}
@@ -293,26 +321,28 @@ def html_wa_pdf(cat, cfg, data):
     schede = ""
     for i, p in enumerate(prodotti, 1):
         url = con_utm(p["url"], cfg, cat["titolo"], "whatsapp-pdf")
+        url_qr = con_utm(p["url"], cfg, cat["titolo"], "wa-qr", contenuto=False)
         schede += f"""<section class="pag" id="p{i}">
 <div class="top"><div class="riga">{logo_svg(42)}<span class="mo">Mercato Online</span></div>
   <span class="cat">{esc(cat["titolo"])} · {i}/{tot}</span></div>
-<div class="foto"><img src="{foto(p)}">{badge_foto(p, 36)}</div>
+<div class="foto"><img src="{foto(p)}" alt="{esc(p["nome"])}">{badge_foto(p, 36)}</div>
 <div class="corpo">
   <div class="brand">{esc(p.get("marca", ""))}</div>
-  <div class="nome">{esc(p["nome"])}</div>
+  <div class="nome">{esc_nb(p["nome"])}</div>
   {blocco_valutazione(p, 32)}
   <div style="margin-top:22px">{lista_punti(p, 36)}</div>
   <div style="flex:1"></div>
   <div>{blocco_prezzo(p, 104)}</div>
   <div class="info">{righe_info(p, 31)}</div>
   <div class="cta"><a class="btn big" href="{esc(url)}">Acquista Online</a>
-    <a class="qrw" href="{esc(url)}"><img src="{qr_uri(url)}"><span>Inquadra il QR</span></a></div>
+    <a class="qrw" href="{esc(url)}"><img src="{qr_uri(url_qr)}" alt="QR code"><span>Inquadra il QR</span></a></div>
 </div>
 <div class="fondo"><div class="t1">{esc(cfg["footer_titolo"])}</div><div class="t2">{esc(cfg["footer_testo"])}</div>
   <div class="legal">{nota}</div></div>
 </section>"""
 
-    return f"""<!doctype html><html><head><meta charset="utf-8"><style>{css_base()}
+    return f"""<!doctype html><html lang="it"><head><meta charset="utf-8">
+<title>Volantino METRO {esc(cat["titolo"])} – Mercato Online (smartphone)</title><style>{css_base()}
 @page {{ size: 1080px 1920px; margin: 0; }}
 body {{ width: 1080px; }}
 .pag {{ width: 1080px; height: 1920px; overflow: hidden; display: flex; flex-direction: column; break-after: page; background: {BG}; }}
@@ -391,6 +421,55 @@ COME INVIARE SU WHATSAPP
 """
 
 
+# ---------------------------------------------------------------- controlli sui dati
+SOGLIA_PREZZO = 290.0
+MAX_PUNTO = 42
+
+
+def controlla_dati(dati):
+    """Controlli prima della generazione: errori bloccanti e avvisi (stampati a video)."""
+    errori, avvisi, visti = [], [], {}
+    for cat in dati["categorie"]:
+        prodotti = cat["prodotti"]
+        if len(prodotti) > MAX_REFERENZE:
+            avvisi.append(f"{cat['titolo']}: {len(prodotti)} referenze, nel volantino ne entrano {MAX_REFERENZE}")
+        for p in prodotti[:MAX_REFERENZE]:
+            nome = f"{cat['titolo']} / {p.get('nome', '?')}"
+            for campo in ("nome", "url", "prezzo", "immagine"):
+                if not p.get(campo):
+                    errori.append(f"{nome}: manca '{campo}'")
+            if p.get("url") in visti:
+                errori.append(f"{nome}: stesso link di {visti[p['url']]}")
+            visti[p.get("url")] = nome
+            if (p.get("venditore") or "").strip().upper() != "METRO":
+                errori.append(f"{nome}: venditore '{p.get('venditore')}' (ammessi solo prodotti venduti da METRO)")
+            if isinstance(p.get("prezzo"), (int, float)) and p["prezzo"] < SOGLIA_PREZZO:
+                avvisi.append(f"{nome}: prezzo {euro(p['prezzo'])} sotto la soglia di {euro(SOGLIA_PREZZO)}")
+            if p.get("prezzo_rif") is not None and not (p.get("etichetta_rif") and p.get("sconto_sito")):
+                errori.append(f"{nome}: promo senza etichetta_rif/sconto_sito")
+            punti = p.get("punti") or []
+            if len(punti) < 3:
+                avvisi.append(f"{nome}: {len(punti)} punti chiave (attesi 3)")
+            for x in punti[:3]:
+                if len(x) > MAX_PUNTO:
+                    avvisi.append(f"{nome}: punto lungo {len(x)} caratteri (max {MAX_PUNTO}): {x}")
+    return errori, avvisi
+
+
+def unisci_pdf(files, dest):
+    """PDF unico (es. MarketPlace_A4.pdf) con un segnalibro per categoria."""
+    from pypdf import PdfWriter
+    w = PdfWriter()
+    for titolo, f in files:
+        pagina = len(w.pages)
+        w.append(f)
+        w.add_outline_item(titolo, pagina)
+    w.add_metadata({"/Title": os.path.splitext(os.path.basename(dest))[0].replace("_", " "),
+                    "/Author": "METRO Mercato Online"})
+    with open(dest, "wb") as fh:
+        w.write(fh)
+
+
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser()
@@ -402,14 +481,26 @@ def main():
     cfg = json.load(open(args.config, encoding="utf-8"))
     dati = json.load(open(args.prodotti, encoding="utf-8"))
     data = dati.get("data_verifica", "")
-    cartelle = {k: os.path.join(args.out, v) for k, v in
+
+    errori, avvisi = controlla_dati(dati)
+    for a in avvisi:
+        print("AVVISO:", a)
+    if errori:
+        for e in errori:
+            print("ERRORE:", e)
+        raise SystemExit("Generazione interrotta: correggere data/prodotti.json")
+
+    # si genera in una cartella temporanea: i volantini esistenti vengono sostituiti solo a fine lavoro riuscito
+    tmp_out = args.out.rstrip("/") + ".tmp"
+    shutil.rmtree(tmp_out, ignore_errors=True)
+    cartelle = {k: os.path.join(tmp_out, v) for k, v in
                 (("a4", "PDF_A4"), ("wa", "PDF_WhatsApp"), ("txt", "Testi_WhatsApp"), ("tmp", ".html"))}
     for d in cartelle.values():
-        shutil.rmtree(d, ignore_errors=True)
         os.makedirs(d)
 
+    generati = []  # (titolo, pdf A4, pdf WhatsApp)
     with sync_playwright() as pw:
-        browser = pw.chromium.launch(executable_path=CHROMIUM)
+        browser = pw.chromium.launch(executable_path=trova_chromium())
         page = browser.new_page()
 
         def carica(nome, contenuto, w, h):
@@ -423,28 +514,37 @@ def main():
         for cat in dati["categorie"]:
             nome = slug(cat["titolo"])
             carica(f"{nome}_a4.html", html_a4(cat, cfg, data), 794, 1123)
-            pdf = os.path.join(cartelle["a4"], f"Volantino_METRO_{nome}_A4.pdf")
-            page.pdf(path=pdf, width="210mm", height="297mm", print_background=True, page_ranges="1")
-            print("Creato", os.path.relpath(pdf, ROOT))
+            pdf_a4 = os.path.join(cartelle["a4"], f"Volantino_METRO_{nome}_A4.pdf")
+            page.pdf(path=pdf_a4, width="210mm", height="297mm", print_background=True, page_ranges="1")
 
             carica(f"{nome}_wa.html", html_wa_pdf(cat, cfg, data), 1080, 1920)
-            pdf = os.path.join(cartelle["wa"], f"Volantino_METRO_{nome}_WhatsApp.pdf")
-            page.pdf(path=pdf, width="1080px", height="1920px", print_background=True)
-            print("Creato", os.path.relpath(pdf, ROOT))
+            pdf_wa = os.path.join(cartelle["wa"], f"Volantino_METRO_{nome}_WhatsApp.pdf")
+            page.pdf(path=pdf_wa, width="1080px", height="1920px", print_background=True)
 
             with open(os.path.join(cartelle["txt"], f"Messaggio_{nome}.txt"), "w", encoding="utf-8") as fh:
                 fh.write(messaggio(cat, cfg, data))
+            generati.append((cat["titolo"], pdf_a4, pdf_wa))
+            print("Creati i volantini", cat["titolo"])
         browser.close()
     shutil.rmtree(cartelle["tmp"], ignore_errors=True)
 
+    # PDF unici con tutte le categorie (in ordine alfabetico, con segnalibri)
+    generati.sort(key=lambda g: g[0].lower())
+    unisci_pdf([(t, a) for t, a, _ in generati], os.path.join(tmp_out, "MarketPlace_A4.pdf"))
+    unisci_pdf([(t, w) for t, _, w in generati], os.path.join(tmp_out, "MarketPlace_WA.pdf"))
+
     # pacchetto unico da scaricare
-    z = os.path.join(args.out, "Volantini_METRO_Horeca.zip")
+    z = os.path.join(tmp_out, "Volantini_METRO_Horeca.zip")
     with zipfile.ZipFile(z, "w", zipfile.ZIP_DEFLATED) as zf:
         zf.writestr("LEGGIMI.txt", LEGGIMI.format(data=data))
         for k in ("a4", "wa", "txt"):
             for f in sorted(os.listdir(cartelle[k])):
                 zf.write(os.path.join(cartelle[k], f), os.path.join(os.path.basename(cartelle[k]), f))
-    print("Creato", os.path.relpath(z, ROOT))
+
+    shutil.rmtree(args.out, ignore_errors=True)
+    os.replace(tmp_out, args.out)
+    for f in ("PDF_A4", "PDF_WhatsApp", "MarketPlace_A4.pdf", "MarketPlace_WA.pdf", "Volantini_METRO_Horeca.zip"):
+        print("Creato", os.path.relpath(os.path.join(args.out, f), ROOT))
 
 
 if __name__ == "__main__":
