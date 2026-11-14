@@ -1,0 +1,230 @@
+{
+  "nota": "Ricostruito dallo storico git per le uscite fino al 09/11/2026; poi scritto da src/rotazione.py applica.",
+  "uscite": [
+    {
+      "data": "2026-10-12",
+      "categorie": {
+        "Cottura": [
+          "b6cfdbc2-03c6-45b4-a0f7-e0914103bd98",
+          "89947111-adf5-4c21-aaad-98d04e901b4f",
+          "9251b4dc-c8d1-40ea-9a6c-36637607619f",
+          "597c00b2-b1ca-4a54-ba3e-83981d7fc495",
+          "07dd346c-d3b7-4a3d-a1e3-0297655e4380",
+          "5eeed495-7849-457c-9070-bb9889ecc4dd"
+        ],
+        "Refrigerazione": [
+          "64373b9a-1bfc-46ea-b074-41450721445c",
+          "9ef03c10-ea45-4a74-ac48-9783df5fef03",
+          "d865416d-bb83-40d7-81f6-7ca79ee77e55",
+          "757aed6d-1717-47e4-85f8-d7355c67939e",
+          "3a6ac106-32b7-48d5-99af-bece92b3aa9a",
+          "4b039b5d-88c4-45ad-8af3-2f350dade9fb"
+        ],
+        "Preparazione": [
+          "bec3e8ff-6aa8-4b41-bb8b-09c240c7d666",
+          "0baf0c1a-a7cf-4d4e-945a-bc1756c268a1",
+          "6a2495a8-e539-47be-9333-ec8a1093cb4e",
+          "3aba947b-f546-498b-a69e-929407eea337",
+          "d7d273a7-3f6d-4d5e-abf4-d55f6dbdca9d",
+          "62dd1035-9771-48db-a190-27d97665b651"
+        ],
+        "Bar e Caffetteria": [
+          "765252c9-28e9-41ac-849f-1cd8203f486a",
+          "d93f31fb-5142-4afd-a360-eb22599463e5",
+          "e4e18db0-8541-4355-a86c-50e946314e4c",
+          "3fbfea48-7a70-44d6-b26e-26e836b463cc",
+          "28cc9533-ea5f-4c75-a830-8ceb71e37a83",
+          "45ab5478-94f4-4884-9f10-8ead267d912d"
+        ],
+        "Lavaggio": [
+          "40f1f937-9ce4-4b53-93b8-34cab52fe4cd",
+          "dd878443-9015-4b9a-928e-5f247dd68f51",
+          "c2e31ee5-d669-4152-a699-c58023d2304b",
+          "75fdf37a-4be0-4822-b95e-b7ebbbd78f8b",
+          "eb6dbfb3-a7ec-41c7-a251-d73b8888f474",
+          "905f240a-3b81-4dc7-9bf5-fe1085573c96"
+        ]
+      }
+    },
+    {
+      "data": "2026-10-19",
+      "categorie": {
+        "Cottura": [
+          "89947111-adf5-4c21-aaad-98d04e901b4f",
+          "9251b4dc-c8d1-40ea-9a6c-36637607619f",
+          "597c00b2-b1ca-4a54-ba3e-83981d7fc495",
+          "07dd346c-d3b7-4a3d-a1e3-0297655e4380",
+          "5eeed495-7849-457c-9070-bb9889ecc4dd",
+          "0757ed03-b760-4e7b-bfb8-bd0485444e7c"
+        ],
+        "Refrigerazione": [
+          "d865416d-bb83-40d7-81f6-7ca79ee77e55",
+          "757aed6d-1717-47e4-85f8-d7355c67939e",
+          "3a6ac106-32b7-48d5-99af-bece92b3aa9a",
+          "4b039b5d-88c4-45ad-8af3-2f350dade9fb",
+          "fc8a0c88-3187-4170-9350-9b27b5209183",
+          "876d5afb-9a5b-4c0b-8b38-5f1ae466c341"
+        ],
+        "Preparazione": [
+          "bec3e8ff-6aa8-4b41-bb8b-09c240c7d666",
+          "0baf0c1a-a7cf-4d4e-945a-bc1756c268a1",
+          "6a2495a8-e539-47be-9333-ec8a1093cb4e",
+          "3aba947b-f546-498b-a69e-929407eea337",
+          "62dd1035-9771-48db-a190-27d97665b651",
+          "7d027118-1a74-4f69-a39f-86d3c95ae65a"
+        ],
+        "Bar e Caffetteria": [
+          "765252c9-28e9-41ac-849f-1cd8203f486a",
+          "d93f31fb-5142-4afd-a360-eb22599463e5",
+          "e4e18db0-8541-4355-a86c-50e946314e4c",
+          "3fbfea48-7a70-44d6-b26e-26e836b463cc",
+          "28cc9533-ea5f-4c75-a830-8ceb71e37a83",
+          "45ab5478-94f4-4884-9f10-8ead267d912d"
+        ],
+        "Lavaggio": [
+          "40f1f937-9ce4-4b53-93b8-34cab52fe4cd",
+          "dd878443-9015-4b9a-928e-5f247dd68f51",
+          "c2e31ee5-d669-4152-a699-c58023d2304b",
+          "75fdf37a-4be0-4822-b95e-b7ebbbd78f8b",
+          "eb6dbfb3-a7ec-41c7-a251-d73b8888f474",
+          "905f240a-3b81-4dc7-9bf5-fe1085573c96"
+        ]
+      }
+    },
+    {
+      "data": "2026-10-26",
+      "categorie": {
+        "Cottura": [
+          "89947111-adf5-4c21-aaad-98d04e901b4f",
+          "9251b4dc-c8d1-40ea-9a6c-36637607619f",
+          "597c00b2-b1ca-4a54-ba3e-83981d7fc495",
+          "07dd346c-d3b7-4a3d-a1e3-0297655e4380",
+          "5eeed495-7849-457c-9070-bb9889ecc4dd",
+          "0757ed03-b760-4e7b-bfb8-bd0485444e7c"
+        ],
+        "Refrigerazione": [
+          "d865416d-bb83-40d7-81f6-7ca79ee77e55",
+          "757aed6d-1717-47e4-85f8-d7355c67939e",
+          "3a6ac106-32b7-48d5-99af-bece92b3aa9a",
+          "4b039b5d-88c4-45ad-8af3-2f350dade9fb",
+          "fc8a0c88-3187-4170-9350-9b27b5209183",
+          "876d5afb-9a5b-4c0b-8b38-5f1ae466c341"
+        ],
+        "Preparazione": [
+          "bec3e8ff-6aa8-4b41-bb8b-09c240c7d666",
+          "0baf0c1a-a7cf-4d4e-945a-bc1756c268a1",
+          "6a2495a8-e539-47be-9333-ec8a1093cb4e",
+          "3aba947b-f546-498b-a69e-929407eea337",
+          "7d027118-1a74-4f69-a39f-86d3c95ae65a",
+          "0ee0501e-74b9-4829-9c99-7e443a146544"
+        ],
+        "Bar e Caffetteria": [
+          "d93f31fb-5142-4afd-a360-eb22599463e5",
+          "3fbfea48-7a70-44d6-b26e-26e836b463cc",
+          "28cc9533-ea5f-4c75-a830-8ceb71e37a83",
+          "45ab5478-94f4-4884-9f10-8ead267d912d",
+          "6ebf79ec-d270-46ee-93e6-e32f4641dfea",
+          "bace102e-eb69-4efe-9e68-00a8405a156b"
+        ],
+        "Lavaggio": [
+          "40f1f937-9ce4-4b53-93b8-34cab52fe4cd",
+          "dd878443-9015-4b9a-928e-5f247dd68f51",
+          "c2e31ee5-d669-4152-a699-c58023d2304b",
+          "75fdf37a-4be0-4822-b95e-b7ebbbd78f8b",
+          "eb6dbfb3-a7ec-41c7-a251-d73b8888f474",
+          "905f240a-3b81-4dc7-9bf5-fe1085573c96"
+        ]
+      }
+    },
+    {
+      "data": "2026-11-02",
+      "categorie": {
+        "Cottura": [
+          "89947111-adf5-4c21-aaad-98d04e901b4f",
+          "9251b4dc-c8d1-40ea-9a6c-36637607619f",
+          "597c00b2-b1ca-4a54-ba3e-83981d7fc495",
+          "07dd346c-d3b7-4a3d-a1e3-0297655e4380",
+          "5eeed495-7849-457c-9070-bb9889ecc4dd",
+          "0757ed03-b760-4e7b-bfb8-bd0485444e7c"
+        ],
+        "Refrigerazione": [
+          "b43fa1cb-4eda-4ec7-bd41-c2bc31c43ee8",
+          "757aed6d-1717-47e4-85f8-d7355c67939e",
+          "3a6ac106-32b7-48d5-99af-bece92b3aa9a",
+          "4b039b5d-88c4-45ad-8af3-2f350dade9fb",
+          "fc8a0c88-3187-4170-9350-9b27b5209183",
+          "876d5afb-9a5b-4c0b-8b38-5f1ae466c341"
+        ],
+        "Preparazione": [
+          "0ba8b924-36ba-42e6-8259-f0c07f404b30",
+          "0baf0c1a-a7cf-4d4e-945a-bc1756c268a1",
+          "6a2495a8-e539-47be-9333-ec8a1093cb4e",
+          "3aba947b-f546-498b-a69e-929407eea337",
+          "7d027118-1a74-4f69-a39f-86d3c95ae65a",
+          "0ee0501e-74b9-4829-9c99-7e443a146544"
+        ],
+        "Bar e Caffetteria": [
+          "d93f31fb-5142-4afd-a360-eb22599463e5",
+          "3fbfea48-7a70-44d6-b26e-26e836b463cc",
+          "28cc9533-ea5f-4c75-a830-8ceb71e37a83",
+          "45ab5478-94f4-4884-9f10-8ead267d912d",
+          "6ebf79ec-d270-46ee-93e6-e32f4641dfea",
+          "bace102e-eb69-4efe-9e68-00a8405a156b"
+        ],
+        "Lavaggio": [
+          "40f1f937-9ce4-4b53-93b8-34cab52fe4cd",
+          "dd878443-9015-4b9a-928e-5f247dd68f51",
+          "c2e31ee5-d669-4152-a699-c58023d2304b",
+          "75fdf37a-4be0-4822-b95e-b7ebbbd78f8b",
+          "eb6dbfb3-a7ec-41c7-a251-d73b8888f474",
+          "905f240a-3b81-4dc7-9bf5-fe1085573c96"
+        ]
+      }
+    },
+    {
+      "data": "2026-11-09",
+      "categorie": {
+        "Cottura": [
+          "21840c37-5198-4a5f-86fb-9c2e47ab1356",
+          "9251b4dc-c8d1-40ea-9a6c-36637607619f",
+          "597c00b2-b1ca-4a54-ba3e-83981d7fc495",
+          "07dd346c-d3b7-4a3d-a1e3-0297655e4380",
+          "5eeed495-7849-457c-9070-bb9889ecc4dd",
+          "0757ed03-b760-4e7b-bfb8-bd0485444e7c"
+        ],
+        "Refrigerazione": [
+          "b43fa1cb-4eda-4ec7-bd41-c2bc31c43ee8",
+          "757aed6d-1717-47e4-85f8-d7355c67939e",
+          "3a6ac106-32b7-48d5-99af-bece92b3aa9a",
+          "4b039b5d-88c4-45ad-8af3-2f350dade9fb",
+          "fc8a0c88-3187-4170-9350-9b27b5209183",
+          "a9acb2fc-3e18-498c-8aeb-86ff4ee0f7d4"
+        ],
+        "Preparazione": [
+          "0ba8b924-36ba-42e6-8259-f0c07f404b30",
+          "d79cfe0f-7f8e-4642-8732-2c3587185927",
+          "6a2495a8-e539-47be-9333-ec8a1093cb4e",
+          "3aba947b-f546-498b-a69e-929407eea337",
+          "7d027118-1a74-4f69-a39f-86d3c95ae65a",
+          "0ee0501e-74b9-4829-9c99-7e443a146544"
+        ],
+        "Bar e Caffetteria": [
+          "d93f31fb-5142-4afd-a360-eb22599463e5",
+          "3fbfea48-7a70-44d6-b26e-26e836b463cc",
+          "28cc9533-ea5f-4c75-a830-8ceb71e37a83",
+          "45ab5478-94f4-4884-9f10-8ead267d912d",
+          "6ebf79ec-d270-46ee-93e6-e32f4641dfea",
+          "bace102e-eb69-4efe-9e68-00a8405a156b"
+        ],
+        "Lavaggio": [
+          "40f1f937-9ce4-4b53-93b8-34cab52fe4cd",
+          "dd878443-9015-4b9a-928e-5f247dd68f51",
+          "c2e31ee5-d669-4152-a699-c58023d2304b",
+          "75fdf37a-4be0-4822-b95e-b7ebbbd78f8b",
+          "eb6dbfb3-a7ec-41c7-a251-d73b8888f474",
+          "905f240a-3b81-4dc7-9bf5-fe1085573c96"
+        ]
+      }
+    }
+  ]
+}

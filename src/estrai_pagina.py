@@ -63,7 +63,8 @@ def estrai(h, meta=None):
         r["prezzo_rif"] = num(testo(m.group(2)))
         r["etichetta_rif"] = ETICHETTE_RIF.get(m.group(1), m.group(1))
         r["sconto_sito"] = testo(m.group(3)).replace(" ", "")
-    m = re.search(r'test-target="seller-name-desktop"[^>]*>(.*?)</a>', h, re.S)
+    # "Venduto da": layout classico (seller-name-desktop) o buybox nuovo (seller-name, da novembre 2026)
+    m = re.search(r'test-target="seller-name(?:-desktop)?"[^>]*>(.*?)</a>', h, re.S)
     if m:
         r["venditore"] = testo(m.group(1))
     m = re.search(r'test-target="dynamic-shipping-price".*?<span>(.*?)</span>', h, re.S)

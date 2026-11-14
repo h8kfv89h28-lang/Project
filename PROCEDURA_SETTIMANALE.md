@@ -1,17 +1,43 @@
 # Aggiornamento settimanale volantini (lunedì 08:00)
 
 Procedura eseguita dall'attività programmata. Strumenti: connettore **Firecrawl** (pagine prodotto e
-categoria), `src/estrai_pagina.py` (lettura dati dalla pagina), `src/genera_volantini.py` (PDF + kit WhatsApp).
+ricerca), `src/rotazione.py` (scelta degli articoli della settimana), `src/estrai_pagina.py` (lettura dati dalla
+pagina), `src/genera_volantini.py` (PDF + kit WhatsApp).
 
-## 1. Verifica referenze attuali
-Per ogni prodotto in `data/prodotti.json` scaricare la pagina prodotto con Firecrawl
+**Rotazione (dal 16/11/2026, scelta di Michael):** ogni categoria ha **3 articoli fissi + 3 a rotazione** che
+cambiano ogni settimana. Gli articoli vengono da `data/catalogo.json` (15-20 per categoria, con i dati
+dell'ultima verifica) e lo storico delle uscite è in `data/storico_uscite.json`: un articolo a rotazione non
+torna prima di 4 settimane (`regole.pausa_settimane`). `data/prodotti.json` non si modifica più a mano: lo scrive
+`rotazione.py applica`. Fissi: campo `"fisso": true` nel catalogo (3 per categoria, si cambiano lì).
+Priorità stagionale facoltativa: campo `"priorita": 1` su un articolo del catalogo (scelto prima degli altri).
+
+## 1. Proposta della settimana
+```bash
+python src/rotazione.py proponi
+```
+Per ogni categoria mostra i 3 fissi, i 3 a rotazione e 3 riserve, nell'ordine dei criteri: fuori pausa, ultima
+verifica ok, `priorita`, promo con sconto più alto, tipo di prodotto non già presente, uscito meno volte / da
+più tempo. Scrive i 45 link in `/tmp/da_verificare.txt`. Se segnala `AVVISO: catalogo ... troppo piccolo` o
+pochi articoli fuori pausa, ampliare il catalogo (punto 4) dopo la consegna.
+
+## 2. Verifica degli articoli proposti
+Scaricare ogni link di `/tmp/da_verificare.txt` con Firecrawl
 (`formats: ["rawHtml"]`, `maxAge: 0`, `waitFor: 3000`, al massimo 2 richieste in parallelo e 10 al minuto).
 Il risultato viene salvato su file: copiarlo in `/tmp/pagine/<id>.json` ed eseguire
-`python src/estrai_pagina.py /tmp/pagine/*.json`, che restituisce per ogni pagina i dati sotto. Se un dato essenziale
-(prezzo, venditore, titolo, foto) manca su **tutte** le pagine lo script esce con `ERRORE` e codice 2: è cambiato l'HTML
-del sito, aggiornare le espressioni regolari prima di proseguire (un `AVVISO` su una sola pagina indica invece
-una pagina non disponibile da controllare):
+```bash
+python src/rotazione.py aggiorna /tmp/pagine/*.json
+```
+che legge ogni pagina con `estrai_pagina.py` e aggiorna l'articolo nel catalogo (`prezzo`,
+`prezzo_rif`/`etichetta_rif`/`sconto_sito` solo se il prezzo è rosso, `venditore`, `consegna`,
+`sconto_quantita` (fascia minima), `valutazione`, `classe_energetica`, `disponibilita_limitata`, `immagine`)
+e lo marca `ok` oppure `escluso` con il motivo: pagina non trovata o non acquistabile, consegna oltre 4 settimane,
+prezzo sotto 290 € IVA esclusa, **venditore diverso da METRO** ("Venduto da" ≠ METRO, sempre letto dalla
+pagina prodotto, mai dalla ricerca). Un articolo escluso resta nel catalogo e viene ricontrollato più avanti.
+Se un dato essenziale (prezzo, venditore, titolo, foto) manca su **tutte** le pagine lo script si ferma: è
+cambiato l'HTML del sito, aggiornare le espressioni regolari di `estrai_pagina.py` prima di proseguire
+(un `AVVISO` su una sola pagina indica invece una pagina non disponibile da controllare).
 
+Dati letti da `estrai_pagina.py`:
 - **prezzo** e **promo** (colore come sul sito: classe `text-metro-red` = rosso/promo,
   `text-metro-blue-main` = blu/prezzo pieno);
 - se in promo: `prezzo_rif`, `etichetta_rif` (prima riga `reference-price-row-*`:
@@ -21,40 +47,45 @@ una pagina non disponibile da controllare):
   **valutazione** e numero di recensioni, **classe energetica**, **disponibilità limitata**;
 - foto principale (`og_image`), punti chiave e caratteristiche tecniche.
 
-Aggiornare in `data/prodotti.json`: `prezzo`, `prezzo_rif`/`etichetta_rif`/`sconto_sito` (da rimuovere se il
-prezzo è blu), `venditore`, `consegna`, `sconto_quantita` (fascia minima), `valutazione`,
-`classe_energetica`, `disponibilita_limitata`, `immagine` (`<og_image>?impolicy=pdp_mobile_main_preview&imwidth=768`).
+
 Non dedurre mai la promo dal testo: le promo cambiano spesso e vanno rilette ogni volta.
 
-## 2. Sostituzione referenze non più valide
-Un prodotto va sostituito se: pagina non trovata o non acquistabile, consegna oltre 4 settimane,
-prezzo sceso sotto 290 € IVA esclusa, **venditore diverso da METRO** ("Venduto da" ≠ METRO).
+Gli articoli segnalati `DA COMPLETARE` (nuovi nel catalogo) vanno completati nel catalogo prima del punto 3:
+3 `punti` brevi (max 42 caratteri) usando solo dati presenti sulla pagina (punti chiave, caratteristiche,
+descrizione), `nome` breve come gli altri (tipo + modello + dato principale), `marca` = marchio indicato dal sito
+(vuota se assente). Controllare visivamente che la foto corrisponda al prodotto.
 
-**Regola: nei volantini vanno solo prodotti venduti da METRO** (`venditore` = "METRO").
-Sostituto: attrezzature professionali ≥ 290 € non già presenti e **vendute da METRO**, privilegiando promo
-e prodotti adatti al periodo stagionale. Dove cercarle (Firecrawl `formats: ["rawHtml"]`, poi
-`python src/griglia_categoria.py <file>` per elenco id/prezzo/promo):
-- griglia e carosello "I preferiti dai nostri clienti" dell'`url_categoria` e delle sue sottocategorie;
-- ricerca `https://www.metro.it/marketplace/search?q=metro%20professional%20<tipo>` (es. forno, lavastoviglie):
-  i prodotti METRO PROFESSIONAL sono in genere venduti da METRO.
-Il filtro "Venditore" del sito non è utilizzabile via link: il venditore va **sempre verificato sulla pagina
-prodotto** (`venditore` di `estrai_pagina.py`), anche per i prodotti a marchio METRO PROFESSIONAL. La stagionalità serve **solo per scegliere**
-i prodotti: nei volantini non vanno inseriti riferimenti stagionali né contatti di referenti specifici.
-Verificare il sostituto come al punto 1. Max 6 referenze per categoria.
+## 3. Volantino della settimana
+```bash
+python src/rotazione.py applica
+```
+Sceglie tra gli articoli **verificati oggi**, `ok` e completi: i 3 fissi (se un fisso è escluso lo sostituisce un
+articolo a rotazione) e 3 a rotazione con gli stessi criteri del punto 1, senza ripetere un articolo in due
+categorie. Scrive `data/prodotti.json` (con `data_verifica` di oggi) e aggiunge l'uscita a `data/storico_uscite.json`.
+Se in una categoria mancano articoli validi si ferma con `ERRORE`: verificare altre riserve (gli articoli
+successivi in `proponi`, o `python src/rotazione.py stato`) e rilanciare `aggiorna` e `applica`.
+Il riepilogo segna ogni articolo come FISSO, NUOVO o RITORNA.
 
-Per il sostituto scrivere 3 `punti` brevi (max ~42 caratteri) usando solo dati presenti sulla pagina
-(punti chiave, caratteristiche, descrizione); `marca` = marchio indicato dal sito (vuota se assente).
-Controllare visivamente che la foto corrisponda al prodotto.
+## 4. Ampliare il catalogo (quando serve)
+Candidati: attrezzature professionali ≥ 290 € **vendute da METRO**. La pagina di ricerca
+`https://www.metro.it/marketplace/search?q=metro%20professional%20<tipo>` (es. forno, abbattitore, affettatrice,
+ghiaccio, banco refrigerato) con Firecrawl `formats: ["rawHtml"]` e **`waitFor: 8000`** mostra la griglia con il
+venditore: `python src/griglia_categoria.py <file>` elenca id, prezzo, promo, venditore e nome. Anche i caroselli
+delle pagine prodotto già scaricate funzionano (senza venditore). Aggiungere al catalogo un oggetto con almeno
+`id`, `url`, `nome`, `marca`, `tipo` (es. "forno pizza", "affettatrice": serve a variare i tipi) e
+`"stato": "da verificare"`; verrà verificato e completato quando `proponi` lo sceglie. Il venditore va **sempre
+confermato sulla pagina prodotto**. La stagionalità serve **solo per scegliere** (campo `priorita`): nei volantini
+non vanno inseriti riferimenti stagionali né contatti di referenti specifici.
 
-## 3. Generazione e consegna
+## 5. Generazione e consegna
+Prima di generare: con la rotazione i tipi di prodotto cambiano ogni settimana, quindi aggiornare il
+`sottotitolo` di ogni categoria in `data/prodotti.json` perché descriva solo ciò che c'è nel volantino.
 ```bash
 python src/genera_volantini.py
 ```
-Aggiornare `data_verifica` alla data odierna. Se le sostituzioni cambiano i tipi di prodotto di una categoria,
-aggiornare anche il `sottotitolo` della categoria perché descriva solo ciò che c'è nel volantino.
 Lo script si ferma con `ERRORE:` se un dato obbligatorio manca o il venditore non è METRO (correggere e rilanciare)
 e stampa `AVVISO:` per prezzi sotto 290 €, punti oltre 42 caratteri o schede con contenuto tagliato
 (da correggere accorciando nome o punti). Crea anche `output/MarketPlace_A4.pdf` e
 `output/MarketPlace_WA.pdf`. Controllare l'anteprima dei PDF, fare commit e push
 sul branch, inviare il pacchetto `output/Volantini_METRO_Horeca.zip` (5 PDF A4 + 5 PDF WhatsApp + testi) con un riepilogo delle modifiche (prezzi cambiati,
-promo nuove/terminate, venditori cambiati, referenze sostituite e motivo).
+promo nuove/terminate, venditori cambiati, articoli nuovi e ritornati per categoria, articoli esclusi e motivo).

@@ -27,6 +27,12 @@ class TestEstrai(unittest.TestCase):
         self.assertEqual(r["venditore"], "METRO")
         self.assertEqual(r["id"], "21840c37-5198-4a5f-86fb-9c2e47ab1356")
 
+    def test_venditore_buybox_nuovo(self):
+        h = HTML.replace('<a test-target="seller-name-desktop" href="#">METRO</a>',
+                         '<span>Venduto da</span><a data-seller-id="1" data-testid="seller-name" '
+                         'test-target="seller-name" href="#about">METRO</a>')
+        self.assertEqual(e.estrai(h)["venditore"], "METRO")
+
     def test_num(self):
         self.assertEqual(e.num("1.290,00 €"), 1290.0)
 

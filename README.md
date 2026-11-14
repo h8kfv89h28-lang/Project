@@ -26,6 +26,7 @@ il proprio referente commerciale in METRO.
 pip install -r requirements.txt
 python src/genera_volantini.py            # PDF A4 + PDF WhatsApp + testi + zip
 python src/estrai_pagina.py pagina.html   # dati di una pagina prodotto (vedi PROCEDURA_SETTIMANALE.md)
+python src/rotazione.py stato             # catalogo e uscite; proponi / aggiorna / applica per il giro del lunedì
 ```
 Chromium: trovato automaticamente in `/opt/pw-browsers` (versione più recente) o indicato con `CHROMIUM_PATH`.
 
@@ -39,7 +40,10 @@ I volantini vengono scritti in `output.tmp/` e sostituiscono `output/` solo se l
 Tracciamento clic (UTM): `utm_medium` = `volantino-pdf` / `whatsapp-pdf` / `whatsapp-messaggio` per i pulsanti e i link,
 `a4-qr` / `wa-qr` per i QR code (link più corto, QR meno denso e più facile da inquadrare).
 
-- `data/prodotti.json`: categorie e prodotti verificati sul sito.
+- `data/catalogo.json`: articoli candidati per categoria (3 fissi + quelli a rotazione) con i dati dell'ultima verifica.
+- `data/storico_uscite.json`: articoli usciti in ogni volantino, per non ripeterli prima di 4 settimane.
+- `data/prodotti.json`: volantino della settimana (3 fissi + 3 a rotazione per categoria), scritto da
+  `python src/rotazione.py applica`.
 - `config.json`: testi del footer, note legali, parametri UTM per misurare i clic per canale.
 - `assets/`: logo ufficiale METRO (SVG dal sito), font Lato del sito, cache foto prodotti.
 - `PROCEDURA_SETTIMANALE.md`: aggiornamento automatico del lunedì (prezzi, promo, venditori, sostituzioni).
