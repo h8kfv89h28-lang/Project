@@ -738,10 +738,11 @@
         "tipo": "armadio frigo",
         "stato": "escluso",
         "verificato": "2026-11-23",
-        "fisso": true,
+        "fisso": false,
         "promo": false,
         "nome_sito": "METRO PROFESSIONAL Frigorifero GRE4600, 78 x 74 x 192.5 cm, 600 L",
-        "motivo": "pagina non trovata o prodotto non acquistabile; non disponibile (OutOfStock); venditore '' diverso da METRO"
+        "motivo": "pagina non trovata o prodotto non acquistabile; non disponibile (OutOfStock); venditore '' diverso da METRO",
+        "ex_fisso": "2026-11-23"
       },
       {
         "id": "3a6ac106-32b7-48d5-99af-bece92b3aa9a",
@@ -1379,7 +1380,9 @@
         "disponibilita_limitata": false,
         "immagine": "https://images.metro-marketplace.eu/item_image/5705f27f-f90b-4c7a-946d-44874fc3f054?impolicy=pdp_mobile_main_preview&imwidth=768",
         "nome_sito": "METRO PROFESSIONAL Frigorifero GRE4600S, 78 x 74 x 192.5 cm, 600 L, argento",
-        "verificato": "2026-11-23"
+        "verificato": "2026-11-23",
+        "fisso": true,
+        "fisso_dal": "2026-11-23"
       },
       {
         "id": "5d2f04a1-3198-47d5-9333-f1a530f503e7",

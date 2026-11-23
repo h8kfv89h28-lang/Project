@@ -6,7 +6,7 @@ File:
 - data/prodotti.json        volantino della settimana (scritto da "applica", letto da genera_volantini.py)
 
 Comandi:
-  python src/rotazione.py proponi  [--data AAAA-MM-GG] [--riserve 3]
+  python src/rotazione.py proponi  [--data AAAA-MM-GG] [--riserve 5]
       Mostra per categoria i fissi, i candidati a rotazione in ordine di scelta e scrive in
       /tmp/da_verificare.txt i link da scaricare con Firecrawl (fissi + 3 a rotazione + riserve).
   python src/rotazione.py aggiorna /tmp/pagine/*.json [--data AAAA-MM-GG]
@@ -21,11 +21,15 @@ Comandi:
 Criteri di scelta degli articoli a rotazione (in ordine):
   1. non usciti nelle ultime `pausa_settimane` settimane (se non bastano: quelli usciti da più tempo);
   2. esito dell'ultima verifica (gli esclusi in fondo, ma vengono ricontrollati se servono);
-  3. `priorita` più alta (campo facoltativo, es. 1 per articoli adatti alla stagione);
-  4. in promo sul sito, con sconto più alto;
-  5. tipo di prodotto non già presente nel volantino della categoria;
+  3. IN PROMO sul sito (regola di Michael del 23/11/2026): gli articoli a prezzo pieno entrano solo se non ci
+     sono abbastanza promo valide; tra le promo, sconto più alto;
+  4. `priorita` più alta (campo facoltativo, es. 1 per articoli adatti alla stagione);
+  5. tipo di prodotto non già presente nel volantino della categoria (solo a parità di promo);
   6. usciti meno volte, poi usciti da più tempo (mai usciti per primi).
-I fissi (campo "fisso": true) escono tutte le settimane; se uno non è valido lo sostituisce un articolo a rotazione.
+I fissi (campo "fisso": true) escono tutte le settimane. Se alla verifica del giorno un fisso risulta escluso
+(esaurito, pagina rimossa, venditore non METRO, ...), "applica" lo sostituisce IN AUTOMATICO e in modo permanente:
+il campo "fisso" passa al miglior articolo valido della categoria (stesso tipo se possibile, promo prima) e il
+vecchio fisso resta nel catalogo con "ex_fisso": <data>.
 """
 
 import argparse
@@ -107,41 +111,70 @@ def ordina_rotazione(cat, articoli, storico, oggi, pausa_giorni, gia_scelti, sol
         c["in_pausa"],                       # 1. fuori pausa prima
         c["in_pausa"] and -c["giorni"],      #    se in pausa: usciti da più tempo prima
         c["escluso"],                        # 2. ok prima degli esclusi
-        -(c["a"].get("priorita") or 0),      # 3. priorità
-        not c["a"].get("prezzo_rif"),        # 4. promo prima
-        -sconto(c["a"]),
+        not c["a"].get("prezzo_rif"),        # 3. promo prima (regola di Michael del 23/11/2026)
+        -(c["a"].get("priorita") or 0),      # 4. priorità stagionale
+        -sconto(c["a"]),                     # 5. sconto più alto
         c["uscite"],                         # 6. meno uscite
         -c["giorni"],                        #    uscito da più tempo
     ))
     return candidati
 
 
+def valido_oggi(a, oggi):
+    return a.get("verificato") == oggi and a.get("stato") == "ok" and completo(a)
+
+
+def promo(a):
+    return bool(a.get("prezzo_rif"))
+
+
+def sostituto_fisso(cat, fisso, articoli, storico, regole, oggi, gia_scelti):
+    """Miglior sostituto per un fisso non più valido: verificato oggi e ok, stesso tipo se possibile, promo prima."""
+    ordinati = ordina_rotazione(cat, articoli, storico, oggi, regole["pausa_settimane"] * 7, gia_scelti, True)
+    if not ordinati:
+        return None
+    return min(ordinati, key=lambda c: (c["a"].get("tipo") != fisso.get("tipo"), not promo(c["a"]),
+                                        ordinati.index(c)))["a"]
+
+
 def scegli(cat, articoli, storico, regole, oggi, gia_scelti, solo_verificati):
-    """Fissi validi + rotazione con varietà di tipo. Restituisce (fissi, rotazione, riserve)."""
+    """Fissi validi + rotazione. Restituisce (fissi, rotazione, riserve).
+
+    Rotazione (regola di Michael del 23/11/2026): prima gli articoli IN PROMOZIONE, quelli a prezzo pieno solo se
+    non ci sono abbastanza promo valide. A parità, tipi di prodotto diversi. Gli articoli in pausa (usciti nelle
+    ultime settimane) solo come ultima scelta.
+    """
     n_fissi, n_rot = regole["fissi"], regole["rotazione"]
     pausa = regole["pausa_settimane"] * 7
     fissi = [a for a in articoli if a.get("fisso")]
     if solo_verificati:
-        fissi = [a for a in fissi if a.get("verificato") == oggi and a.get("stato") == "ok" and completo(a)]
+        fissi = [a for a in fissi if valido_oggi(a, oggi)]
     fissi = [a for a in fissi if a["id"] not in gia_scelti][:n_fissi]
     posti = n_fissi + n_rot - len(fissi)
-    tipi = {a.get("tipo") for a in fissi}
-    ordinati = ordina_rotazione(cat, articoli, storico, oggi, pausa, gia_scelti, solo_verificati)
-    rot, resto = [], []
-    for c in ordinati:  # prima passata: tipi nuovi, solo fuori pausa
-        if len(rot) < posti and not c["in_pausa"] and c["a"].get("tipo") not in tipi:
+    resto = ordina_rotazione(cat, articoli, storico, oggi, pausa, gia_scelti, solo_verificati)
+    rot, conta = [], {}
+    for a in fissi:
+        conta[a.get("tipo")] = conta.get(a.get("tipo"), 0) + 1
+
+    def libero(c):
+        return not c["in_pausa"] and not c["escluso"]
+
+    passate = [  # (filtro, solo tipi non ancora presenti)
+        (lambda c: libero(c) and promo(c["a"]), True),
+        (lambda c: libero(c) and promo(c["a"]), False),
+        (libero, True),
+        (libero, False),
+        (lambda c: True, False),
+    ]
+    for filtro, solo_tipi_nuovi in passate:
+        while len(rot) < posti:
+            cand = [c for c in resto if filtro(c) and not (solo_tipi_nuovi and c["a"].get("tipo") in conta)]
+            if not cand:
+                break
+            c = min(cand, key=lambda x: (conta.get(x["a"].get("tipo"), 0), resto.index(x)))
             rot.append(c)
-            tipi.add(c["a"].get("tipo"))
-        else:
-            resto.append(c)
-    conta = {}
-    for t in [a.get("tipo") for a in fissi] + [c["a"].get("tipo") for c in rot]:
-        conta[t] = conta.get(t, 0) + 1
-    while len(rot) < posti and resto:  # seconda passata: il tipo meno ripetuto, a parità l'ordine di scelta
-        c = min(resto, key=lambda x: (x["in_pausa"], conta.get(x["a"].get("tipo"), 0), resto.index(x)))
-        rot.append(c)
-        resto.remove(c)
-        conta[c["a"].get("tipo")] = conta.get(c["a"].get("tipo"), 0) + 1
+            resto.remove(c)
+            conta[c["a"].get("tipo")] = conta.get(c["a"].get("tipo"), 0) + 1
     return fissi, rot, resto
 
 
@@ -277,8 +310,19 @@ def cmd_applica(args):
     prodotti = carica_json(PRODOTTI)
     regole, oggi = catalogo["regole"], args.data
     meta_cat = {c["titolo"]: c for c in prodotti["categorie"]}
-    nuove_cat, uscita, scelti, problemi = [], {}, set(), []
+    nuove_cat, uscita, scelti, problemi, sostituzioni = [], {}, set(), [], []
     for cat, articoli in catalogo["categorie"].items():
+        # sostituzione automatica (regola di Michael del 23/11/2026): un fisso escluso alla verifica di oggi
+        # cede il posto di fisso, in modo permanente, al miglior articolo valido (stesso tipo, promo prima)
+        for f in [a for a in articoli if a.get("fisso") and a.get("verificato") == oggi and a.get("stato") == "escluso"]:
+            nuovo = sostituto_fisso(cat, f, articoli, storico, regole, oggi, scelti)
+            if nuovo:
+                f["fisso"] = False
+                f["ex_fisso"] = oggi
+                nuovo["fisso"] = True
+                nuovo["fisso_dal"] = oggi
+                sostituzioni.append(f"{cat}: FISSO {f['nome']} (escluso: {f.get('motivo')}) sostituito da "
+                                    f"{nuovo['nome']}")
         fissi, rot, _ = scegli(cat, articoli, storico, regole, oggi, scelti, True)
         sel = fissi + [c["a"] for c in rot]
         n = regole["fissi"] + regole["rotazione"]
@@ -300,6 +344,10 @@ def cmd_applica(args):
         for p in problemi:
             print("ERRORE:", p)
         raise SystemExit("data/prodotti.json NON aggiornato")
+    for r in sostituzioni:
+        print("SOSTITUZIONE:", r)
+    if sostituzioni:
+        salva_json(CATALOGO, catalogo)
     prodotti["categorie"] = nuove_cat
     d = dt.date.fromisoformat(oggi)
     prodotti["data_verifica"] = d.strftime("%d/%m/%Y")
@@ -331,7 +379,7 @@ def main():
     oggi = dt.date.today().isoformat()
     p = sub.add_parser("proponi")
     p.add_argument("--data", default=oggi)
-    p.add_argument("--riserve", type=int, default=3)
+    p.add_argument("--riserve", type=int, default=5)
     p = sub.add_parser("aggiorna")
     p.add_argument("pagine", nargs="+")
     p.add_argument("--data", default=oggi)

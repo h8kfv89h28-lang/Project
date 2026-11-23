@@ -9,6 +9,15 @@ cambiano ogni settimana. Gli articoli vengono da `data/catalogo.json` (15-20 per
 dell'ultima verifica) e lo storico delle uscite è in `data/storico_uscite.json`: un articolo a rotazione non
 torna prima di 4 settimane (`regole.pausa_settimane`). `data/prodotti.json` non si modifica più a mano: lo scrive
 `rotazione.py applica`. Fissi: campo `"fisso": true` nel catalogo (3 per categoria, si cambiano lì).
+
+**Regole di Michael del 23/11/2026:**
+- **Promo prima di tutto:** nella scelta degli articoli a rotazione hanno sempre la precedenza gli articoli in
+  promozione (prezzo rosso sul sito); quelli a prezzo pieno entrano solo se non ci sono abbastanza promo valide
+  fuori pausa. La pausa di 4 settimane resta la regola principale della rotazione.
+- **Sostituzioni automatiche:** gli articoli esclusi (esauriti, pagina rimossa, venditore non METRO, sotto
+  290 €, consegna lunga) si sostituiscono senza chiedere. Se è escluso un **fisso**, `rotazione.py applica` passa
+  il ruolo di fisso, in modo permanente, al miglior articolo valido della stessa categoria (stesso tipo se
+  possibile, promo prima) e lo segnala con `SOSTITUZIONE:`; il vecchio fisso resta nel catalogo con `"ex_fisso"`.
 Priorità stagionale facoltativa: campo `"priorita": 1` su un articolo del catalogo (scelto prima degli altri).
 
 **Ampliamento continuo (dal 23/11/2026, richiesta di Michael):** a **ogni** aggiornamento del lunedì, prima della
@@ -48,8 +57,8 @@ Nel riepilogo della consegna indicare gli articoli aggiunti al catalogo per cate
 ```bash
 python src/rotazione.py proponi
 ```
-Per ogni categoria mostra i 3 fissi, i 3 a rotazione e 3 riserve, nell'ordine dei criteri: fuori pausa, ultima
-verifica ok, `priorita`, promo con sconto più alto, tipo di prodotto non già presente, uscito meno volte / da
+Per ogni categoria mostra i 3 fissi, i 3 a rotazione e 5 riserve, nell'ordine dei criteri: fuori pausa, ultima
+verifica ok, **promo** (sconto più alto), `priorita`, tipo di prodotto non già presente, uscito meno volte / da
 più tempo. Scrive i 45 link in `/tmp/da_verificare.txt`. Se segnala `AVVISO: catalogo ... troppo piccolo` o
 pochi articoli fuori pausa, aggiungere altri articoli a quella categoria (punto 1) e rilanciare `proponi`.
 
@@ -92,8 +101,8 @@ descrizione), `nome` breve come gli altri (tipo + modello + dato principale), `m
 ```bash
 python src/rotazione.py applica
 ```
-Sceglie tra gli articoli **verificati oggi**, `ok` e completi: i 3 fissi (se un fisso è escluso lo sostituisce un
-articolo a rotazione) e 3 a rotazione con gli stessi criteri del punto 2, senza ripetere un articolo in due
+Sceglie tra gli articoli **verificati oggi**, `ok` e completi: i 3 fissi (se un fisso è escluso viene sostituito in
+automatico e in modo permanente, vedi regole in alto) e 3 a rotazione con gli stessi criteri del punto 2, senza ripetere un articolo in due
 categorie. Scrive `data/prodotti.json` (con `data_verifica` di oggi) e aggiunge l'uscita a `data/storico_uscite.json`.
 Se in una categoria mancano articoli validi si ferma con `ERRORE`: verificare altre riserve (gli articoli
 successivi in `proponi`, o `python src/rotazione.py stato`) e rilanciare `aggiorna` e `applica`.
