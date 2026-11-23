@@ -1,8 +1,8 @@
 {
   "regole": {
-    "fissi": 3,
-    "rotazione": 3,
-    "pausa_settimane": 4
+    "fissi": 0,
+    "rotazione": 6,
+    "pausa_settimane": 3
   },
   "categorie": {
     "Cottura": [
@@ -30,9 +30,9 @@
         "tipo": "cuocipasta",
         "stato": "ok",
         "verificato": "2026-11-23",
-        "fisso": true,
         "promo": true,
-        "nome_sito": "CookRite By Atosa, cuocipasta monovasca da terra, acciaio inox, 400x900x1140, vasca stampata in AISI 316, cestelli in AISI 304 inclusi, grigio"
+        "nome_sito": "CookRite By Atosa, cuocipasta monovasca da terra, acciaio inox, 400x900x1140, vasca stampata in AISI 316, cestelli in AISI 304 inclusi, grigio",
+        "ex_fisso": "2026-11-23"
       },
       {
         "id": "0757ed03-b760-4e7b-bfb8-bd0485444e7c",
@@ -55,13 +55,13 @@
         "tipo": "forno pizza",
         "stato": "ok",
         "verificato": "2026-11-23",
-        "fisso": true,
         "promo": false,
         "valutazione": {
           "media": 5.0,
           "recensioni": 1
         },
-        "nome_sito": "METRO PROFESSIONAL Forno per pizza GPO11402, 63 x 62.6 x 59 cm, 2 strati, 1+1x 40 cm, argento"
+        "nome_sito": "METRO PROFESSIONAL Forno per pizza GPO11402, 63 x 62.6 x 59 cm, 2 strati, 1+1x 40 cm, argento",
+        "ex_fisso": "2026-11-23"
       },
       {
         "id": "21840c37-5198-4a5f-86fb-9c2e47ab1356",
@@ -96,9 +96,9 @@
         "tipo": "piastra grill",
         "stato": "ok",
         "verificato": "2026-11-23",
-        "fisso": true,
         "promo": true,
-        "nome_sito": "METRO PROFESSIONAL Piastra grill GEG2112, acciaio inox, 72x49.8x24 cm, raccogligrasso rimovibile, superficie liscia/scanalata e cromata, argento"
+        "nome_sito": "METRO PROFESSIONAL Piastra grill GEG2112, acciaio inox, 72x49.8x24 cm, raccogligrasso rimovibile, superficie liscia/scanalata e cromata, argento",
+        "ex_fisso": "2026-11-23"
       },
       {
         "id": "b6cfdbc2-03c6-45b4-a0f7-e0914103bd98",
@@ -738,7 +738,6 @@
         "tipo": "armadio frigo",
         "stato": "escluso",
         "verificato": "2026-11-23",
-        "fisso": false,
         "promo": false,
         "nome_sito": "METRO PROFESSIONAL Frigorifero GRE4600, 78 x 74 x 192.5 cm, 600 L",
         "motivo": "pagina non trovata o prodotto non acquistabile; non disponibile (OutOfStock); venditore '' diverso da METRO",
@@ -770,12 +769,12 @@
         "tipo": "frigo bevande",
         "stato": "ok",
         "verificato": "2026-11-23",
-        "fisso": true,
         "promo": true,
         "nome_sito": "METRO Professional Frigorifero per bevande a doppia porta GSC2100, 120 x 72.5 x 206.6 cm, 930 L, bianco",
         "prezzo_rif": 1290.0,
         "etichetta_rif": "Prezzo più basso 30 gg",
-        "sconto_sito": "-30%"
+        "sconto_sito": "-30%",
+        "ex_fisso": "2026-11-23"
       },
       {
         "id": "4b039b5d-88c4-45ad-8af3-2f350dade9fb",
@@ -806,9 +805,9 @@
         "tipo": "frigo bevande",
         "stato": "ok",
         "verificato": "2026-11-23",
-        "fisso": true,
         "promo": true,
-        "nome_sito": "METRO Professional Frigorifero per bevande GSC2360C, 62 x 64.6 x 193.5 cm, 347 L, bianco"
+        "nome_sito": "METRO Professional Frigorifero per bevande GSC2360C, 62 x 64.6 x 193.5 cm, 347 L, bianco",
+        "ex_fisso": "2026-11-23"
       },
       {
         "id": "cbd24e26-1c42-4e27-95ac-0f2eef5a3b01",
@@ -1381,8 +1380,7 @@
         "immagine": "https://images.metro-marketplace.eu/item_image/5705f27f-f90b-4c7a-946d-44874fc3f054?impolicy=pdp_mobile_main_preview&imwidth=768",
         "nome_sito": "METRO PROFESSIONAL Frigorifero GRE4600S, 78 x 74 x 192.5 cm, 600 L, argento",
         "verificato": "2026-11-23",
-        "fisso": true,
-        "fisso_dal": "2026-11-23"
+        "ex_fisso": "2026-11-23"
       },
       {
         "id": "5d2f04a1-3198-47d5-9333-f1a530f503e7",
@@ -1530,9 +1528,9 @@
         "tipo": "affettatrice",
         "stato": "ok",
         "verificato": "2026-11-23",
-        "fisso": true,
         "promo": false,
-        "nome_sito": "METRO PROFESSIONAL Affettatrice GFS4030, alluminio anodizzato, 49.1 x 57.7 x 42.7 cm, 250 W, Ø lama: 30 cm, spessore taglio: 0-15mm, argento"
+        "nome_sito": "METRO PROFESSIONAL Affettatrice GFS4030, alluminio anodizzato, 49.1 x 57.7 x 42.7 cm, 250 W, Ø lama: 30 cm, spessore taglio: 0-15mm, argento",
+        "ex_fisso": "2026-11-23"
       },
       {
         "id": "3aba947b-f546-498b-a69e-929407eea337",
@@ -1564,9 +1562,9 @@
         "tipo": "planetaria",
         "stato": "ok",
         "verificato": "2026-11-23",
-        "fisso": true,
         "promo": false,
-        "nome_sito": "KitchenAid Robot da cucina/Planetaria ARTISAN con affettaverdure 5KSMVSA incluso"
+        "nome_sito": "KitchenAid Robot da cucina/Planetaria ARTISAN con affettaverdure 5KSMVSA incluso",
+        "ex_fisso": "2026-11-23"
       },
       {
         "id": "0ba8b924-36ba-42e6-8259-f0c07f404b30",
@@ -1598,9 +1596,9 @@
         "tipo": "tagliaverdure",
         "stato": "ok",
         "verificato": "2026-11-23",
-        "fisso": true,
         "promo": false,
-        "nome_sito": "METRO Professional Tagliaverdure GVC1002, alluminio/acciaio inox, 25.76 x 64.26 x 55.34 cm, 550 W, 230 V, 290 giri/min, incluse 5 lame, argento"
+        "nome_sito": "METRO Professional Tagliaverdure GVC1002, alluminio/acciaio inox, 25.76 x 64.26 x 55.34 cm, 550 W, 230 V, 290 giri/min, incluse 5 lame, argento",
+        "ex_fisso": "2026-11-23"
       },
       {
         "id": "c6159039-c6d4-4374-b9cc-7b69ce216f18",
@@ -2144,9 +2142,9 @@
         "tipo": "frigo bevande",
         "stato": "ok",
         "verificato": "2026-11-23",
-        "fisso": true,
         "promo": true,
-        "nome_sito": "METRO Professional Frigorifero per bevande GSC4280, 59.5 x 54.5 x 159 cm, 280 L, bianco"
+        "nome_sito": "METRO Professional Frigorifero per bevande GSC4280, 59.5 x 54.5 x 159 cm, 280 L, bianco",
+        "ex_fisso": "2026-11-23"
       },
       {
         "id": "3fbfea48-7a70-44d6-b26e-26e836b463cc",
@@ -2181,9 +2179,9 @@
         "tipo": "lavabicchieri",
         "stato": "ok",
         "verificato": "2026-11-23",
-        "fisso": true,
         "promo": true,
-        "nome_sito": "METRO PROFESSIONAL Lavabicchieri GGW1040E, 46.5 x 51.0 x 69.5 cm, 230 V, 30 cicli di lavaggio/h, cesto 40 x 40 cm, senza pompa di scarico"
+        "nome_sito": "METRO PROFESSIONAL Lavabicchieri GGW1040E, 46.5 x 51.0 x 69.5 cm, 230 V, 30 cicli di lavaggio/h, cesto 40 x 40 cm, senza pompa di scarico",
+        "ex_fisso": "2026-11-23"
       },
       {
         "id": "d93f31fb-5142-4afd-a360-eb22599463e5",
@@ -2206,9 +2204,9 @@
         "tipo": "macchina caffè",
         "stato": "ok",
         "verificato": "2026-11-23",
-        "fisso": true,
         "promo": false,
-        "nome_sito": "Macchina per caffè espresso H.Koenig 20 bar con macinacaffè EXPRO980, 2,7L, serbatoio 250g, 15 formati di macinatura, pompa made in Italy, 1-2 tazze"
+        "nome_sito": "Macchina per caffè espresso H.Koenig 20 bar con macinacaffè EXPRO980, 2,7L, serbatoio 250g, 15 formati di macinatura, pompa made in Italy, 1-2 tazze",
+        "ex_fisso": "2026-11-23"
       },
       {
         "id": "e4e18db0-8541-4355-a86c-50e946314e4c",
@@ -2836,9 +2834,9 @@
         "tipo": "lavabicchieri",
         "stato": "ok",
         "verificato": "2026-11-23",
-        "fisso": true,
         "promo": false,
-        "nome_sito": "METRO PROFESSIONAL Lavabicchieri GGW1040SW, 47,3 x 51,3 x 68,9 cm, 230 V, 30 cicli di lavaggio/h, cesto 40 x 40 cm, senza pompa di scarico"
+        "nome_sito": "METRO PROFESSIONAL Lavabicchieri GGW1040SW, 47,3 x 51,3 x 68,9 cm, 230 V, 30 cicli di lavaggio/h, cesto 40 x 40 cm, senza pompa di scarico",
+        "ex_fisso": "2026-11-23"
       },
       {
         "id": "c2e31ee5-d669-4152-a699-c58023d2304b",
@@ -2868,9 +2866,9 @@
         "tipo": "lavastoviglie",
         "stato": "ok",
         "verificato": "2026-11-23",
-        "fisso": true,
         "promo": true,
-        "nome_sito": "METRO PROFESSIONAL Lavastoviglie GDW1050E, 56.5 x 61 x 82.5 cm, 230 V, 2.6 L/ciclo, senza pompa di scarico"
+        "nome_sito": "METRO PROFESSIONAL Lavastoviglie GDW1050E, 56.5 x 61 x 82.5 cm, 230 V, 2.6 L/ciclo, senza pompa di scarico",
+        "ex_fisso": "2026-11-23"
       },
       {
         "id": "40f1f937-9ce4-4b53-93b8-34cab52fe4cd",
@@ -2905,9 +2903,9 @@
         "tipo": "lavastoviglie capotta",
         "stato": "ok",
         "verificato": "2026-11-23",
-        "fisso": true,
         "promo": true,
-        "nome_sito": "METRO PROFESSIONAL Lavastoviglie a capotta GHW1000E, 75.5 x 74.5 x 148 cm, 400 V, 2.6 L/ciclo, senza pompa di scarico"
+        "nome_sito": "METRO PROFESSIONAL Lavastoviglie a capotta GHW1000E, 75.5 x 74.5 x 148 cm, 400 V, 2.6 L/ciclo, senza pompa di scarico",
+        "ex_fisso": "2026-11-23"
       },
       {
         "id": "ef6c0fb5-3155-4a11-b186-ea1d6a327c56",

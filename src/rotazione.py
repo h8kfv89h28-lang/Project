@@ -1,4 +1,7 @@
-"""Rotazione settimanale degli articoli nei volantini: 3 fissi + 3 a rotazione per categoria.
+"""Rotazione settimanale degli articoli nei volantini: 6 articoli a rotazione per categoria, promo prima.
+
+Dal 23/11/2026 (scelta di Michael) non ci sono più articoli fissi: regole in data/catalogo.json
+("fissi": 0, "rotazione": 6, "pausa_settimane": 3). Il codice dei fissi resta per un eventuale ritorno.
 
 File:
 - data/catalogo.json        articoli candidati per categoria (con i dati dell'ultima verifica)
@@ -8,12 +11,12 @@ File:
 Comandi:
   python src/rotazione.py proponi  [--data AAAA-MM-GG] [--riserve 5]
       Mostra per categoria i fissi, i candidati a rotazione in ordine di scelta e scrive in
-      /tmp/da_verificare.txt i link da scaricare con Firecrawl (fissi + 3 a rotazione + riserve).
+      /tmp/da_verificare.txt i link da scaricare con Firecrawl (eventuali fissi + articoli a rotazione + riserve).
   python src/rotazione.py aggiorna /tmp/pagine/*.json [--data AAAA-MM-GG]
       Aggiorna nel catalogo prezzo, promo, venditore, consegna, ecc. dalle pagine prodotto scaricate
       (stesse regole del punto 1 della procedura) e marca l'articolo "ok" o "escluso" con il motivo.
   python src/rotazione.py applica  [--data AAAA-MM-GG]
-      Sceglie 3 fissi + 3 a rotazione tra gli articoli verificati oggi, "ok" e completi (punti e foto),
+      Sceglie gli articoli della settimana (regole del catalogo) tra gli articoli verificati oggi, "ok" e completi (punti e foto),
       scrive data/prodotti.json e registra l'uscita nello storico.
   python src/rotazione.py stato
       Riepilogo del catalogo: articoli per categoria, ok/esclusi/da completare, ultima uscita.
@@ -340,6 +343,9 @@ def cmd_applica(args):
             tag = "FISSO   " if a.get("fisso") else ("NUOVO   " if a["id"] not in prec else "RITORNA ")
             promo = f" (promo {a.get('sconto_sito')})" if a.get("prezzo_rif") else ""
             print(f"  {tag} {a.get('tipo', ''):<14} {a['nome'][:50]} {a['prezzo']:.2f} €{promo}")
+        pieni = sum(not a.get("prezzo_rif") for a in sel if not a.get("fisso"))
+        if pieni:
+            print(f"  NOTA: {pieni} articoli a prezzo pieno: non c'erano abbastanza promo valide fuori pausa")
     if problemi:
         for p in problemi:
             print("ERRORE:", p)
