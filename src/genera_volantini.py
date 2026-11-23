@@ -5,7 +5,7 @@ Da data/prodotti.json + config.json produce, per ogni categoria (max 6 referenze
   - output/PDF_WhatsApp/Volantino_METRO_<Categoria>_WhatsApp.pdf  smartphone 9:16: 1 pagina per
                                                                    prodotto con pulsante "Acquista online"
   - output/Testi_WhatsApp/Messaggio_<Categoria>.txt               testo facoltativo con i link
-e il pacchetto unico output/Volantini_METRO_Horeca.zip.
+e i PDF unici output/MarketPlace_A4.pdf e output/MarketPlace_WA.pdf (lo zip non si crea più dal 23/11/2026).
 
 Grafica in HTML/CSS (font Lato e colori del sito metro.it) convertita con Chromium (Playwright).
 
@@ -26,7 +26,6 @@ import tempfile
 import unicodedata
 import urllib.parse
 import urllib.request
-import zipfile
 
 import qrcode
 from PIL import Image
@@ -429,20 +428,6 @@ def messaggio(cat, cfg, data):
     return "\n".join(righe) + "\n"
 
 
-LEGGIMI = """VOLANTINI METRO MERCATO ONLINE - HORECA (prezzi verificati il {data})
-
-PDF_A4/        5 volantini A4 (uno per categoria): pulsanti cliccabili e QR code.
-               Per e-mail, stampa o per chi legge da computer.
-PDF_WhatsApp/  5 volantini in formato smartphone (verticale 9:16), uno per categoria:
-               una pagina per prodotto con il pulsante "Acquista online" e il QR code
-Testi_WhatsApp/ testo facoltativo da incollare insieme al PDF (con i link diretti ai prodotti).
-
-COME INVIARE SU WHATSAPP
-1. Apri la chat del cliente, tocca + (o la graffetta) > Documento e scegli il PDF della categoria.
-2. Aggiungi una riga di presentazione (o incolla il testo della cartella Testi_WhatsApp).
-3. Il cliente apre il PDF sul telefono e tocca i pulsanti per acquistare online.
-"""
-
 
 # ---------------------------------------------------------------- controlli sui dati
 SOGLIA_PREZZO = 290.0
@@ -566,17 +551,9 @@ def main():
     unisci_pdf([(t, a) for t, a, _ in generati], os.path.join(tmp_out, "MarketPlace_A4.pdf"))
     unisci_pdf([(t, w) for t, _, w in generati], os.path.join(tmp_out, "MarketPlace_WA.pdf"))
 
-    # pacchetto unico da scaricare
-    z = os.path.join(tmp_out, "Volantini_METRO_Horeca.zip")
-    with zipfile.ZipFile(z, "w", zipfile.ZIP_DEFLATED) as zf:
-        zf.writestr("LEGGIMI.txt", LEGGIMI.format(data=data))
-        for k in ("a4", "wa", "txt"):
-            for f in sorted(os.listdir(cartelle[k])):
-                zf.write(os.path.join(cartelle[k], f), os.path.join(os.path.basename(cartelle[k]), f))
-
     shutil.rmtree(args.out, ignore_errors=True)
     os.replace(tmp_out, args.out)
-    for f in ("PDF_A4", "PDF_WhatsApp", "MarketPlace_A4.pdf", "MarketPlace_WA.pdf", "Volantini_METRO_Horeca.zip"):
+    for f in ("PDF_A4", "PDF_WhatsApp", "MarketPlace_A4.pdf", "MarketPlace_WA.pdf"):
         print("Creato", os.path.relpath(os.path.join(args.out, f), ROOT))
 
 

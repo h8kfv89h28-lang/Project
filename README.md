@@ -10,7 +10,6 @@ da inviare ai clienti dal team commerciale.
   documento su WhatsApp: una pagina per prodotto con il pulsante "Acquista online" e il QR code
   che porta allo stesso link.
 - `Testi_WhatsApp/Messaggio_<Categoria>.txt` – testo facoltativo da incollare insieme al PDF, con i link.
-- `Volantini_METRO_Horeca.zip` – pacchetto unico con tutto quanto sopra e il file LEGGIMI.
 - `MarketPlace_A4.pdf` (5 pagine) e `MarketPlace_WA.pdf` (30 pagine) – tutte le categorie in un unico PDF,
   in ordine alfabetico, con un segnalibro per categoria.
 
@@ -24,7 +23,7 @@ il proprio referente commerciale in METRO.
 ## Uso
 ```bash
 pip install -r requirements.txt
-python src/genera_volantini.py            # PDF A4 + PDF WhatsApp + testi + zip
+python src/genera_volantini.py            # PDF A4 + PDF WhatsApp + testi + PDF unici
 python src/estrai_pagina.py pagina.html   # dati di una pagina prodotto (vedi PROCEDURA_SETTIMANALE.md)
 python src/rotazione.py stato             # catalogo e uscite; proponi / aggiorna / applica per il giro del lunedì
 ```
