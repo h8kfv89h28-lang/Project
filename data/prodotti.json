@@ -1,113 +1,70 @@
 {
-  "data_verifica": "11/10/2026",
+  "data_verifica": "23/11/2026",
   "fonte": "Attrezzature vendute da METRO (Venduto da: METRO) tra le più scelte nelle categorie di metro.it/marketplace, prezzi verificati sulle pagine prodotto",
   "categorie": [
     {
       "titolo": "Cottura",
       "url_categoria": "https://www.metro.it/marketplace/c/griglie-affumicatori-e-pirofile-con-coperchio",
-      "sottotitolo": "Forni, friggitrici e cuocipasta professionali per una cucina sempre al massimo.",
+      "sottotitolo": "Cucina a gas, fry top, cuocipasta e forni per una cucina sempre al massimo.",
       "prodotti": [
         {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Forno combinato a vapore GCS1007M, manuale",
-          "url": "https://www.metro.it/marketplace/product/b6cfdbc2-03c6-45b4-a0f7-e0914103bd98",
-          "immagine": "https://images.metro-marketplace.eu/item_image/e4ad8b60-8bf2-4edd-8c5d-49edb2d12eae?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 1890.0,
+          "marca": "ATOSA",
+          "nome": "Cucina a gas 6 fuochi con ante, 6 x 7 kW",
+          "url": "https://www.metro.it/marketplace/product/6797e8f3-2390-402b-93f1-42ad97c94d0c",
           "punti": [
-            "Vapore e aria calda combinati",
-            "Temperatura da 100 a 270 °C, 400 V",
-            "Prodotto in Italia, uso professionale"
+            "6 fuochi da 7 kW, piano inox AISI 304",
+            "Griglie in ghisa rimovibili",
+            "Sistema di sicurezza fiamma"
           ],
+          "aggiunto": "2026-11-23",
+          "prezzo": 1995.25,
+          "prezzo_rif": 2506.0,
+          "etichetta_rif": "Prezzo abituale",
+          "sconto_sito": "-20%",
           "venditore": "METRO",
           "consegna": {
             "costo": "29,00 €",
             "giorni": "3-7"
           },
-          "disponibilita_limitata": true
-        },
-        {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Friggitrice doppia GDF3028, 2 x 8 L, 6500 W",
-          "url": "https://www.metro.it/marketplace/product/89947111-adf5-4c21-aaad-98d04e901b4f",
-          "immagine": "https://images.metro-marketplace.eu/item_image/a484aad4-0d23-44e8-a353-742366a7ec6d?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 349.0,
-          "punti": [
-            "2 vasche da 8 L, 2 x 3250 W",
-            "1600 g di patatine fritte in 5 minuti",
-            "Inox 18/10 e rubinetti di scarico olio"
-          ],
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "7,00 €",
-            "giorni": "2-4"
-          },
-          "valutazione": {
-            "media": 4.2,
-            "recensioni": 23
-          },
-          "disponibilita_limitata": false
-        },
-        {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Forno per pizza GPO1434-1C, 1 camera",
-          "url": "https://www.metro.it/marketplace/product/9251b4dc-c8d1-40ea-9a6c-36637607619f",
-          "immagine": "https://images.metro-marketplace.eu/item_image/15e85baa-86d2-43c4-9d52-b159df6a9ad7?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 724.35,
-          "punti": [
-            "Spazio per 4 pizze da 34 cm",
-            "Temperatura da 85 a 455 °C, 400 V",
-            "Porta con vetro di sicurezza da 10 mm"
-          ],
-          "prezzo_rif": 753.35,
-          "etichetta_rif": "Prezzo più basso 30 gg",
-          "sconto_sito": "-3%",
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "29,00 €",
-            "giorni": "3-7"
-          },
-          "sconto_quantita": {
-            "da": 6,
-            "prezzo": 688.22,
-            "risparmio": "-4%"
-          },
-          "disponibilita_limitata": false
+          "disponibilita_limitata": true,
+          "immagine": "https://images.metro-marketplace.eu/item_image/68b2362e-b8d7-4c12-b61e-12e389dffc8a?impolicy=pdp_mobile_main_preview&imwidth=768"
         },
         {
           "marca": "ATOSA",
-          "nome": "Cuocipasta monovasca da terra a gas, vasca 35 L",
-          "url": "https://www.metro.it/marketplace/product/597c00b2-b1ca-4a54-ba3e-83981d7fc495",
-          "immagine": "https://images.metro-marketplace.eu/item_image/90c8f572-3e88-420e-b018-32a65a60f529?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 1499.0,
+          "nome": "Fry top liscio da terra, 80 cm",
+          "url": "https://www.metro.it/marketplace/product/9fe56623-8548-42ca-8a12-d1e10c77fcd7",
           "punti": [
-            "Vasca stampata da 35 L in inox AISI 316",
-            "Metano, convertibile GPL (ugelli inclusi)",
-            "Arresto automatico se manca l'acqua"
+            "Piano cottura liscio ad alta resa",
+            "Struttura in acciaio inox",
+            "Cassetto recupero residui"
           ],
-          "prezzo_rif": 1604.59,
+          "aggiunto": "2026-11-23",
+          "prezzo": 1819.9,
+          "prezzo_rif": 2076.0,
           "etichetta_rif": "Prezzo abituale",
-          "sconto_sito": "-6%",
+          "sconto_sito": "-12%",
           "venditore": "METRO",
           "consegna": {
             "costo": "29,00 €",
             "giorni": "3-7"
           },
-          "disponibilita_limitata": true
+          "disponibilita_limitata": true,
+          "immagine": "https://images.metro-marketplace.eu/item_image/04219d2f-cbdf-4e65-9ce4-a51089de6920?impolicy=pdp_mobile_main_preview&imwidth=768"
         },
         {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Vetrina scaldavivande GHV1130, 130 L",
-          "url": "https://www.metro.it/marketplace/product/07dd346c-d3b7-4a3d-a1e3-0297655e4380",
-          "immagine": "https://images.metro-marketplace.eu/item_image/9d2f1458-c27e-406a-8e06-c5e2ebb23912?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 399.0,
+          "marca": "ATOSA",
+          "nome": "Cuocipasta doppia vasca da terra, 2 x 35 L",
+          "url": "https://www.metro.it/marketplace/product/93f27b2b-31b5-4149-a8a4-4eab80d29523",
           "punti": [
-            "Capacità 130 litri, 1500 W",
-            "Temperatura regolabile da 30 a 90 °C",
-            "Acciaio inox e vetro, facile da pulire"
+            "2 vasche stampate da 35 L in AISI 316",
+            "Rubinetto di carico/scarico acqua",
+            "Cestelli inclusi: 3x1/3 + 6x1/6"
           ],
-          "prezzo_rif": 451.99,
-          "etichetta_rif": "Prezzo consigliato",
-          "sconto_sito": "-11%",
+          "aggiunto": "2026-11-23",
+          "prezzo": 2311.56,
+          "prezzo_rif": 2542.3,
+          "etichetta_rif": "Prezzo abituale",
+          "sconto_sito": "-9%",
           "venditore": "METRO",
           "consegna": {
             "costo": "29,00 €",
@@ -115,59 +72,132 @@
           },
           "sconto_quantita": {
             "da": 6,
-            "prezzo": 381.01,
+            "prezzo": 2202.56,
             "risparmio": "-4%"
           },
-          "disponibilita_limitata": false
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/e8927a90-466b-40ec-9e0c-1ddc1aa967fe?impolicy=pdp_mobile_main_preview&imwidth=768"
         },
         {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Griglia a contatto doppia GPG2201",
-          "url": "https://www.metro.it/marketplace/product/5eeed495-7849-457c-9070-bb9889ecc4dd",
-          "immagine": "https://images.metro-marketplace.eu/item_image/f4d0a04e-b836-4a31-9603-f4cf7a0f7f52?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 299.0,
+          "marca": "ATOSA",
+          "nome": "Cuocipasta monovasca da terra, vasca 24 L",
+          "url": "https://www.metro.it/marketplace/product/f1c5921b-d210-4cb7-887a-7edcc45abea2",
           "punti": [
-            "Fino a 55 panini all'ora",
-            "Due zone regolabili fino a 300 °C",
-            "Piastra superiore regolabile fino a 10 cm"
+            "Vasca stampata da 24 L in AISI 316",
+            "Rubinetto di carico/scarico acqua",
+            "Cestelli inclusi: 1x1/3 + 2x1/6"
           ],
+          "aggiunto": "2026-11-23",
+          "prezzo": 1222.0,
+          "prezzo_rif": 1249.0,
+          "etichetta_rif": "Prezzo abituale",
+          "sconto_sito": "-2%",
+          "venditore": "METRO",
+          "consegna": {
+            "costo": "29,00 €",
+            "giorni": "3-7"
+          },
+          "sconto_quantita": {
+            "da": 6,
+            "prezzo": 1162.41,
+            "risparmio": "-4%"
+          },
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/bcd6bb44-c97d-4a4e-a56d-6674d518aa70?impolicy=pdp_mobile_main_preview&imwidth=768"
+        },
+        {
+          "url": "https://www.metro.it/marketplace/product/a3bf8dc7-5e1e-4ba6-94ca-3ee0675d3399",
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Forno ad aria calda GCO3200, 3200 W",
+          "prezzo": 499.0,
+          "venditore": "METRO",
+          "consegna": {
+            "costo": "29,00 €",
+            "giorni": "3-7"
+          },
+          "sconto_quantita": {
+            "da": 10,
+            "prezzo": 483.81,
+            "risparmio": "-3%"
+          },
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/4ae4a4c3-5db3-48dc-892c-866e3bcb1de3?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "punti": [
+            "Spazio per 4 teglie, passo 75 mm",
+            "Temperatura da 50 a 300 °C",
+            "Timer fino a 120 minuti"
+          ]
+        },
+        {
+          "url": "https://www.metro.it/marketplace/product/a43dc664-d49a-4bf3-a71f-fa967937081f",
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Forno per pizza GPO11401, 1 camera",
+          "prezzo": 299.0,
           "venditore": "METRO",
           "consegna": {
             "costo": "7,00 €",
             "giorni": "2-4"
           },
-          "valutazione": {
-            "media": 3.6,
-            "recensioni": 5
-          },
           "sconto_quantita": {
             "da": 6,
-            "prezzo": 289.63,
+            "prezzo": 288.17,
             "risparmio": "-3%"
           },
-          "disponibilita_limitata": false
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/e4675eb0-9a99-411b-824b-5a8477bbcc1f?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "punti": [
+            "Per pizze da 40 cm",
+            "Temperatura massima 400 °C",
+            "Camera interna 40 x 40 x 10 cm"
+          ]
         }
       ]
     },
     {
       "titolo": "Refrigerazione",
       "url_categoria": "https://www.metro.it/marketplace/c/impianti-refrigerazione",
-      "sottotitolo": "Abbattitori, banchi e armadi refrigerati per conservare in sicurezza e ridurre gli sprechi.",
+      "sottotitolo": "Frigoriferi, congelatori, banchi refrigerati e vetrine per conservare in sicurezza e ridurre gli sprechi.",
       "prodotti": [
         {
+          "url": "https://www.metro.it/marketplace/product/92717672-e57e-4560-80eb-105dac929398",
           "marca": "METRO PROFESSIONAL",
-          "nome": "Abbattitore di temperatura GBF5511BN, 94 L",
-          "url": "https://www.metro.it/marketplace/product/64373b9a-1bfc-46ea-b074-41450721445c",
-          "immagine": "https://images.metro-marketplace.eu/item_image/b5540274-eba4-4ccb-9a32-dc972ee7ea8b?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 1199.0,
-          "punti": [
-            "Abbatte 25 kg in 98 min (+65 → +10 °C)",
-            "Surgela 15 kg in 240 min (fino a -18 °C)",
-            "5 teglie GN 1/1 o 600 x 400 mm"
-          ],
-          "prezzo_rif": 1490.0,
+          "nome": "Congelatore verticale GSC240N",
+          "prezzo": 699.0,
+          "venditore": "METRO",
+          "prezzo_rif": 990.0,
           "etichetta_rif": "Prezzo più basso 30 gg",
-          "sconto_sito": "-19%",
+          "sconto_sito": "-29%",
+          "consegna": {
+            "costo": "29,00 €",
+            "giorni": "3-7"
+          },
+          "valutazione": {
+            "media": 3.0,
+            "recensioni": 4
+          },
+          "classe_energetica": "C",
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/abc8fe32-7229-4a92-bf6b-a1daf96e8568?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "punti": [
+            "Da -20 a -17 °C, sbrinamento automatico",
+            "5 ripiani regolabili da 80 kg",
+            "Porta autochiudente con serratura"
+          ]
+        },
+        {
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Frigorifero GRE6400, 380 L",
+          "url": "https://www.metro.it/marketplace/product/876d5afb-9a5b-4c0b-8b38-5f1ae466c341",
+          "immagine": "https://images.metro-marketplace.eu/item_image/a0b7a5ad-6570-4502-9136-a148a384fc2d?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "prezzo": 690.0,
+          "punti": [
+            "Capacità netta 240 L, da 0 a +8 °C",
+            "5 ripiani regolabili",
+            "Porta in acciaio reversibile"
+          ],
+          "prezzo_rif": 804.99,
+          "etichetta_rif": "Prezzo consigliato",
+          "sconto_sito": "-14%",
           "venditore": "METRO",
           "consegna": {
             "costo": "29,00 €",
@@ -177,137 +207,311 @@
             "media": 5.0,
             "recensioni": 1
           },
-          "disponibilita_limitata": false
+          "classe_energetica": "B",
+          "disponibilita_limitata": false,
+          "sconto_quantita": {
+            "da": 6,
+            "prezzo": 662.96,
+            "risparmio": "-3%"
+          }
         },
         {
+          "url": "https://www.metro.it/marketplace/product/b487b915-07ce-44ff-9efc-f96180708184",
           "marca": "METRO PROFESSIONAL",
-          "nome": "Banco refrigerato 3 porte GCC3100BS, 400 L",
-          "url": "https://www.metro.it/marketplace/product/9ef03c10-ea45-4a74-ac48-9783df5fef03",
-          "immagine": "https://images.metro-marketplace.eu/item_image/46ddec9d-b9da-48c2-957e-85180d28e1d3?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 811.63,
-          "punti": [
-            "3 porte, 334 L netti, da -2 a +8 °C",
-            "Ventilato, classe energetica A",
-            "6 ripiani grandi + 4 piccoli, GN 1/1"
-          ],
-          "prezzo_rif": 866.8,
-          "etichetta_rif": "Prezzo più basso 30 gg",
-          "sconto_sito": "-6%",
+          "nome": "Tavolo congelatore GCF3100, 3 porte",
+          "prezzo": 1025.84,
           "venditore": "METRO",
+          "prezzo_rif": 1155.99,
+          "etichetta_rif": "Prezzo consigliato",
+          "sconto_sito": "-11%",
           "consegna": {
             "costo": "29,00 €",
             "giorni": "3-7"
-          },
-          "valutazione": {
-            "media": 3.6,
-            "recensioni": 5
-          },
-          "classe_energetica": "A",
-          "disponibilita_limitata": true
-        },
-        {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Banco refrigerato 2 porte GCC2100BS, 270 L",
-          "url": "https://www.metro.it/marketplace/product/d865416d-bb83-40d7-81f6-7ca79ee77e55",
-          "immagine": "https://images.metro-marketplace.eu/item_image/c6ae78a7-96cf-4f87-b123-50fb1ef71a03?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 725.07,
-          "punti": [
-            "2 porte, 215 L netti, da -2 a +8 °C",
-            "Ventilato, sbrinamento automatico",
-            "Allarme porta aperta e serratura"
-          ],
-          "prezzo_rif": 754.07,
-          "etichetta_rif": "Prezzo più basso 30 gg",
-          "sconto_sito": "-3%",
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "29,00 €",
-            "giorni": "3-7"
-          },
-          "valutazione": {
-            "media": 3.3,
-            "recensioni": 3
           },
           "sconto_quantita": {
             "da": 6,
-            "prezzo": 690.41,
+            "prezzo": 983.16,
             "risparmio": "-4%"
           },
-          "classe_energetica": "A",
-          "disponibilita_limitata": false
+          "valutazione": {
+            "media": 5.0,
+            "recensioni": 1
+          },
+          "classe_energetica": "C",
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/30b686e9-5985-4c38-a9d0-1ff728083ae4?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "punti": [
+            "Da -22 a -18 °C, adatto a GN 1/1",
+            "Raffreddamento ventilato",
+            "Sbrinamento automatico"
+          ]
         },
         {
-          "marca": "IARP",
-          "nome": "Congelatore orizzontale a pozzetto F500 E-C",
-          "url": "https://www.metro.it/marketplace/product/757aed6d-1717-47e4-85f8-d7355c67939e",
-          "immagine": "https://images.metro-marketplace.eu/item_image/9786e228-c188-4aba-ab41-fe3e11b3b6bf?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 527.94,
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Tavolo refrigerato GSD3600, 2 porte, 265 L",
+          "url": "https://www.metro.it/marketplace/product/5fc867c2-0a00-47e0-a3cd-65ae7e632de4",
           "punti": [
-            "Temperatura da -25 a -18 °C",
-            "Serratura con chiave e luce interna",
-            "151,6 x 69,6 x 86 cm, 1,2 kWh/24h"
+            "Controllo digitale della temperatura",
+            "Raffreddamento statico-ventilato",
+            "Porte autochiudenti con serratura"
           ],
-          "prezzo_rif": 556.94,
+          "aggiunto": "2026-11-23",
+          "prezzo": 399.0,
+          "prezzo_rif": 452.12,
           "etichetta_rif": "Prezzo più basso 30 gg",
-          "sconto_sito": "-5%",
+          "sconto_sito": "-11%",
           "venditore": "METRO",
           "consegna": {
             "costo": "29,00 €",
             "giorni": "3-7"
           },
           "valutazione": {
-            "media": 2.0,
-            "recensioni": 1
+            "media": 4.0,
+            "recensioni": 4
           },
-          "sconto_quantita": {
-            "da": 6,
-            "prezzo": 501.54,
-            "risparmio": "-5%"
-          },
-          "classe_energetica": "C",
-          "disponibilita_limitata": false
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/81c867e7-6fe6-488f-80ad-84b16dc6dcf2?impolicy=pdp_mobile_main_preview&imwidth=768"
         },
         {
+          "url": "https://www.metro.it/marketplace/product/559f17d0-9d0a-4e24-806e-bd0929c88d22",
           "marca": "METRO PROFESSIONAL",
-          "nome": "Frigorifero doppia porta in vetro GSC2100, 930 L",
-          "url": "https://www.metro.it/marketplace/product/3a6ac106-32b7-48d5-99af-bece92b3aa9a",
-          "immagine": "https://images.metro-marketplace.eu/item_image/b9319c8d-b94d-4225-8c55-24e3c77f1e55?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 1290.0,
+          "nome": "Banco pizza refrigerato GPT2100, 241 L",
+          "prezzo": 931.68,
+          "venditore": "METRO",
+          "prezzo_rif": 1012.99,
+          "etichetta_rif": "Prezzo consigliato",
+          "sconto_sito": "-8%",
+          "consegna": {
+            "costo": "29,00 €",
+            "giorni": "3-7"
+          },
+          "disponibilita_limitata": true,
+          "immagine": "https://images.metro-marketplace.eu/item_image/3fb167c2-c252-46d0-a9fa-b0b50bccb1c2?impolicy=pdp_mobile_main_preview&imwidth=768",
           "punti": [
-            "Doppia porta in vetro, 930 litri",
-            "10 ripiani regolabili da 40 kg",
-            "Da +2 a +8 °C, LED e serratura"
-          ],
+            "Da -2 a +10 °C, adatto a GN 1/1",
+            "2 porte, 2 ripiani regolabili",
+            "Abbinabile alla vetrina GHS2150"
+          ]
+        },
+        {
+          "url": "https://www.metro.it/marketplace/product/5ecdc9e0-75ef-4c77-8ecc-3a8fc047aad0",
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Vetrina refrigerata GCV2470B, 536 L",
+          "prezzo": 1290.0,
           "venditore": "METRO",
           "consegna": {
             "costo": "29,00 €",
             "giorni": "3-7"
+          },
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/bd7fd6bb-7b42-4302-8aa2-c9650280e83a?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "punti": [
+            "Da 0 a 12 °C, raffreddamento ventilato",
+            "Vetro temperato sui 4 lati",
+            "Ripiani in vetro regolabili, max 15 kg"
+          ],
+          "prezzo_rif": 1398.54,
+          "etichetta_rif": "Prezzo più basso 30 gg",
+          "sconto_sito": "-7%",
+          "classe_energetica": "B"
+        }
+      ]
+    },
+    {
+      "titolo": "Preparazione",
+      "url_categoria": "https://www.metro.it/marketplace/c/attrezzature-per-la-preparazione",
+      "sottotitolo": "Affettatrici, planetaria, tritacarne, frullatore e sottovuoto: più velocità e precisione in cucina.",
+      "prodotti": [
+        {
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Frullatore a immersione GSM1060, asta 42 cm",
+          "url": "https://www.metro.it/marketplace/product/d4506de3-b26d-41bd-ab6b-34a8dd63b82b",
+          "punti": [
+            "Asta rimovibile da 42 cm, fino a 60 L",
+            "9.000 giri/min",
+            "Supporto a parete incluso"
+          ],
+          "aggiunto": "2026-11-23",
+          "prezzo": 290.0,
+          "prezzo_rif": 373.99,
+          "etichetta_rif": "Prezzo consigliato",
+          "sconto_sito": "-22%",
+          "venditore": "METRO",
+          "consegna": {
+            "costo": "7,00 €",
+            "giorni": "2-4"
+          },
+          "sconto_quantita": {
+            "da": 6,
+            "prezzo": 276.04,
+            "risparmio": "-4%"
+          },
+          "valutazione": {
+            "media": 5.0,
+            "recensioni": 1
+          },
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/3f549988-4670-4473-899a-5b0a5d0902fe?impolicy=pdp_mobile_main_preview&imwidth=768"
+        },
+        {
+          "url": "https://www.metro.it/marketplace/product/42cc6230-9913-4a8c-97bb-537beb36972a",
+          "marca": "R.G.V.",
+          "nome": "Affettatrice 300ES, lama 30 cm",
+          "prezzo": 628.02,
+          "venditore": "METRO",
+          "consegna": {
+            "costo": "29,00 €",
+            "giorni": "7-10"
+          },
+          "disponibilita_limitata": true,
+          "immagine": "https://images.metro-marketplace.eu/item_image/6180028e-5089-446b-80cf-d53c7b4dc464?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "punti": [
+            "Made in Italy, motore ventilato",
+            "Affilatoio fisso incluso",
+            "Basamento in alluminio pressofuso"
+          ],
+          "prezzo_rif": 699.69,
+          "etichetta_rif": "Prezzo più basso 30 gg",
+          "sconto_sito": "-10%"
+        },
+        {
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Tritacarne GMG1100, 100 kg/h, 550 W",
+          "url": "https://www.metro.it/marketplace/product/e2c87f89-200a-4135-9ca9-4e683120e253",
+          "punti": [
+            "Fino a 100 kg di carne all'ora",
+            "Funzione avanti e indietro",
+            "Protezione da sovraccarico"
+          ],
+          "aggiunto": "2026-11-23",
+          "prezzo": 309.0,
+          "prezzo_rif": 333.99,
+          "etichetta_rif": "Prezzo consigliato",
+          "sconto_sito": "-7%",
+          "venditore": "METRO",
+          "consegna": {
+            "costo": "7,00 €",
+            "giorni": "2-4"
+          },
+          "valutazione": {
+            "media": 5.0,
+            "recensioni": 2
+          },
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/8342862a-d717-4d19-8f0e-a2299c8d248c?impolicy=pdp_mobile_main_preview&imwidth=768"
+        },
+        {
+          "url": "https://www.metro.it/marketplace/product/54d510a6-86fa-480c-84af-8b6309feda25",
+          "marca": "ILINE",
+          "nome": "Impastatrice planetaria 30 L",
+          "prezzo": 718.01,
+          "venditore": "METRO",
+          "prezzo_rif": 770.57,
+          "etichetta_rif": "Prezzo abituale",
+          "sconto_sito": "-6%",
+          "consegna": {
+            "costo": "29,00 €",
+            "giorni": "4-8"
+          },
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/6a0d28fd-b14b-4795-99d3-2634a9d520cd?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "punti": [
+            "5 velocità in base all'impasto",
+            "Vasca estraibile a sgancio rapido",
+            "Uncino, spatola e frusta in inox"
+          ]
+        },
+        {
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Sigillatrice sottovuoto GVS2040, 550 W",
+          "url": "https://www.metro.it/marketplace/product/037d8701-126f-4ff1-b65e-98155aa9c94b",
+          "punti": [
+            "550 W, vuoto fino a 958 mbar",
+            "Sacchetti lisci e goffrati fino a 40 cm",
+            "Porta rotolo e taglierina integrati"
+          ],
+          "aggiunto": "2026-11-23",
+          "prezzo": 349.0,
+          "venditore": "METRO",
+          "consegna": {
+            "costo": "7,00 €",
+            "giorni": "2-4"
           },
           "valutazione": {
             "media": 4.2,
-            "recensioni": 12
+            "recensioni": 18
           },
-          "sconto_quantita": {
-            "da": 10,
-            "prezzo": 1248.95,
-            "risparmio": "-3%"
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/29ba500f-26de-47da-8d8c-1910f438eafa?impolicy=pdp_mobile_main_preview&imwidth=768"
+        },
+        {
+          "url": "https://www.metro.it/marketplace/product/9da0f559-ac64-4a0f-8e9c-980922ef5ac8",
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Affettatrice GFS4025, lama 25 cm",
+          "prezzo": 499.0,
+          "venditore": "METRO",
+          "consegna": {
+            "costo": "7,00 €",
+            "giorni": "2-4"
           },
-          "classe_energetica": "C",
-          "disponibilita_limitata": false
+          "valutazione": {
+            "media": 5.0,
+            "recensioni": 2
+          },
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/8ab5479d-b475-4dd4-9799-be1ff3cd5549?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "punti": [
+            "Spessore di taglio da 0 a 12 mm",
+            "Affilatore integrato",
+            "Corpo in alluminio anodizzato"
+          ]
+        }
+      ]
+    },
+    {
+      "titolo": "Bar e Caffetteria",
+      "url_categoria": "https://www.metro.it/marketplace/c/preparazione-bevande",
+      "sottotitolo": "Bevande fresche, vini, ghiaccio e vetrine sempre pronti per il servizio al banco.",
+      "prodotti": [
+        {
+          "url": "https://www.metro.it/marketplace/product/0558b8d6-b00f-42ad-8477-bc5cadcfd3c3",
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Frigorifero per bevande GSC2360B, 347 L",
+          "prezzo": 299.0,
+          "venditore": "METRO",
+          "consegna": {
+            "costo": "29,00 €",
+            "giorni": "3-7"
+          },
+          "valutazione": {
+            "media": 4.8,
+            "recensioni": 40
+          },
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/d0721b58-9f98-4ff5-a636-fb6253797975?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "punti": [
+            "Da +2 a +8 °C, ventilato",
+            "4 ripiani regolabili da 40 kg",
+            "Porta autochiudente con serratura"
+          ],
+          "prezzo_rif": 599.0,
+          "etichetta_rif": "Prezzo più basso 30 gg",
+          "sconto_sito": "-50%",
+          "classe_energetica": "D"
         },
         {
           "marca": "METRO PROFESSIONAL",
-          "nome": "Frigorifero per bevande GSC2360C, 347 L",
-          "url": "https://www.metro.it/marketplace/product/4b039b5d-88c4-45ad-8af3-2f350dade9fb",
-          "immagine": "https://images.metro-marketplace.eu/item_image/f1187f2c-150f-468c-8037-a189cdccb152?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 386.75,
+          "nome": "Cantinetta vino GWC3091, 91 bottiglie",
+          "url": "https://www.metro.it/marketplace/product/8a6d11d8-a669-42a8-9ed1-d992bc5a37d0",
           "punti": [
-            "347 litri, da +2 a +8 °C",
-            "4 ripiani regolabili da 40 kg",
-            "LED interno, porta con serratura"
+            "2 zone climatiche, fino a 91 bottiglie",
+            "5 ripiani in legno da 30 kg",
+            "Termostato digitale e luce LED"
           ],
-          "prezzo_rif": 607.99,
-          "etichetta_rif": "Prezzo consigliato",
+          "aggiunto": "2026-11-23",
+          "prezzo": 349.0,
+          "prezzo_rif": 549.0,
+          "etichetta_rif": "Prezzo più basso 30 gg",
           "sconto_sito": "-36%",
           "venditore": "METRO",
           "consegna": {
@@ -315,451 +519,277 @@
             "giorni": "3-7"
           },
           "valutazione": {
-            "media": 4.5,
-            "recensioni": 11
+            "media": 3.7,
+            "recensioni": 3
+          },
+          "classe_energetica": "G",
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/4ebe6c16-08d8-4efb-9193-bd527732f2e6?impolicy=pdp_mobile_main_preview&imwidth=768"
+        },
+        {
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Vetrina refrigerata da banco GCV1160R, 169 L",
+          "url": "https://www.metro.it/marketplace/product/b2be4b4e-8093-4b26-b06d-3eb661087933",
+          "punti": [
+            "Vetro temperato sui 4 lati",
+            "Termostato digitale e luce LED",
+            "2 ripiani regolabili da 20 kg"
+          ],
+          "aggiunto": "2026-11-23",
+          "prezzo": 528.44,
+          "prezzo_rif": 771.99,
+          "etichetta_rif": "Prezzo consigliato",
+          "sconto_sito": "-31%",
+          "venditore": "METRO",
+          "consegna": {
+            "costo": "29,00 €",
+            "giorni": "3-7"
           },
           "sconto_quantita": {
             "da": 6,
-            "prezzo": 368.69,
+            "prezzo": 504.91,
             "risparmio": "-4%"
           },
-          "classe_energetica": "D",
-          "disponibilita_limitata": false
-        }
-      ]
-    },
-    {
-      "titolo": "Preparazione",
-      "url_categoria": "https://www.metro.it/marketplace/c/attrezzature-per-la-preparazione",
-      "sottotitolo": "Affettatrici, sottovuoto, tritatutto e planetarie: più velocità e precisione in cucina.",
-      "prodotti": [
-        {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Tritatutto per verdure GFC1008, 8 L, 800 W",
-          "url": "https://www.metro.it/marketplace/product/bec3e8ff-6aa8-4b41-bb8b-09c240c7d666",
-          "immagine": "https://images.metro-marketplace.eu/item_image/6c52190e-f253-4157-b5d5-4137a37e9afe?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 349.3,
-          "punti": [
-            "Struttura robusta in acciaio inox",
-            "Motore raffreddato ad aria, 1500 giri/min",
-            "Coperchio con apertura di riempimento"
-          ],
-          "prezzo_rif": 499.0,
-          "etichetta_rif": "Prezzo più basso 30 gg",
-          "sconto_sito": "-30%",
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "7,00 €",
-            "giorni": "2-4"
-          },
-          "disponibilita_limitata": false
-        },
-        {
-          "marca": "KENWOOD",
-          "nome": "Robot Titanium Chef Patissier XL, 1400 W",
-          "url": "https://www.metro.it/marketplace/product/0baf0c1a-a7cf-4d4e-945a-bc1756c268a1",
-          "immagine": "https://images.metro-marketplace.eu/item_image/67017354-13e5-4bb4-8f6d-8b92e4564a7b?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 568.51,
-          "punti": [
-            "Pesa e riscalda direttamente in ciotola",
-            "Ciotola in acciaio inox illuminata",
-            "Ampia gamma di accessori inclusi"
-          ],
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "7,00 €",
-            "giorni": "2-4"
-          },
           "valutazione": {
-            "media": 4.8,
-            "recensioni": 5
-          },
-          "disponibilita_limitata": true
-        },
-        {
-          "marca": "H.KOENIG",
-          "nome": "Affettatrice professionale MSX300, lama 30 cm",
-          "url": "https://www.metro.it/marketplace/product/6a2495a8-e539-47be-9333-ec8a1093cb4e",
-          "immagine": "https://images.metro-marketplace.eu/item_image/99763391-47d3-4840-8124-5048b3abfac3?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 448.76,
-          "punti": [
-            "Lama italiana Ø 30 cm",
-            "Spessore di taglio da 0 a 15 mm",
-            "Motore 380 W, affilalama integrato"
-          ],
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "7,00 €",
-            "giorni": "2-6"
-          },
-          "disponibilita_limitata": false
-        },
-        {
-          "marca": "KITCHENAID",
-          "nome": "Planetaria ARTISAN con affettaverdure",
-          "url": "https://www.metro.it/marketplace/product/3aba947b-f546-498b-a69e-929407eea337",
-          "immagine": "https://images.metro-marketplace.eu/item_image/26168ee3-6af2-4501-ac8c-12f674590e05?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 378.88,
-          "punti": [
-            "Ciotola inox 4,8 L: fino a 1 kg di farina",
-            "300 W ad azionamento diretto",
-            "Affettaverdure 3 tamburi incluso"
-          ],
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "7,00 €",
-            "giorni": "2-4"
-          },
-          "valutazione": {
-            "media": 4.0,
-            "recensioni": 4
-          },
-          "disponibilita_limitata": false
-        },
-        {
-          "marca": "H.KOENIG",
-          "nome": "Affettatrice professionale MSX250, lama 25 cm",
-          "url": "https://www.metro.it/marketplace/product/d7d273a7-3f6d-4d5e-abf4-d55f6dbdca9d",
-          "immagine": "https://images.metro-marketplace.eu/item_image/8322f272-7c2a-4949-9d81-201283f15cbf?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 303.66,
-          "punti": [
-            "Lama made in Italy da 25 cm",
-            "Spessore di taglio regolabile 0-12 mm",
-            "Affilatoio integrato, motore 240 W"
-          ],
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "7,00 €",
-            "giorni": "2-6"
-          },
-          "valutazione": {
-            "media": 4.0,
+            "media": 3.0,
             "recensioni": 1
           },
-          "disponibilita_limitata": false
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/5a1799db-018d-4822-8964-9e89cf3607d4?impolicy=pdp_mobile_main_preview&imwidth=768"
         },
         {
+          "url": "https://www.metro.it/marketplace/product/4893fa53-5f6a-47a2-9427-54625b209ca0",
           "marca": "METRO PROFESSIONAL",
-          "nome": "Macchina sottovuoto a campana GVS1200, 7 L",
-          "url": "https://www.metro.it/marketplace/product/62dd1035-9771-48db-a190-27d97665b651",
-          "immagine": "https://images.metro-marketplace.eu/item_image/38f5d8de-0968-476f-9a7a-aef588b119cf?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 299.0,
-          "punti": [
-            "Pompa 70 L/min, vuoto -0,95 bar",
-            "Camera 30,5 x 32,2 x 10 cm, 5 funzioni",
-            "Inox e vetro, 30 sacchetti inclusi"
-          ],
-          "prezzo_rif": 399.0,
-          "etichetta_rif": "Prezzo più basso 30 gg",
-          "sconto_sito": "-25%",
+          "nome": "Fabbricatore di ghiaccio GIM1050B, 50 kg/24h",
+          "prezzo": 447.99,
           "venditore": "METRO",
-          "consegna": {
-            "costo": "7,00 €",
-            "giorni": "2-4"
-          },
-          "valutazione": {
-            "media": 5.0,
-            "recensioni": 2
-          },
-          "disponibilita_limitata": false
-        }
-      ]
-    },
-    {
-      "titolo": "Bar e Caffetteria",
-      "url_categoria": "https://www.metro.it/marketplace/c/preparazione-bevande",
-      "sottotitolo": "Caffè, ghiaccio, bicchieri e bevande sempre pronti per il servizio al banco.",
-      "prodotti": [
-        {
-          "marca": "DE'LONGHI",
-          "nome": "Macchina da caffè automatica ECAM 356.57B",
-          "url": "https://www.metro.it/marketplace/product/765252c9-28e9-41ac-849f-1cd8203f486a",
-          "immagine": "https://images.metro-marketplace.eu/item_image/a98ff7d8-110a-4bc8-a7ed-419572105e8f?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 523.15,
-          "punti": [
-            "Caffè in chicchi o macinato",
-            "Sistema LatteCrema per cappuccini",
-            "5 intensità e tasti a selezione diretta"
-          ],
-          "prezzo_rif": 649.0,
+          "prezzo_rif": 562.99,
           "etichetta_rif": "Prezzo consigliato",
-          "sconto_sito": "-19%",
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "7,00 €",
-            "giorni": "2-4"
-          },
-          "disponibilita_limitata": true
-        },
-        {
-          "marca": "H.KOENIG",
-          "nome": "Macchina espresso 20 bar con macinacaffè EXPRO980",
-          "url": "https://www.metro.it/marketplace/product/d93f31fb-5142-4afd-a360-eb22599463e5",
-          "immagine": "https://images.metro-marketplace.eu/item_image/af098b56-da94-4e38-8fbc-3a6fcac63313?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 329.3,
-          "punti": [
-            "Pompa italiana 20 bar, macinacaffè integrato",
-            "15 gradi di macinatura, 250 g di caffè",
-            "Serbatoio 2,7 L, lancia vapore orientabile"
-          ],
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "7,00 €",
-            "giorni": "2-6"
-          },
-          "disponibilita_limitata": false
-        },
-        {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Fabbricatore di ghiaccio GIM1026B, 26 kg/24h",
-          "url": "https://www.metro.it/marketplace/product/e4e18db0-8541-4355-a86c-50e946314e4c",
-          "immagine": "https://images.metro-marketplace.eu/item_image/a3315218-8ffc-42fc-a620-b6ff078f416f?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 299.0,
-          "punti": [
-            "Fino a 26 kg di ghiaccio al giorno",
-            "Cubetti a cono cavo, riserva 6 kg",
-            "Inox, paletta e tubi inclusi"
-          ],
-          "prezzo_rif": 453.99,
-          "etichetta_rif": "Prezzo consigliato",
-          "sconto_sito": "-34%",
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "7,00 €",
-            "giorni": "2-4"
-          },
-          "valutazione": {
-            "media": 3.5,
-            "recensioni": 13
-          },
-          "disponibilita_limitata": false
-        },
-        {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Lavabicchieri GGW1040E, cesto 40 x 40 cm",
-          "url": "https://www.metro.it/marketplace/product/3fbfea48-7a70-44d6-b26e-26e836b463cc",
-          "immagine": "https://images.metro-marketplace.eu/item_image/527720a4-969f-4e43-bbfb-61f6c74af52f?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 769.0,
-          "punti": [
-            "Cesto 40 x 40 cm, 30 cicli/ora",
-            "Bicchieri fino a 25,5 cm, solo 48 dB",
-            "Dosatore brillantante integrato"
-          ],
-          "prezzo_rif": 790.0,
-          "etichetta_rif": "Prezzo più basso 30 gg",
-          "sconto_sito": "-2%",
-          "venditore": "METRO",
+          "sconto_sito": "-20%",
           "consegna": {
             "costo": "29,00 €",
             "giorni": "3-7"
           },
-          "valutazione": {
-            "media": 4.2,
-            "recensioni": 5
-          },
-          "disponibilita_limitata": false
-        },
-        {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Frigorifero per bevande GSC2350B, 324 L",
-          "url": "https://www.metro.it/marketplace/product/28cc9533-ea5f-4c75-a830-8ceb71e37a83",
-          "immagine": "https://images.metro-marketplace.eu/item_image/684010c2-6dd7-4667-83fc-2276f88a17fc?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 370.7,
-          "punti": [
-            "324 litri, da +2 a +8 °C",
-            "4 ripiani regolabili, LED interno",
-            "Porta in vetro con serratura"
-          ],
-          "prezzo_rif": 438.99,
-          "etichetta_rif": "Prezzo consigliato",
-          "sconto_sito": "-15%",
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "29,00 €",
-            "giorni": "3-7"
+          "sconto_quantita": {
+            "da": 6,
+            "prezzo": 427.55,
+            "risparmio": "-4%"
           },
           "valutazione": {
             "media": 3.3,
-            "recensioni": 21
+            "recensioni": 3
           },
-          "sconto_quantita": {
-            "da": 6,
-            "prezzo": 353.43,
-            "risparmio": "-4%"
-          },
-          "classe_energetica": "D",
-          "disponibilita_limitata": false
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/2e81f97a-de61-48af-a280-c6070f950963?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "punti": [
+            "Cubetti a cono cavo",
+            "Contenitore da 10 kg",
+            "Pala e tubi inclusi"
+          ]
         },
         {
           "marca": "METRO PROFESSIONAL",
-          "nome": "Tritaghiaccio elettrico GEIC1000, 3 L",
-          "url": "https://www.metro.it/marketplace/product/45ab5478-94f4-4884-9f10-8ead267d912d",
-          "immagine": "https://images.metro-marketplace.eu/item_image/1cfe6991-a1a3-47f2-bbae-c2f54c45f014?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 299.0,
+          "nome": "Cantinetta vino GWC1150, 140 bottiglie",
+          "url": "https://www.metro.it/marketplace/product/e9ab1f96-350d-498c-9136-c5bef4f067b0",
           "punti": [
-            "Fino a 160 kg di ghiaccio all'ora",
-            "Corpo motore in alluminio fuso",
-            "Microinterruttore di sicurezza integrato"
+            "Fino a 140 bottiglie, 418 L",
+            "14 ripiani in metallo da 24 kg",
+            "Luce LED, serratura e chiave"
           ],
+          "aggiunto": "2026-11-23",
+          "prezzo": 712.15,
+          "prezzo_rif": 1016.99,
+          "etichetta_rif": "Prezzo consigliato",
+          "sconto_sito": "-29%",
           "venditore": "METRO",
           "consegna": {
-            "costo": "7,00 €",
-            "giorni": "2-4"
+            "costo": "29,00 €",
+            "giorni": "3-7"
           },
           "sconto_quantita": {
             "da": 6,
-            "prezzo": 288.49,
-            "risparmio": "-3%"
+            "prezzo": 682.47,
+            "risparmio": "-4%"
           },
-          "disponibilita_limitata": false
+          "valutazione": {
+            "media": 2.0,
+            "recensioni": 1
+          },
+          "classe_energetica": "G",
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/c1f23556-101b-4899-94e1-ee05c5cd204e?impolicy=pdp_mobile_main_preview&imwidth=768"
+        },
+        {
+          "url": "https://www.metro.it/marketplace/product/8e0b99fd-e1d7-4dc6-ac96-82204cebf8a0",
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Vetrina refrigerata da banco GCV1130, 144 L",
+          "prezzo": 424.0,
+          "venditore": "METRO",
+          "prezzo_rif": 499.0,
+          "etichetta_rif": "Prezzo più basso 30 gg",
+          "sconto_sito": "-15%",
+          "consegna": {
+            "costo": "29,00 €",
+            "giorni": "3-7"
+          },
+          "valutazione": {
+            "media": 4.0,
+            "recensioni": 3
+          },
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/bb30d164-cd1d-4bc5-b90c-6c938a8015d6?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "punti": [
+            "Da +2 a +8 °C, per torte e pasticcini",
+            "2 ripiani regolabili da 20 kg",
+            "Termostato digitale, luce LED"
+          ]
         }
       ]
     },
     {
       "titolo": "Lavaggio",
       "url_categoria": "https://www.metro.it/marketplace/c/lavaggio",
-      "sottotitolo": "Lavastoviglie, lavabicchieri e lavapentole professionali per turni di servizio senza intoppi.",
+      "sottotitolo": "Lavastoviglie, lavabicchieri e lavastoviglie a capotta per turni di servizio senza intoppi.",
       "prodotti": [
         {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Lavastoviglie a capotta GHW1000E, cesto 50 x 50",
-          "url": "https://www.metro.it/marketplace/product/40f1f937-9ce4-4b53-93b8-34cab52fe4cd",
-          "immagine": "https://images.metro-marketplace.eu/item_image/e2cac56c-e335-4f51-babf-bf8107c1ee28?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 1990.0,
+          "marca": "CASSELIN",
+          "nome": "Lavabicchieri CLV40PVADB con addolcitore",
+          "url": "https://www.metro.it/marketplace/product/fb1666fa-f0c8-40e5-8c92-19a85233e422",
           "punti": [
-            "Cesto 50 x 50 cm, fino a 30 cicli/ora",
-            "Vasca e capotta in inox AISI 304",
-            "Stoviglie alte fino a 40,5 cm"
+            "Pompa di scarico e addolcitore integrati",
+            "Acciaio inox AISI 18/10",
+            "Porta a doppia parete con sicurezza"
           ],
-          "prezzo_rif": 2967.99,
-          "etichetta_rif": "Prezzo consigliato",
-          "sconto_sito": "-32%",
+          "aggiunto": "2026-11-23",
+          "prezzo": 2265.15,
+          "prezzo_rif": 2769.86,
+          "etichetta_rif": "Prezzo abituale",
+          "sconto_sito": "-18%",
           "venditore": "METRO",
           "consegna": {
             "costo": "29,00 €",
-            "giorni": "3-7"
-          },
-          "valutazione": {
-            "media": 4.3,
-            "recensioni": 3
+            "giorni": "2-6"
           },
           "sconto_quantita": {
             "da": 6,
-            "prezzo": 1894.03,
+            "prezzo": 2166.64,
             "risparmio": "-4%"
           },
-          "disponibilita_limitata": false
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/b6bc52bb-a7f6-4cd9-a18d-52d2b55f48f2?impolicy=pdp_mobile_main_preview&imwidth=768"
         },
         {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Lavastoviglie GDW1045SW con pompa di scarico",
-          "url": "https://www.metro.it/marketplace/product/dd878443-9015-4b9a-928e-5f247dd68f51",
-          "immagine": "https://images.metro-marketplace.eu/item_image/3b86c645-3640-4a84-8633-1343864e2ec3?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 1390.0,
+          "marca": "CASSELIN",
+          "nome": "Lavastoviglie a capotta CLVACB, 2 cesti",
+          "url": "https://www.metro.it/marketplace/product/33975196-e682-4fb3-b13d-8369a05c89da",
           "punti": [
-            "Dosatori detersivo e brillantante integrati",
-            "Pompa di scarico, solo 1,3 L per ciclo",
-            "Cesto 45 x 45 cm, 30 lavaggi/ora"
+            "2 cesti 50 x 50 cm inclusi",
+            "Telaio e corpo in inox AISI 304",
+            "Porta a doppia parete"
           ],
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "29,00 €",
-            "giorni": "3-7"
-          },
-          "disponibilita_limitata": false
-        },
-        {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Lavastoviglie GDW1050E, cesto 50 x 50 cm",
-          "url": "https://www.metro.it/marketplace/product/c2e31ee5-d669-4152-a699-c58023d2304b",
-          "immagine": "https://images.metro-marketplace.eu/item_image/4e490a83-e2be-4035-a1ec-fbf08708f2a6?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 1290.0,
-          "punti": [
-            "Cesto 50 x 50 cm, 20 lavaggi/ora",
-            "2,6 L per ciclo, prodotta in Italia",
-            "3 cesti inclusi"
-          ],
-          "prezzo_rif": 1853.99,
-          "etichetta_rif": "Prezzo consigliato",
-          "sconto_sito": "-30%",
-          "venditore": "METRO",
-          "consegna": {
-            "costo": "29,00 €",
-            "giorni": "3-7"
-          },
-          "valutazione": {
-            "media": 3.3,
-            "recensioni": 3
-          },
-          "disponibilita_limitata": false
-        },
-        {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Lavabicchieri GGW1040SW, cesto 40 x 40 cm",
-          "url": "https://www.metro.it/marketplace/product/75fdf37a-4be0-4822-b95e-b7ebbbd78f8b",
-          "immagine": "https://images.metro-marketplace.eu/item_image/bef623fb-6cd6-4b18-a584-6fbea79763bc?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 990.0,
-          "punti": [
-            "30 lavaggi/ora, ciclo da 120 secondi",
-            "Bicchieri alti fino a 30 cm",
-            "Dosatore brillantante peristaltico"
-          ],
-          "prezzo_rif": 1031.71,
+          "aggiunto": "2026-11-23",
+          "prezzo": 4900.15,
+          "prezzo_rif": 5984.56,
           "etichetta_rif": "Prezzo abituale",
-          "sconto_sito": "-4%",
+          "sconto_sito": "-18%",
+          "venditore": "METRO",
+          "consegna": {
+            "costo": "29,00 €",
+            "giorni": "2-6"
+          },
+          "disponibilita_limitata": true,
+          "immagine": "https://images.metro-marketplace.eu/item_image/094f0e19-5c59-44e4-ad88-9980bc9802bb?impolicy=pdp_mobile_main_preview&imwidth=768"
+        },
+        {
+          "marca": "CASSELIN",
+          "nome": "Lavabicchieri Break Tank CLV40UBT, 40 x 40",
+          "url": "https://www.metro.it/marketplace/product/ff4589e1-a624-4c82-9d01-f72872e4799c",
+          "punti": [
+            "Cesto 40 x 40 cm, con break tank",
+            "Acciaio inox AISI 18/10",
+            "Porta a doppia parete con sicurezza"
+          ],
+          "aggiunto": "2026-11-23",
+          "prezzo": 2571.15,
+          "prezzo_rif": 3083.37,
+          "etichetta_rif": "Prezzo abituale",
+          "sconto_sito": "-16%",
+          "venditore": "METRO",
+          "consegna": {
+            "costo": "29,00 €",
+            "giorni": "2-6"
+          },
+          "disponibilita_limitata": true,
+          "immagine": "https://images.metro-marketplace.eu/item_image/a79e2364-8145-4be7-b743-764cd5fdf745?impolicy=pdp_mobile_main_preview&imwidth=768"
+        },
+        {
+          "url": "https://www.metro.it/marketplace/product/d915ad6a-fa40-4b3b-885b-409e6a9298a0",
+          "marca": "METRO PROFESSIONAL",
+          "nome": "Lavastoviglie GDW1045E, 2,6 L/ciclo",
+          "prezzo": 1081.88,
           "venditore": "METRO",
           "consegna": {
             "costo": "29,00 €",
             "giorni": "3-7"
+          },
+          "sconto_quantita": {
+            "da": 6,
+            "prezzo": 1033.81,
+            "risparmio": "-4%"
           },
           "valutazione": {
             "media": 5.0,
             "recensioni": 1
           },
-          "disponibilita_limitata": false
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/363f3ca7-909b-45a7-9406-be1133663362?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "punti": [
+            "20 cesti/ora, ciclo 180 secondi",
+            "Dosatore brillantante incorporato",
+            "3 cesti inclusi"
+          ]
         },
         {
+          "url": "https://www.metro.it/marketplace/product/46717224-3c60-4bf5-bd24-f65822c47acc",
           "marca": "METRO PROFESSIONAL",
-          "nome": "Lavabicchieri GGW1001 con pompa di scarico",
-          "url": "https://www.metro.it/marketplace/product/eb6dbfb3-a7ec-41c7-a251-d73b8888f474",
-          "immagine": "https://images.metro-marketplace.eu/item_image/7f699ac3-b756-4424-b922-2cdc2c4fcefe?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 799.0,
-          "punti": [
-            "Cesto 35 x 35 cm, 30 cicli/ora",
-            "Pompa di scarico integrata",
-            "Bicchieri fino a 25,5 cm, solo 48 dB"
-          ],
+          "nome": "Lavastoviglie a capotta GHW1300SRSW, 400 V",
+          "prezzo": 4766.93,
           "venditore": "METRO",
           "consegna": {
             "costo": "29,00 €",
             "giorni": "3-7"
           },
-          "valutazione": {
-            "media": 1.0,
-            "recensioni": 2
-          },
-          "disponibilita_limitata": false
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/25b34858-a689-4fd6-9f9a-5447c56f1d8f?impolicy=pdp_mobile_main_preview&imwidth=768",
+          "punti": [
+            "Vasca e capotta in inox AISI 304",
+            "Struttura e porta a doppia parete",
+            "Doppio filtro, facile da pulire"
+          ]
         },
         {
-          "marca": "METRO PROFESSIONAL",
-          "nome": "Lavapentole professionale GHP1300SW, 400 V",
-          "url": "https://www.metro.it/marketplace/product/905f240a-3b81-4dc7-9bf5-fe1085573c96",
-          "immagine": "https://images.metro-marketplace.eu/item_image/6db6b4e6-a94b-48c0-a6b6-d8d18696133d?impolicy=pdp_mobile_main_preview&imwidth=768",
-          "prezzo": 3419.94,
+          "marca": "CASSELIN",
+          "nome": "Lavastoviglie CLVA50U, cesto 50 x 50 cm",
+          "url": "https://www.metro.it/marketplace/product/f9a9c73c-d7c7-4ae2-bb2d-c3a0e3ab8c3e",
           "punti": [
-            "Fino a 48 cestelli/ora (ciclo 75 s)",
-            "Dosatori brillantante e detergente",
-            "Vasca e capotta in inox AISI 304"
+            "Cesto 50 x 50 cm",
+            "Acciaio inox AISI 18/10",
+            "Porta a doppia parete con sicurezza"
           ],
-          "prezzo_rif": 3563.99,
-          "etichetta_rif": "Prezzo consigliato",
-          "sconto_sito": "-4%",
+          "aggiunto": "2026-11-23",
+          "prezzo": 2520.15,
           "venditore": "METRO",
           "consegna": {
             "costo": "29,00 €",
-            "giorni": "3-7"
+            "giorni": "2-6"
           },
-          "disponibilita_limitata": true
+          "sconto_quantita": {
+            "da": 6,
+            "prezzo": 2411.59,
+            "risparmio": "-4%"
+          },
+          "disponibilita_limitata": false,
+          "immagine": "https://images.metro-marketplace.eu/item_image/371b17aa-9f87-40a9-baa2-e397cefd1bc2?impolicy=pdp_mobile_main_preview&imwidth=768"
         }
       ]
     }

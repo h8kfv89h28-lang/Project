@@ -52,7 +52,7 @@ def json_ld(h):
 def estrai(h, meta=None):
     meta = meta or {}
     r = {}
-    m = re.search(r'<button class="([^"]*)" test-target="price-box__total">(.*?)</button>', h, re.S)
+    m = re.search(r'<button class="([^"]*)"[^>]*test-target="price-box__total"[^>]*>(.*?)</button>', h, re.S)
     if m:
         r["prezzo"] = num(testo(m.group(2)))
         r["promo"] = "text-metro-red" in m.group(1)
@@ -63,7 +63,8 @@ def estrai(h, meta=None):
         r["prezzo_rif"] = num(testo(m.group(2)))
         r["etichetta_rif"] = ETICHETTE_RIF.get(m.group(1), m.group(1))
         r["sconto_sito"] = testo(m.group(3)).replace(" ", "")
-    m = re.search(r'test-target="seller-name-desktop"[^>]*>(.*?)</a>', h, re.S)
+    # "Venduto da": layout classico (seller-name-desktop) o buybox nuovo (seller-name, da novembre 2026)
+    m = re.search(r'test-target="seller-name(?:-desktop)?"[^>]*>(.*?)</a>', h, re.S)
     if m:
         r["venditore"] = testo(m.group(1))
     m = re.search(r'test-target="dynamic-shipping-price".*?<span>(.*?)</span>', h, re.S)
@@ -142,9 +143,33 @@ def estrai(h, meta=None):
     return r
 
 
+CAMPI_ESSENZIALI = ("prezzo", "venditore", "titolo", "og_image")
+
+
+def diagnostica(risultati):
+    """Avvisi su stderr quando mancano dati essenziali: se mancano su TUTTE le pagine quasi certamente
+    è cambiato l'HTML del sito e vanno aggiornate le espressioni regolari (codice di uscita 2)."""
+    tot = len(risultati)
+    rotto = False
+    for campo in CAMPI_ESSENZIALI:
+        mancanti = [p for p, r in risultati.items() if r.get(campo) in (None, "")]
+        if not mancanti:
+            continue
+        if tot > 1 and len(mancanti) == tot:
+            rotto = True
+            print(f"ERRORE: '{campo}' non trovato in nessuna delle {tot} pagine: "
+                  f"probabile cambio dell'HTML del sito, controllare estrai_pagina.py", file=sys.stderr)
+        else:
+            for p in mancanti:
+                print(f"AVVISO: '{campo}' non trovato in {p} (pagina non disponibile o HTML cambiato?)", file=sys.stderr)
+    return rotto
+
+
 if __name__ == "__main__":
     out = {}
     for p in sys.argv[1:]:
         h, meta = carica(p)
         out[p] = estrai(h, meta)
     print(json.dumps(out, ensure_ascii=False, indent=1))
+    if diagnostica(out):
+        sys.exit(2)
