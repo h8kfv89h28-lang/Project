@@ -6,11 +6,14 @@ Solo prezzi >= soglia. Le schede della pagina di ricerca (search?q=..., Firecraw
 venditore; quelle dei caroselli delle pagine prodotto no. Il venditore va comunque confermato sulla pagina
 prodotto con estrai_pagina.py prima di inserire il prodotto nel catalogo.
 
-Uso: python src/griglia_categoria.py pagina.json [pagina2.json ...] [--soglia 290]
+Uso: python src/griglia_categoria.py pagina.json [pagina2.json ...] [--soglia 290] [--nuovi]
+  --nuovi  solo i candidati per ampliare il catalogo: venditore METRO nella scheda e id non ancora in
+           data/catalogo.json (un prodotto trovato in più ricerche è elencato una volta sola)
 """
 
 import html as htmlmod
 import json
+import os
 import re
 import sys
 
@@ -62,11 +65,20 @@ if __name__ == "__main__":
         i = args.index("--soglia")
         soglia = float(args[i + 1])
         del args[i:i + 2]
+    nuovi = "--nuovi" in args
+    if nuovi:
+        args.remove("--nuovi")
+        catalogo = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "catalogo.json")
+        gia = {a["id"] for arts in json.load(open(catalogo, encoding="utf-8"))["categorie"].values() for a in arts}
     for p in args:
         h = json.load(open(p, encoding="utf-8"))["rawHtml"]
         url = re.search(r'"og:url" content="([^"]+)"', h)
         tot = re.search(r"<span>(\d+) risultati</span>", h)
         print("##", url.group(1) if url else p, f"({tot.group(1)} risultati)" if tot else "")
         for r in prodotti(h):
+            if nuovi:
+                if r["id"] in gia or (r["venditore"] or "").strip().upper() != "METRO":
+                    continue
+                gia.add(r["id"])
             if r["prezzo"] and r["prezzo"] >= soglia:
                 print(f"{r['id']} {r['prezzo']:>9.2f} {'R' if r['promo'] else ' '} {(r['venditore'] or '?')[:14]:<14} {r['nome'][:90]}")

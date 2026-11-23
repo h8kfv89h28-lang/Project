@@ -108,6 +108,9 @@ def qr_uri(url):
     return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
 
 
+Image.MAX_IMAGE_PIXELS = None  # foto ufficiali METRO: alcune superano il limite di Pillow
+
+
 def foto(prod):
     """Scarica (una volta) la foto ufficiale e restituisce l'URI file:// del JPEG locale."""
     src = prod.get("immagine")
@@ -119,6 +122,8 @@ def foto(prod):
         os.makedirs(os.path.dirname(path), exist_ok=True)
         req = urllib.request.Request(src, headers={"User-Agent": "Mozilla/5.0"})
         img = Image.open(io.BytesIO(urllib.request.urlopen(req, timeout=30).read()))
+        img.draft("RGB", (1600, 1600))  # alcune foto del sito sono enormi (es. 24000 px): ridurle subito
+        img.thumbnail((1600, 1600))
         if img.mode in ("RGBA", "LA", "P"):
             img = img.convert("RGBA")
             sfondo = Image.new("RGB", img.size, "white")

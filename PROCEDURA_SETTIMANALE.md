@@ -11,16 +11,49 @@ torna prima di 4 settimane (`regole.pausa_settimane`). `data/prodotti.json` non 
 `rotazione.py applica`. Fissi: campo `"fisso": true` nel catalogo (3 per categoria, si cambiano lì).
 Priorità stagionale facoltativa: campo `"priorita": 1` su un articolo del catalogo (scelto prima degli altri).
 
-## 1. Proposta della settimana
+**Ampliamento continuo (dal 23/11/2026, richiesta di Michael):** a **ogni** aggiornamento del lunedì, prima della
+proposta, si aggiungono al catalogo nuovi articoli venduti da METRO (punto 1), così la selezione si basa su una
+scelta sempre più ampia. Gli articoli già presenti non si tolgono: quelli non più validi restano `escluso` e
+vengono ricontrollati più avanti.
+
+## 1. Ampliare il catalogo (ogni lunedì, prima della proposta)
+Obiettivo: **almeno 5 articoli nuovi a settimana**, almeno 1 per categoria, con priorità alle categorie che
+`python src/rotazione.py proponi` (o `stato`) segnala con `AVVISO` o con meno articoli fuori pausa.
+Candidati: attrezzature professionali ≥ 290 € IVA esclusa **vendute da METRO**, di tipi o modelli non ancora nel catalogo.
+
+1. Scaricare con Firecrawl (`formats: ["rawHtml"]`, **`waitFor: 8000`**, `maxAge: 0`) 4-6 pagine di ricerca
+   `https://www.metro.it/marketplace/search?q=<termine>` e copiarle in `/tmp/ricerche/<termine>.json`.
+   I filtri del sito (venditore, marca) non funzionano via link: servono termini che restituiscono prodotti
+   venduti da METRO. Termini che funzionano (ruotarli di settimana in settimana):
+   - `metro professional <tipo>` (forno, friggitrice, piastra, lavastoviglie, lavabicchieri, frigorifero,
+     cantinetta vino, sottovuoto, tritacarne, frullatore, spremiagrumi...);
+   - `metro professional <prefisso modello>`: GCS, GDW, GGW, GEG, GSC, GCC, GCV, GWC, GVS, GMG, GPO, GIM...;
+   - marchi venduti da METRO: `atosa`, `cookrite`, `casselin lavastoviglie`, `casselin cantina`.
+2. `python src/griglia_categoria.py /tmp/ricerche/*.json --nuovi` elenca solo i candidati con venditore METRO
+   nella scheda e non ancora nel catalogo (id, prezzo, promo, nome).
+3. Scegliere i candidati privilegiando tipi nuovi per la categoria, promo e stagionalità; scaricare la loro pagina
+   prodotto come al punto 3 (`/tmp/pagine/<id>.json`) e scartare quelli con venditore ≠ METRO, non disponibili
+   ("Non disponibile"/esaurito), consegna oltre 4 settimane o **foto mancante/segnaposto** (logo METRO.IT al posto
+   del prodotto).
+4. Aggiungere ognuno in fondo alla sua categoria di `data/catalogo.json` con `id`, `url`, `nome` breve (tipo +
+   modello + dato principale, max ~44 caratteri), `marca` (maiuscolo come gli altri, es. "METRO PROFESSIONAL",
+   "ATOSA", "CASSELIN"), `tipo` (es. "forno pizza", "cantinetta vino": serve a variare i tipi), 3 `punti` brevi
+   (max 42 caratteri, solo dati della pagina), `"stato": "da verificare"` e `"aggiunto": "<data di oggi>"`.
+5. `python src/rotazione.py aggiorna /tmp/pagine/<id nuovi>.json` completa prezzo, promo, venditore, consegna e
+   foto e li marca `ok`. Controllare visivamente le foto dei nuovi articoli.
+
+Nel riepilogo della consegna indicare gli articoli aggiunti al catalogo per categoria.
+
+## 2. Proposta della settimana
 ```bash
 python src/rotazione.py proponi
 ```
 Per ogni categoria mostra i 3 fissi, i 3 a rotazione e 3 riserve, nell'ordine dei criteri: fuori pausa, ultima
 verifica ok, `priorita`, promo con sconto più alto, tipo di prodotto non già presente, uscito meno volte / da
 più tempo. Scrive i 45 link in `/tmp/da_verificare.txt`. Se segnala `AVVISO: catalogo ... troppo piccolo` o
-pochi articoli fuori pausa, ampliare il catalogo (punto 4) dopo la consegna.
+pochi articoli fuori pausa, aggiungere altri articoli a quella categoria (punto 1) e rilanciare `proponi`.
 
-## 2. Verifica degli articoli proposti
+## 3. Verifica degli articoli proposti
 Scaricare ogni link di `/tmp/da_verificare.txt` con Firecrawl
 (`formats: ["rawHtml"]`, `maxAge: 0`, `waitFor: 3000`, al massimo 2 richieste in parallelo e 10 al minuto).
 Il risultato viene salvato su file: copiarlo in `/tmp/pagine/<id>.json` ed eseguire
@@ -50,32 +83,24 @@ Dati letti da `estrai_pagina.py`:
 
 Non dedurre mai la promo dal testo: le promo cambiano spesso e vanno rilette ogni volta.
 
-Gli articoli segnalati `DA COMPLETARE` (nuovi nel catalogo) vanno completati nel catalogo prima del punto 3:
+Gli articoli segnalati `DA COMPLETARE` vanno completati nel catalogo prima del punto 4:
 3 `punti` brevi (max 42 caratteri) usando solo dati presenti sulla pagina (punti chiave, caratteristiche,
 descrizione), `nome` breve come gli altri (tipo + modello + dato principale), `marca` = marchio indicato dal sito
 (vuota se assente). Controllare visivamente che la foto corrisponda al prodotto.
 
-## 3. Volantino della settimana
+## 4. Volantino della settimana
 ```bash
 python src/rotazione.py applica
 ```
 Sceglie tra gli articoli **verificati oggi**, `ok` e completi: i 3 fissi (se un fisso è escluso lo sostituisce un
-articolo a rotazione) e 3 a rotazione con gli stessi criteri del punto 1, senza ripetere un articolo in due
+articolo a rotazione) e 3 a rotazione con gli stessi criteri del punto 2, senza ripetere un articolo in due
 categorie. Scrive `data/prodotti.json` (con `data_verifica` di oggi) e aggiunge l'uscita a `data/storico_uscite.json`.
 Se in una categoria mancano articoli validi si ferma con `ERRORE`: verificare altre riserve (gli articoli
 successivi in `proponi`, o `python src/rotazione.py stato`) e rilanciare `aggiorna` e `applica`.
 Il riepilogo segna ogni articolo come FISSO, NUOVO o RITORNA.
 
-## 4. Ampliare il catalogo (quando serve)
-Candidati: attrezzature professionali ≥ 290 € **vendute da METRO**. La pagina di ricerca
-`https://www.metro.it/marketplace/search?q=metro%20professional%20<tipo>` (es. forno, abbattitore, affettatrice,
-ghiaccio, banco refrigerato) con Firecrawl `formats: ["rawHtml"]` e **`waitFor: 8000`** mostra la griglia con il
-venditore: `python src/griglia_categoria.py <file>` elenca id, prezzo, promo, venditore e nome. Anche i caroselli
-delle pagine prodotto già scaricate funzionano (senza venditore). Aggiungere al catalogo un oggetto con almeno
-`id`, `url`, `nome`, `marca`, `tipo` (es. "forno pizza", "affettatrice": serve a variare i tipi) e
-`"stato": "da verificare"`; verrà verificato e completato quando `proponi` lo sceglie. Il venditore va **sempre
-confermato sulla pagina prodotto**. La stagionalità serve **solo per scegliere** (campo `priorita`): nei volantini
-non vanno inseriti riferimenti stagionali né contatti di referenti specifici.
+Nota: la stagionalità serve **solo per scegliere** (campo `priorita`): nei volantini non vanno inseriti
+riferimenti stagionali né contatti di referenti specifici.
 
 ## 5. Generazione e consegna
 Prima di generare: con la rotazione i tipi di prodotto cambiano ogni settimana, quindi aggiornare il
@@ -88,4 +113,5 @@ e stampa `AVVISO:` per prezzi sotto 290 €, punti oltre 42 caratteri o schede c
 (da correggere accorciando nome o punti). Crea anche `output/MarketPlace_A4.pdf` e
 `output/MarketPlace_WA.pdf`. Controllare l'anteprima dei PDF, fare commit e push
 sul branch, inviare il pacchetto `output/Volantini_METRO_Horeca.zip` (5 PDF A4 + 5 PDF WhatsApp + testi) con un riepilogo delle modifiche (prezzi cambiati,
-promo nuove/terminate, venditori cambiati, articoli nuovi e ritornati per categoria, articoli esclusi e motivo).
+promo nuove/terminate, venditori cambiati, articoli nuovi e ritornati per categoria, articoli esclusi e motivo,
+articoli aggiunti al catalogo).
